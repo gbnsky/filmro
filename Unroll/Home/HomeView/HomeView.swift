@@ -19,6 +19,14 @@ class HomeView: UIView {
     
     // MARK: - UI Components
     
+    private lazy var logo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "unroll")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private lazy var title: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -26,7 +34,7 @@ class HomeView: UIView {
         label.font = UIFont(name: "BreeSerif-Regular", size: 40)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "The last place you’ll search. Seriously."
+        label.text = "A shortcut for the next streaming."
         return label
     }()
     
@@ -65,6 +73,7 @@ extension HomeView {
     }
     
     private func addSubviews() {
+        addSubview(logo)
         addSubview(title)
         addSubview(button)
     }
@@ -72,9 +81,16 @@ extension HomeView {
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
+            // logo
+            
+            logo.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            logo.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            logo.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            logo.heightAnchor.constraint(equalToConstant: 160),
+            
             // title
             
-            title.rightAnchor.constraint(equalTo: rightAnchor, constant: 16),
+            title.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             title.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -32),
             title.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             
