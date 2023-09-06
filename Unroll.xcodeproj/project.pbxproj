@@ -13,6 +13,8 @@
 		DE92A07E2AA3A32D007A7E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE92A07D2AA3A32D007A7E46 /* Assets.xcassets */; };
 		DE92A0812AA3A32D007A7E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE92A07F2AA3A32D007A7E46 /* LaunchScreen.storyboard */; };
 		DE92A08E2AA8D99B007A7E46 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A08D2AA8D99B007A7E46 /* HomeView.swift */; };
+		DE92A0932AA8F8DD007A7E46 /* BreeSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE92A0922AA8F8DD007A7E46 /* BreeSerif-Regular.ttf */; };
+		DE92A0952AA8F8EF007A7E46 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE92A0942AA8F8EF007A7E46 /* Kanit-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		DE92A0802AA3A32D007A7E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE92A0822AA3A32D007A7E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE92A08D2AA8D99B007A7E46 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DE92A0922AA8F8DD007A7E46 /* BreeSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BreeSerif-Regular.ttf"; sourceTree = "<group>"; };
+		DE92A0942AA8F8EF007A7E46 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 				DE92A07D2AA3A32D007A7E46 /* Assets.xcassets */,
 				DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */,
 				DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */,
+				DE92A0902AA8F8A3007A7E46 /* Files */,
 				DE92A08A2AA8D87C007A7E46 /* Home */,
 			);
 			path = Unroll;
@@ -81,6 +86,23 @@
 				DE92A0782AA3A32C007A7E46 /* HomeViewController.swift */,
 			);
 			path = HomeView;
+			sourceTree = "<group>";
+		};
+		DE92A0902AA8F8A3007A7E46 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE92A0912AA8F8AD007A7E46 /* Fonts */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		DE92A0912AA8F8AD007A7E46 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DE92A0942AA8F8EF007A7E46 /* Kanit-Regular.ttf */,
+				DE92A0922AA8F8DD007A7E46 /* BreeSerif-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +164,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE92A0812AA3A32D007A7E46 /* LaunchScreen.storyboard in Resources */,
+				DE92A0932AA8F8DD007A7E46 /* BreeSerif-Regular.ttf in Resources */,
 				DE92A07E2AA3A32D007A7E46 /* Assets.xcassets in Resources */,
+				DE92A0952AA8F8EF007A7E46 /* Kanit-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

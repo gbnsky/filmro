@@ -23,7 +23,7 @@ class HomeView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.blackOne
-        label.font = UIFont.systemFont(ofSize: 32)
+        label.font = UIFont(name: "BreeSerif-Regular", size: 40)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.text = "The last place you’ll search. Seriously."
@@ -35,7 +35,7 @@ class HomeView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Let’s find a movie together", for: .normal)
         button.setTitleColor(Constants.blackOne, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont(name: "Kanit-Regular", size: 16)
         button.backgroundColor = Constants.yellow
         button.layer.borderColor = Constants.blackOne.cgColor
         button.layer.borderWidth = 1
