@@ -7,6 +7,14 @@
 
 import UIKit
 
+// MARK: - Delegate
+
+protocol HomeViewDelegate: AnyObject {
+    func homeButtonAction()
+}
+
+// MARK: - Class
+
 class HomeView: UIView {
     
     // MARK: - Constants
@@ -48,8 +56,13 @@ class HomeView: UIView {
         button.layer.borderColor = Constants.blackOne.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
+    
+    // MARK: - Properties
+    
+    weak var delegate: HomeViewDelegate?
     
     // MARK: - Initializers
     
@@ -60,6 +73,16 @@ class HomeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Actions
+
+extension HomeView {
+    
+    @objc
+    private func buttonAction() {
+        delegate?.homeButtonAction()
     }
 }
 
