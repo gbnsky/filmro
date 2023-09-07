@@ -17,6 +17,8 @@
 		DE92A0952AA8F8EF007A7E46 /* Kanit-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DE92A0942AA8F8EF007A7E46 /* Kanit-Regular.ttf */; };
 		DE92A09C2AAA0D7C007A7E46 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */; };
 		DE92A09E2AAA15EB007A7E46 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A09D2AAA15EB007A7E46 /* FilterView.swift */; };
+		DE92A0A12AAA373F007A7E46 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0A02AAA373F007A7E46 /* Colors.swift */; };
+		DE92A0A42AAA396E007A7E46 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0A32AAA396E007A7E46 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +32,10 @@
 		DE92A08D2AA8D99B007A7E46 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		DE92A0922AA8F8DD007A7E46 /* BreeSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BreeSerif-Regular.ttf"; sourceTree = "<group>"; };
 		DE92A0942AA8F8EF007A7E46 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
-		DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterViewController.swift; path = ../../../../Unroll/Unroll/FilterView/View/FilterViewController.swift; sourceTree = "<group>"; };
-		DE92A09D2AAA15EB007A7E46 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilterView.swift; path = ../../../../Unroll/Unroll/FilterView/View/FilterView.swift; sourceTree = "<group>"; };
+		DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		DE92A09D2AAA15EB007A7E46 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		DE92A0A02AAA373F007A7E46 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../Unroll/Unroll/Constants/Colors.swift; sourceTree = "<group>"; };
+		DE92A0A32AAA396E007A7E46 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = ../../../Unroll/Unroll/Constants/Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 				DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */,
 				DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */,
 				DE92A0902AA8F8A3007A7E46 /* Files */,
+				DE92A09F2AAA372F007A7E46 /* Constants */,
 				DE92A08A2AA8D87C007A7E46 /* HomeView */,
 				DE92A0992AAA0D2B007A7E46 /* FilterView */,
 			);
@@ -79,18 +84,9 @@
 		DE92A08A2AA8D87C007A7E46 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				DE92A08F2AA8D9B2007A7E46 /* View */,
+				DE92A0A52AAA3B22007A7E46 /* View */,
 			);
 			path = HomeView;
-			sourceTree = "<group>";
-		};
-		DE92A08F2AA8D9B2007A7E46 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DE92A08D2AA8D99B007A7E46 /* HomeView.swift */,
-				DE92A0782AA3A32C007A7E46 /* HomeViewController.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		DE92A0902AA8F8A3007A7E46 /* Files */ = {
@@ -113,12 +109,30 @@
 		DE92A0992AAA0D2B007A7E46 /* FilterView */ = {
 			isa = PBXGroup;
 			children = (
-				DE92A09A2AAA0D63007A7E46 /* View */,
+				DE92A0A62AAA3B27007A7E46 /* View */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
 		};
-		DE92A09A2AAA0D63007A7E46 /* View */ = {
+		DE92A09F2AAA372F007A7E46 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				DE92A0A02AAA373F007A7E46 /* Colors.swift */,
+				DE92A0A32AAA396E007A7E46 /* Fonts.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		DE92A0A52AAA3B22007A7E46 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE92A08D2AA8D99B007A7E46 /* HomeView.swift */,
+				DE92A0782AA3A32C007A7E46 /* HomeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DE92A0A62AAA3B27007A7E46 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */,
@@ -199,9 +213,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE92A0A42AAA396E007A7E46 /* Fonts.swift in Sources */,
 				DE92A0792AA3A32C007A7E46 /* HomeViewController.swift in Sources */,
 				DE92A08E2AA8D99B007A7E46 /* HomeView.swift in Sources */,
 				DE92A0752AA3A32C007A7E46 /* AppDelegate.swift in Sources */,
+				DE92A0A12AAA373F007A7E46 /* Colors.swift in Sources */,
 				DE92A0772AA3A32C007A7E46 /* SceneDelegate.swift in Sources */,
 				DE92A09E2AAA15EB007A7E46 /* FilterView.swift in Sources */,
 				DE92A09C2AAA0D7C007A7E46 /* FilterViewController.swift in Sources */,

@@ -8,23 +8,14 @@
 import UIKit
 
 class FilterView: UIView {
-    
-    // MARK: - Constants
-    
-    enum Constants {
-        // colors
-        static let blackOne = UIColor(red: 0.2, green: 0.216, blue: 0.275, alpha: 1)
-        static let yellow = UIColor(red: 0.996, green: 0.796, blue: 0.4, alpha: 1)
-        static let orange = UIColor(red: 0.969, green: 0.639, blue: 0.455, alpha: 1)
-    }
-    
+        
     // MARK: - UI Components
     
     private lazy var title: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Constants.blackOne
-        label.font = UIFont(name: "BreeSerif-Regular", size: 24)
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.breeSerif, size: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.text = "Just like Subway,\nchoose the ingredients."
@@ -35,13 +26,12 @@ class FilterView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Continue", for: .normal)
-        button.setTitleColor(Constants.blackOne, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Kanit-Regular", size: 16)
-        button.backgroundColor = Constants.orange
-        button.layer.borderColor = Constants.blackOne.cgColor
+        button.setTitleColor(Colors.blackOne, for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        button.backgroundColor = Colors.orange
+        button.layer.borderColor = Colors.blackOne.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
-//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
     

@@ -17,14 +17,6 @@ protocol HomeViewDelegate: AnyObject {
 
 class HomeView: UIView {
     
-    // MARK: - Constants
-    
-    enum Constants {
-        // colors
-        static let blackOne = UIColor(red: 0.2, green: 0.216, blue: 0.275, alpha: 1)
-        static let yellow = UIColor(red: 0.996, green: 0.796, blue: 0.4, alpha: 1)
-    }
-    
     // MARK: - UI Components
     
     private lazy var logo: UIImageView = {
@@ -38,8 +30,8 @@ class HomeView: UIView {
     private lazy var title: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Constants.blackOne
-        label.font = UIFont(name: "BreeSerif-Regular", size: 40)
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.breeSerif, size: 40)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.text = "A shortcut for the next streaming."
@@ -50,10 +42,10 @@ class HomeView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Let’s find a movie together", for: .normal)
-        button.setTitleColor(Constants.blackOne, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Kanit-Regular", size: 16)
-        button.backgroundColor = Constants.yellow
-        button.layer.borderColor = Constants.blackOne.cgColor
+        button.setTitleColor(Colors.blackOne, for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        button.backgroundColor = Colors.yellow
+        button.layer.borderColor = Colors.blackOne.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)

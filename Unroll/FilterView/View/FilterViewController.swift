@@ -24,6 +24,6 @@ class FilterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 0.996, green: 0.98, blue: 0.933, alpha: 1)
+        view.backgroundColor = Colors.beige
     }
 }
