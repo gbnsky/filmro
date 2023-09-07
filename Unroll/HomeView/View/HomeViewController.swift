@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: HomeViewDelegate {
     func homeButtonAction() {
-        print(#function)
+        let filterViewController = FilterViewController()
+        navigationController?.pushViewController(filterViewController, animated: true)
     }
 }
