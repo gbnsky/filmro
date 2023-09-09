@@ -25,16 +25,6 @@ class GenreCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var container: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Colors.yellow
-        view.layer.borderColor = Colors.blackOne.cgColor
-        view.layer.borderWidth = 1
-        view.layer.cornerRadius = 16
-        return view
-    }()
-    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -58,7 +48,6 @@ class GenreCollectionViewCell: UICollectionViewCell {
     
     private func setupStyle() {
         layer.borderColor = Colors.blackOne.cgColor
-        layer.borderWidth = 1
         layer.cornerRadius = 16
         clipsToBounds = true
     }
@@ -74,8 +63,7 @@ extension GenreCollectionViewCell {
     }
     
     private func addSubviews() {
-        addSubview(container)
-        container.addSubview(title)
+        addSubview(title)
     }
     
     private func addConstraints() {

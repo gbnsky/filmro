@@ -23,8 +23,8 @@
 		DE92A0C12AAB7520007A7E46 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0C02AAB7520007A7E46 /* GenreCollectionViewCell.swift */; };
 		DE92A0C32AAB7529007A7E46 /* GenreCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0C22AAB7529007A7E46 /* GenreCollectionView.swift */; };
 		DE92A0C62AAB7618007A7E46 /* Genres.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0C52AAB7618007A7E46 /* Genres.swift */; };
-		DE92A0C82AABB3E9007A7E46 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE92A0C72AABB3E9007A7E46 /* Keys.plist */; };
 		DE92A0CA2AABBB42007A7E46 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0C92AABBB42007A7E46 /* Keys.swift */; };
+		DE92A0CC2AABCC12007A7E46 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE92A0CB2AABCC12007A7E46 /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,8 @@
 		DE92A0C02AAB7520007A7E46 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE92A0C22AAB7529007A7E46 /* GenreCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionView.swift; sourceTree = "<group>"; };
 		DE92A0C52AAB7618007A7E46 /* Genres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genres.swift; sourceTree = "<group>"; };
-		DE92A0C72AABB3E9007A7E46 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		DE92A0C92AABBB42007A7E46 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		DE92A0CB2AABCC12007A7E46 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				DE92A0822AA3A32D007A7E46 /* Info.plist */,
-				DE92A0C72AABB3E9007A7E46 /* Keys.plist */,
+				DE92A0CB2AABCC12007A7E46 /* Keys.plist */,
 				DE92A07F2AA3A32D007A7E46 /* LaunchScreen.storyboard */,
 				DE92A07D2AA3A32D007A7E46 /* Assets.xcassets */,
 				DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */,
@@ -237,7 +237,7 @@
 				DE92A0932AA8F8DD007A7E46 /* BreeSerif-Regular.ttf in Resources */,
 				DE92A07E2AA3A32D007A7E46 /* Assets.xcassets in Resources */,
 				DE92A0952AA8F8EF007A7E46 /* Kanit-Regular.ttf in Resources */,
-				DE92A0C82AABB3E9007A7E46 /* Keys.plist in Resources */,
+				DE92A0CC2AABCC12007A7E46 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

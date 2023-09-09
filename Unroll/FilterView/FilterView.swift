@@ -87,7 +87,7 @@ extension FilterView {
             
             genreCollectionView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 32),
             genreCollectionView.widthAnchor.constraint(equalTo: widthAnchor),
-            genreCollectionView.heightAnchor.constraint(equalToConstant: 100),
+            genreCollectionView.heightAnchor.constraint(equalToConstant: 160),
             
             // button
             
