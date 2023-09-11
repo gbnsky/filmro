@@ -13,12 +13,14 @@ class FilterViewController: UIViewController {
     
     private lazy var filterView: FilterView = {
         let view = FilterView()
+        view.delegate = self
         return view
     }()
     
     // MARK: - Life cycle
     
     override func loadView() {
+        super.loadView()
         view = filterView
     }
     
@@ -45,5 +47,14 @@ class FilterViewController: UIViewController {
             }
             print(discoveries)
         }
+    }
+}
+
+// MARK: - Delegates
+
+extension FilterViewController: FilterViewDelegate {
+    func filterButtonAction() {
+        let resultViewController = ResultViewController()
+        navigationController?.pushViewController(resultViewController, animated: true)
     }
 }

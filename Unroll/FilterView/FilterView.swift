@@ -7,6 +7,14 @@
 
 import UIKit
 
+// MARK: - Delegate
+
+protocol FilterViewDelegate: AnyObject {
+    func filterButtonAction()
+}
+
+// MARK: - Class
+
 class FilterView: UIView {
         
     // MARK: - UI Components
@@ -42,6 +50,10 @@ class FilterView: UIView {
         return button
     }()
     
+    // MARK: - Properties
+    
+    weak var delegate: FilterViewDelegate?
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -58,15 +70,17 @@ class FilterView: UIView {
     func setupGenreCollectionView(with genres: [Genre]?) {
         genreCollectionView.setup(with: genres)
     }
+}
+
+// MARK: - Actions
+
+extension FilterView {
     
     @objc
-    func buttonAction() {
+    private func buttonAction() {
         print(genreCollectionView.getSelectedGenres())
+        delegate?.filterButtonAction()
     }
-    
-    // MARK: - Private Methods
-    
-    
 }
 
 // MARK: - View Coding

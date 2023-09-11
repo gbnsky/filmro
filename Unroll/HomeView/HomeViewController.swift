@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     
     override func loadView() {
+        super.loadView()
         view = homeView
     }
     
