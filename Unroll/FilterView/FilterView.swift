@@ -38,6 +38,7 @@ class FilterView: UIView {
         button.layer.borderColor = Colors.blackOne.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
     
@@ -57,6 +58,15 @@ class FilterView: UIView {
     func setupGenreCollectionView(with genres: [Genre]?) {
         genreCollectionView.setup(with: genres)
     }
+    
+    @objc
+    func buttonAction() {
+        print(genreCollectionView.getSelectedGenres())
+    }
+    
+    // MARK: - Private Methods
+    
+    private func 
 }
 
 // MARK: - View Coding

@@ -44,6 +44,14 @@ class GenreCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = backgroundColor
     }
     
+    func select() {
+        layer.borderWidth = 1
+    }
+    
+    func deselect() {
+        layer.borderWidth = 0
+    }
+    
     // MARK: - Private Methods
     
     private func setupStyle() {

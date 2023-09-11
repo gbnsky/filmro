@@ -44,7 +44,8 @@ class GenreCollectionView: UIView {
     
     // MARK: - Properties
     
-    private var genres: [Genre] = []
+    private var loadedGenres: [Genre] = []
+    private var selectedGenres: [Genre] = []
     
     // MARK: - Initializers
     
@@ -63,32 +64,75 @@ class GenreCollectionView: UIView {
         guard let genres = genres else {
             return
         }
-        self.genres = genres
-        print(genres)
+        self.loadedGenres = genres
+    }
+    
+    func getSelectedGenres() -> [Genre] {
+        return selectedGenres
+    }
+    
+    // MARK: - Private Methods
+    
+    private func selectGenre(_ genre: Genre) {
+        selectedGenres.append(genre)
+    }
+    
+    private func deselectGenre(_ genre: Genre) {
+        
+        for (index, value) in selectedGenres.enumerated() {
+            if value.id == genre.id {
+                selectedGenres.remove(at: index)
+            }
+        }
     }
 }
 
-// MARK: - Collection View Delegate, Data Source and Delegate Flow Layout
+// MARK: - Collection View
+
+// delegate
 
 extension GenreCollectionView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? GenreCollectionViewCell {
-            cell.layer.borderWidth = 1
-            print("selected: \(genres[indexPath.item].name)")
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let genreCell = cell as? GenreCollectionViewCell else {
+            return
         }
+        
+        if genreCell.isSelected {
+            genreCell.select()
+            return
+        }
+        
+        genreCell.deselect()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GenreCollectionViewCell else {
+            return
+        }
+        
+        let genre = loadedGenres[indexPath.item]
+        
+        cell.select()
+        selectGenre(genre)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? GenreCollectionViewCell {
-            cell.layer.borderWidth = 0
-            print("deselected: \(genres[indexPath.item].name)")
+        guard let cell = collectionView.cellForItem(at: indexPath) as? GenreCollectionViewCell else {
+            return
         }
+        
+        let genre = loadedGenres[indexPath.item]
+        
+        cell.deselect()
+        deselectGenre(genre)
     }
 }
 
+// data Source
+
 extension GenreCollectionView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return genres.count
+        return loadedGenres.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -96,11 +140,13 @@ extension GenreCollectionView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.setup(with: genres[indexPath.item].name, and: Colors.yellow)
+        cell.setup(with: loadedGenres[indexPath.item].name, and: Colors.yellow)
         
         return cell
     }
 }
+
+// delegate flow layout
 
 extension GenreCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

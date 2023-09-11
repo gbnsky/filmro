@@ -25,9 +25,15 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.beige
+        
+        fetchMovieGenres()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func fetchMovieGenres() {
         MovieApi.shared.getMovieGenres { genres in
             self.filterView.setupGenreCollectionView(with: genres)
-//            self.filterView.setup(with: genres)
         }
     }
 }
