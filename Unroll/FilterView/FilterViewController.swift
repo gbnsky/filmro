@@ -27,13 +27,23 @@ class FilterViewController: UIViewController {
         view.backgroundColor = Colors.beige
         
         fetchMovieGenres()
+        fetchMovieDiscoveries()
     }
     
     // MARK: - Private Methods
     
     private func fetchMovieGenres() {
-        MovieApi.shared.getMovieGenres { genres in
+        MovieApi.shared.getMovieGenreList { genres in
             self.filterView.setupGenreCollectionView(with: genres)
+        }
+    }
+    
+    private func fetchMovieDiscoveries() {
+        MovieApi.shared.getMovieDiscoverList { discoveries in
+            guard let discoveries = discoveries else {
+                return
+            }
+            print(discoveries)
         }
     }
 }

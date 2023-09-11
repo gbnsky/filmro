@@ -23,7 +23,7 @@ final class MovieApi {
     
     // MARK: - Methods
     
-    func getMovieGenres(completion: @escaping ([Genre]?) -> ()) {
+    func getMovieGenreList(completion: @escaping ([Genre]?) -> ()) {
         
         let url = baseUrl.appending(component: "genre/movie/list")
         let request = NSMutableURLRequest(url: url,
@@ -52,6 +52,47 @@ final class MovieApi {
             completion(movieGenres.genres)
         })
         
+        dataTask.resume()
+    }
+    
+    func getMovieDiscoverList(completion: @escaping (Movies?) -> ()) {
+        
+        var url = baseUrl.appending(component: "discover/movie")
+        let queryItems = [
+            URLQueryItem(name: "include_adult", value: "false"),
+            URLQueryItem(name: "include_video", value: "false"),
+            URLQueryItem(name: "language", value: "en-US"),
+            URLQueryItem(name: "page", value: "1"),
+            URLQueryItem(name: "sort_by", value: "popularity.desc")
+        ]
+        url.append(queryItems: queryItems)
+        
+        let request = NSMutableURLRequest(url: url,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
+            guard let data = data else {
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                return
+            }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            guard let movieDiscoveries = try? decoder.decode(Movies.self, from: data) else {
+                return
+            }
+
+            completion(movieDiscoveries)
+        })
+
         dataTask.resume()
     }
 }

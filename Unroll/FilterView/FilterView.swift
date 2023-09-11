@@ -66,7 +66,7 @@ class FilterView: UIView {
     
     // MARK: - Private Methods
     
-    private func 
+    
 }
 
 // MARK: - View Coding
