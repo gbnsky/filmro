@@ -11,11 +11,11 @@ struct Movies: Codable {
 }
 
 struct Movie: Codable {
-    let backdropPath: String
     let genreIds: [Int]
     let id: Int
     let originalTitle: String
     let overview: String
+    let posterPath: String
     let releaseDate: String
     let title: String
 }

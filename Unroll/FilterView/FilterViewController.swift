@@ -46,6 +46,7 @@ class FilterViewController: UIViewController {
                 return
             }
             print(discoveries)
+            print(discoveries.results.count)
         }
     }
 }
