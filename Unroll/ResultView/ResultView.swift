@@ -27,12 +27,14 @@ class ResultView: UIView {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = .zero
+        layout.minimumInteritemSpacing = .zero
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .none
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         collectionView.setCollectionViewLayout(layout, animated: false)
         collectionView.register(ResultCollectionViewCell.self, forCellWithReuseIdentifier: ResultCollectionViewCell.identifier)
         
@@ -61,12 +63,6 @@ class ResultView: UIView {
 extension ResultView: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ResultCollectionViewCell else {
-            return
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? ResultCollectionViewCell else {
             return
         }

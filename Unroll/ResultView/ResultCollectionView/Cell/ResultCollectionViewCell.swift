@@ -73,6 +73,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         
         setupMoviePoster()
     }
+    
     // MARK: - Private Methods
     
     private func setupMoviePoster() {
