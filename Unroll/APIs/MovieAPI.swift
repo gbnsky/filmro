@@ -55,15 +55,16 @@ final class MovieApi {
         dataTask.resume()
     }
     
-    func getMovieDiscoverList(completion: @escaping (Movies?) -> ()) {
+    func getMovieDiscoverList(filters: Filters, completion: @escaping (Movies?) -> ()) {
         
         var url = baseUrl.appending(component: "discover/movie")
         let queryItems = [
-            URLQueryItem(name: "include_adult", value: "false"),
-            URLQueryItem(name: "include_video", value: "false"),
-            URLQueryItem(name: "language", value: "en-US"),
-            URLQueryItem(name: "page", value: "1"),
-            URLQueryItem(name: "sort_by", value: "popularity.desc")
+            URLQueryItem(name: "include_adult", value: filters.includeAdult),
+            URLQueryItem(name: "include_video", value: filters.includeVideo),
+            URLQueryItem(name: "language", value: filters.language),
+            URLQueryItem(name: "page", value: filters.page),
+            URLQueryItem(name: "sort_by", value: filters.sortBy),
+            URLQueryItem(name: "with_genres", value: filters.getFormattedGenres()),
         ]
         url.append(queryItems: queryItems)
         

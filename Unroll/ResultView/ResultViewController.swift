@@ -27,4 +27,10 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.beige
     }
+    
+    // MARK: - Exposed Methods
+    
+    func setupFilteredMovies(with movies: Movies) {
+        resultView.setup(with: movies)
+    }
 }

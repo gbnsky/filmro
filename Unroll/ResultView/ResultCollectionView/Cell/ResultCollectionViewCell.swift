@@ -13,6 +13,12 @@ class ResultCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = "ResultCollectionViewCell"
     
+    // MARK: - Constants
+    
+    enum Constants {
+        static let baseImageUrl: String = "https://image.tmdb.org/t/p/original/"
+    }
+    
     // MARK: - UI Components
     
     private lazy var moviePoster: UIImageView = {
@@ -34,7 +40,6 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "Back to the Future"
         return label
     }()
     
@@ -46,7 +51,6 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "1985 - 1h56m"
         return label
     }()
     
@@ -59,7 +63,6 @@ class ResultCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
-        setupMoviePoster()
     }
     
     required init?(coder: NSCoder) {
@@ -72,18 +75,29 @@ class ResultCollectionViewCell: UICollectionViewCell {
         self.movie = movie
         
         setupMoviePoster()
+        setupMovieData()
     }
     
     // MARK: - Private Methods
     
     private func setupMoviePoster() {
-        guard let posterPath = URL(string: "https://image.tmdb.org/t/p/original/fNOH9f1aA7XRTzl1sAOx9iF553Q.jpg") else {
+        guard let movie = movie,
+              let posterPath = URL(string: "\(Constants.baseImageUrl)\(movie.posterPath)") else {
             return
         }
         
         moviePoster.load(url: posterPath) { imageSize in
             self.updateMoviePosterConstraints(with: imageSize)
         }
+    }
+    
+    private func setupMovieData() {
+        guard let movie = movie else {
+            return
+        }
+        
+        movieTitle.text = movie.title
+        movieReleaseDateAndRuntime.text = "\(movie.releaseDate)"
     }
     
     private func updateMoviePosterConstraints(with imageSize: CGSize) {        

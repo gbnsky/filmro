@@ -17,6 +17,10 @@ class FilterViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Properties
+    
+    private var movies: Movies?
+    
     // MARK: - Life cycle
     
     override func loadView() {
@@ -29,7 +33,6 @@ class FilterViewController: UIViewController {
         view.backgroundColor = Colors.beige
         
         fetchMovieGenres()
-        fetchMovieDiscoveries()
     }
     
     // MARK: - Private Methods
@@ -39,23 +42,33 @@ class FilterViewController: UIViewController {
             self.filterView.setupGenreCollectionView(with: genres)
         }
     }
-    
-    private func fetchMovieDiscoveries() {
-        MovieApi.shared.getMovieDiscoverList { discoveries in
-            guard let discoveries = discoveries else {
-                return
-            }
-            print(discoveries)
-            print(discoveries.results.count)
-        }
-    }
 }
 
 // MARK: - Delegates
 
 extension FilterViewController: FilterViewDelegate {
-    func filterButtonAction() {
-        let resultViewController = ResultViewController()
-        navigationController?.pushViewController(resultViewController, animated: true)
+    func fetchResults(with filters: Filters) {
+        
+        let group = DispatchGroup()
+        group.enter()
+        
+        MovieApi.shared.getMovieDiscoverList(filters: filters) { discoveries in
+            guard let discoveries = discoveries else {
+                return
+            }
+            self.movies = discoveries
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            
+            guard let movies = self.movies else {
+                return
+            }
+            
+            let resultViewController = ResultViewController()
+            resultViewController.setupFilteredMovies(with: movies)
+            self.navigationController?.pushViewController(resultViewController, animated: true)
+        }
     }
 }

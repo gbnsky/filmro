@@ -44,6 +44,11 @@ class ResultView: UIView {
         return collectionView
     }()
     
+    // MARK: - Properties
+    
+    private var page: Int = .zero
+    private var movies: [Movie] = []
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -53,6 +58,16 @@ class ResultView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Exposed Methods
+    
+    func setup(with movies: Movies?) {
+        guard let movies = movies else {
+            return
+        }
+        self.page = movies.page
+        self.movies = movies.results
     }
 }
 
@@ -73,13 +88,16 @@ extension ResultView: UICollectionViewDelegate {
 
 extension ResultView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.identifier, for: indexPath) as? ResultCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
+        cell.setup(with: movies[indexPath.item])
+        
         return cell
     }
 }

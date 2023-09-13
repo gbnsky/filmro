@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Delegate
 
 protocol FilterViewDelegate: AnyObject {
-    func filterButtonAction()
+    func fetchResults(with filters: Filters)
 }
 
 // MARK: - Class
@@ -50,9 +50,13 @@ class FilterView: UIView {
         return button
     }()
     
-    // MARK: - Properties
+    // MARK: - Exposed Properties
     
     weak var delegate: FilterViewDelegate?
+    
+    // MARK: - Private Properties
+    
+    private var filters: Filters?
     
     // MARK: - Initializers
     
@@ -70,6 +74,13 @@ class FilterView: UIView {
     func setupGenreCollectionView(with genres: [Genre]?) {
         genreCollectionView.setup(with: genres)
     }
+    
+    // MARK: - Private Methods
+    
+    private func setupFilters() {
+        let filters = Filters(genres: genreCollectionView.getSelectedGenres())
+        self.filters = filters
+    }
 }
 
 // MARK: - Actions
@@ -78,8 +89,11 @@ extension FilterView {
     
     @objc
     private func buttonAction() {
-        print(genreCollectionView.getSelectedGenres())
-        delegate?.filterButtonAction()
+        setupFilters()
+        
+        if let filters = filters {
+            delegate?.fetchResults(with: filters)
+        }
     }
 }
 
