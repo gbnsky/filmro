@@ -39,7 +39,7 @@ class FilterViewController: UIViewController {
     
     private func fetchMovieGenres() {
         MovieApi.shared.getMovieGenreList { genres in
-            self.filterView.setupGenreCollectionView(with: genres)
+            self.filterView.setupGenreView(with: genres)
         }
     }
 }
@@ -47,8 +47,8 @@ class FilterViewController: UIViewController {
 // MARK: - Delegates
 
 extension FilterViewController: FilterViewDelegate {
+    
     func fetchResults(with filters: Filters) {
-        
         let group = DispatchGroup()
         group.enter()
         

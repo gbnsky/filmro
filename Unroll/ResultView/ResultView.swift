@@ -77,11 +77,11 @@ class ResultView: UIView {
 
 extension ResultView: UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? ResultCollectionViewCell else {
-            return
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        guard let cell = collectionView.cellForItem(at: indexPath) as? ResultCollectionViewCell else {
+//            return
+//        }
+//    }
 }
 
 // data Source

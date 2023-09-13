@@ -30,10 +30,20 @@ class FilterView: UIView {
         return label
     }()
     
-    private lazy var genreCollectionView: GenreCollectionView = {
-        let view = GenreCollectionView()
+    private lazy var genreView: GenreView = {
+        let view = GenreView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
+    }()
+    
+    private lazy var runtimeSliderView: UISlider = {
+        let slider = UISlider()
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        slider.minimumValue = .zero
+        slider.maximumValue = 180
+        slider.isContinuous = true
+        slider.tintColor = Colors.orange
+        return slider
     }()
     
     private lazy var button: UIButton = {
@@ -71,14 +81,14 @@ class FilterView: UIView {
     
     // MARK: - Exposed Methods
     
-    func setupGenreCollectionView(with genres: [Genre]?) {
-        genreCollectionView.setup(with: genres)
+    func setupGenreView(with genres: [Genre]?) {
+        genreView.setup(with: genres)
     }
     
     // MARK: - Private Methods
     
     private func setupFilters() {
-        let filters = Filters(genres: genreCollectionView.getSelectedGenres())
+        let filters = Filters(genres: genreView.getSelectedGenres())
         self.filters = filters
     }
 }
@@ -108,7 +118,8 @@ extension FilterView {
     
     private func addSubviews() {
         addSubview(title)
-        addSubview(genreCollectionView)
+        addSubview(genreView)
+        addSubview(runtimeSliderView)
         addSubview(button)
     }
     
@@ -123,9 +134,15 @@ extension FilterView {
             
             // genre collection view
             
-            genreCollectionView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 32),
-            genreCollectionView.widthAnchor.constraint(equalTo: widthAnchor),
-            genreCollectionView.heightAnchor.constraint(equalToConstant: 160),
+            genreView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 32),
+            genreView.widthAnchor.constraint(equalTo: widthAnchor),
+            genreView.heightAnchor.constraint(equalToConstant: 160),
+            
+            // runtime slider view
+            
+            runtimeSliderView.topAnchor.constraint(equalTo: genreView.bottomAnchor, constant: 16),
+            runtimeSliderView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            runtimeSliderView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             
             // button
             

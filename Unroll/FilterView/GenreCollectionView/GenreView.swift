@@ -1,5 +1,5 @@
 //
-//  GenreCollectionView.swift
+//  GenreView.swift
 //  Unroll
 //
 //  Created by Gabriel Garcia on 08/09/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GenreCollectionView: UIView {
+class GenreView: UIView {
     
     // MARK: - UI Components
     
@@ -91,7 +91,7 @@ class GenreCollectionView: UIView {
 
 // delegate
 
-extension GenreCollectionView: UICollectionViewDelegate {
+extension GenreView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let genreCell = cell as? GenreCollectionViewCell else {
             return
@@ -130,7 +130,7 @@ extension GenreCollectionView: UICollectionViewDelegate {
 
 // data Source
 
-extension GenreCollectionView: UICollectionViewDataSource {
+extension GenreView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return loadedGenres.count
     }
@@ -148,7 +148,7 @@ extension GenreCollectionView: UICollectionViewDataSource {
 
 // delegate flow layout
 
-extension GenreCollectionView: UICollectionViewDelegateFlowLayout {
+extension GenreView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 100)
     }
@@ -156,7 +156,7 @@ extension GenreCollectionView: UICollectionViewDelegateFlowLayout {
 
 // MARK: - View Coding
 
-extension GenreCollectionView {
+extension GenreView {
     
     private func loadView() {
         addSubviews()
