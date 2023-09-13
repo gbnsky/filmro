@@ -88,7 +88,7 @@ class FilterView: UIView {
     // MARK: - Private Methods
     
     private func setupFilters() {
-        let filters = Filters(genres: genreView.getSelectedGenres())
+        let filters = Filters(page: "1", genres: genreView.getSelectedGenres())
         self.filters = filters
     }
 }

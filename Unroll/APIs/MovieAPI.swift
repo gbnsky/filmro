@@ -68,6 +68,8 @@ final class MovieApi {
         ]
         url.append(queryItems: queryItems)
         
+        print("discoveries url: \(url)")
+        
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)

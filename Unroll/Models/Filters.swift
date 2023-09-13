@@ -14,13 +14,14 @@ class Filters {
     let includeAdult = "false"
     let includeVideo = "false"
     let language = "en-US"
-    let page = String()
     let sortBy = "popularity.desc"
     let genres: [Genre]?
+    var page = String()
     
     // MARK: - Initializers
     
-    init(genres: [Genre]) {
+    init(page: String, genres: [Genre]) {
+        self.page = page
         self.genres = genres
     }
     
