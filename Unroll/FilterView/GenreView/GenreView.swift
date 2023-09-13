@@ -174,6 +174,7 @@ extension GenreView {
             // title
             
             title.topAnchor.constraint(equalTo: topAnchor),
+            title.rightAnchor.constraint(equalTo: rightAnchor),
             title.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             
             // collection view

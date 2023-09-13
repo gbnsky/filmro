@@ -36,14 +36,10 @@ class FilterView: UIView {
         return view
     }()
     
-    private lazy var runtimeSliderView: UISlider = {
-        let slider = UISlider()
-        slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.minimumValue = .zero
-        slider.maximumValue = 180
-        slider.isContinuous = true
-        slider.tintColor = Colors.orange
-        return slider
+    private lazy var runtimeView: RuntimeView = {
+        let view = RuntimeView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private lazy var button: UIButton = {
@@ -119,7 +115,7 @@ extension FilterView {
     private func addSubviews() {
         addSubview(title)
         addSubview(genreView)
-        addSubview(runtimeSliderView)
+        addSubview(runtimeView)
         addSubview(button)
     }
     
@@ -140,9 +136,10 @@ extension FilterView {
             
             // runtime slider view
             
-            runtimeSliderView.topAnchor.constraint(equalTo: genreView.bottomAnchor, constant: 16),
-            runtimeSliderView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            runtimeSliderView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            runtimeView.topAnchor.constraint(equalTo: genreView.bottomAnchor, constant: 16),
+            runtimeView.rightAnchor.constraint(equalTo: rightAnchor),
+            runtimeView.leftAnchor.constraint(equalTo: leftAnchor),
+            runtimeView.heightAnchor.constraint(equalToConstant: 80),
             
             // button
             
