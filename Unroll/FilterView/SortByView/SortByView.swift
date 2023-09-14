@@ -50,6 +50,7 @@ class SortByView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
+        selectFirstCell()
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +61,16 @@ class SortByView: UIView {
     
     func getSelectedSortBy() -> SortBy {
         return selectedSortBy
+    }
+    
+    // MARK: - Private Methods
+    
+    private func selectFirstCell() {
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(item: .zero, section: .zero)
+            self.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .right)
+            self.collectionView(self.collectionView, didSelectItemAt: indexPath)
+        }
     }
 }
 
