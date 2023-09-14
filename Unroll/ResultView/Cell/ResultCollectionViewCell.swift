@@ -98,7 +98,13 @@ class ResultCollectionViewCell: UICollectionViewCell {
         }
         
         movieTitle.text = movie.title
-        movieReleaseDate.text = "\(movie.releaseDate)"
+        movieReleaseDate.text = getFormattedMovieReleaseDate(from: movie.releaseDate)
+    }
+    
+    private func getFormattedMovieReleaseDate(from releaseDate: String) -> String {
+        let separator = String("-")
+        let releaseDateArray = releaseDate.components(separatedBy: separator)
+        return releaseDateArray.first ?? String()
     }
     
     private func updateMoviePosterConstraints(with imageSize: CGSize) {        

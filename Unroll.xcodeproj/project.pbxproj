@@ -209,19 +209,11 @@
 		DEB52D1C2AAF8BA700F571DD /* ResultView */ = {
 			isa = PBXGroup;
 			children = (
-				DEB52D212AB08F0200F571DD /* ResultCollectionView */,
+				DEB52D242AB08F2200F571DD /* Cell */,
 				DEB52D1D2AAF8BD700F571DD /* ResultView.swift */,
 				DEB52D1F2AAF8BE400F571DD /* ResultViewController.swift */,
 			);
 			path = ResultView;
-			sourceTree = "<group>";
-		};
-		DEB52D212AB08F0200F571DD /* ResultCollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				DEB52D242AB08F2200F571DD /* Cell */,
-			);
-			path = ResultCollectionView;
 			sourceTree = "<group>";
 		};
 		DEB52D242AB08F2200F571DD /* Cell */ = {
