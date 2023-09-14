@@ -29,7 +29,19 @@ class RuntimeView: UIView {
         slider.maximumValue = 180
         slider.isContinuous = true
         slider.tintColor = Colors.orange
+        slider.addTarget(self, action: #selector(sliderActionHandler), for: .valueChanged)
         return slider
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layoutMargins = UIEdgeInsets(top: 16, left: .zero, bottom: 16, right: .zero)
+//        view.isLayoutMarginsRelativeArrangement = true
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fillEqually
+        return view
     }()
     
     // MARK: - Initializers
@@ -41,6 +53,33 @@ class RuntimeView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupRuntimeNumbers() {
+        let runtimeNumbers = ["0m", "30m", "60m", "90m", "120m", "150m", "+180m"]
+
+        let labelNumberList = createLabelNumberList(with: runtimeNumbers)
+        
+        for label in labelNumberList {
+            stackView.addArrangedSubview(label)
+        }
+    }
+}
+
+// MARK: - Actions
+
+extension RuntimeView {
+    
+    @objc
+    private func sliderActionHandler() {
+        
+        let step = Float(30)
+        let roundedValue = round(slider.value / step) * step
+        slider.value = roundedValue
+        
+        print("slider value: \(slider.value)")
     }
 }
 
@@ -56,6 +95,8 @@ extension RuntimeView {
     private func addSubviews() {
         addSubview(title)
         addSubview(slider)
+        addSubview(stackView)
+        setupRuntimeNumbers()
     }
     
     private func addConstraints() {
@@ -71,8 +112,14 @@ extension RuntimeView {
             
             slider.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 16),
             slider.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            slider.bottomAnchor.constraint(equalTo: bottomAnchor),
-            slider.leftAnchor.constraint(equalTo: leftAnchor, constant: 16)
+            slider.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            
+            // slider
+            
+            stackView.topAnchor.constraint(equalTo: slider.bottomAnchor, constant: 8),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor)
         ])
     }
 }

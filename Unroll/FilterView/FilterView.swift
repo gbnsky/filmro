@@ -61,12 +61,6 @@ class FilterView: UIView {
         return view
     }()
     
-    private lazy var runtimeView: RuntimeView = {
-        let view = RuntimeView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -140,7 +134,6 @@ extension FilterView {
     private func addSubviews() {
         stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
         stackView.addArrangedSubview(genreView)
-        stackView.addArrangedSubview(runtimeView)
         scrollView.addSubview(stackView)
         addSubview(scrollView)
         addSubview(button)

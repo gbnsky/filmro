@@ -43,7 +43,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var movieReleaseDateAndRuntime: UILabel = {
+    private lazy var movieReleaseDate: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.blackOne
@@ -97,7 +97,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         }
         
         movieTitle.text = movie.title
-        movieReleaseDateAndRuntime.text = "\(movie.releaseDate)"
+        movieReleaseDate.text = "\(movie.releaseDate)"
     }
     
     private func updateMoviePosterConstraints(with imageSize: CGSize) {        
@@ -124,7 +124,7 @@ extension ResultCollectionViewCell {
     private func addSubviews() {
         addSubview(moviePoster)
         addSubview(movieTitle)
-        addSubview(movieReleaseDateAndRuntime)
+        addSubview(movieReleaseDate)
     }
     
     private func addConstraints() {
@@ -146,9 +146,9 @@ extension ResultCollectionViewCell {
             
             // movie release date and runtime
             
-            movieReleaseDateAndRuntime.topAnchor.constraint(equalTo: movieTitle.bottomAnchor),
-            movieReleaseDateAndRuntime.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            movieReleaseDateAndRuntime.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            movieReleaseDate.topAnchor.constraint(equalTo: movieTitle.bottomAnchor),
+            movieReleaseDate.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
+            movieReleaseDate.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
         ])
     }
 }

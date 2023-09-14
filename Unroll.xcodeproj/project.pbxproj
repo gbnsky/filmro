@@ -33,6 +33,7 @@
 		DEB52D2E2AB2150700F571DD /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D2D2AB2150700F571DD /* Filters.swift */; };
 		DEB52D312AB2667500F571DD /* RuntimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D302AB2667500F571DD /* RuntimeView.swift */; };
 		DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */; };
+		DEB52D362AB34A4800F571DD /* RuntimeNumberCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D352AB34A4800F571DD /* RuntimeNumberCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		DEB52D2D2AB2150700F571DD /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		DEB52D302AB2667500F571DD /* RuntimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeView.swift; sourceTree = "<group>"; };
 		DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		DEB52D352AB34A4800F571DD /* RuntimeNumberCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeNumberCreator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,9 +236,18 @@
 		DEB52D2F2AB2665400F571DD /* RuntimeView */ = {
 			isa = PBXGroup;
 			children = (
+				DEB52D342AB34A2500F571DD /* Helpers */,
 				DEB52D302AB2667500F571DD /* RuntimeView.swift */,
 			);
 			path = RuntimeView;
+			sourceTree = "<group>";
+		};
+		DEB52D342AB34A2500F571DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D352AB34A4800F571DD /* RuntimeNumberCreator.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +327,7 @@
 				DEB52D262AB08F2E00F571DD /* ResultCollectionViewCell.swift in Sources */,
 				DE92A0A42AAA396E007A7E46 /* Fonts.swift in Sources */,
 				DEB52D1E2AAF8BD700F571DD /* ResultView.swift in Sources */,
+				DEB52D362AB34A4800F571DD /* RuntimeNumberCreator.swift in Sources */,
 				DEB52D202AAF8BE400F571DD /* ResultViewController.swift in Sources */,
 				DE92A0792AA3A32C007A7E46 /* HomeViewController.swift in Sources */,
 				DE92A0C12AAB7520007A7E46 /* GenreCollectionViewCell.swift in Sources */,
