@@ -16,8 +16,33 @@ protocol FilterViewDelegate: AnyObject {
 // MARK: - Class
 
 class FilterView: UIView {
-        
+    
+    // MARK: - Constants
+
+    enum Constants {
+        static let titleMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    }
+    
     // MARK: - UI Components
+    
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutMargins = UIEdgeInsets(top: 16, left: .zero, bottom: 32, right: .zero)
+        view.isLayoutMarginsRelativeArrangement = true
+        view.axis = .vertical
+        view.spacing = 16
+        view.alignment = .fill
+        view.distribution = .fill
+        return view
+    }()
     
     private lazy var title: UILabel = {
         let label = UILabel()
@@ -113,36 +138,44 @@ extension FilterView {
     }
     
     private func addSubviews() {
-        addSubview(title)
-        addSubview(genreView)
-        addSubview(runtimeView)
+        stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
+        stackView.addArrangedSubview(genreView)
+        stackView.addArrangedSubview(runtimeView)
+        scrollView.addSubview(stackView)
+        addSubview(scrollView)
         addSubview(button)
     }
     
     private func addConstraints() {
+        
+        let stackViewHeight = stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        
+        stackViewHeight.isActive = true
+        stackViewHeight.priority = UILayoutPriority(50)
+        
         NSLayoutConstraint.activate([
             
-            // title
+            // scroll view
             
-            title.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            title.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            title.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -32),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
             
-            // genre collection view
+            // stack view
+
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             
-            genreView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 32),
-            genreView.widthAnchor.constraint(equalTo: widthAnchor),
+            // genre view
+
             genreView.heightAnchor.constraint(equalToConstant: 160),
-            
-            // runtime slider view
-            
-            runtimeView.topAnchor.constraint(equalTo: genreView.bottomAnchor, constant: 16),
-            runtimeView.rightAnchor.constraint(equalTo: rightAnchor),
-            runtimeView.leftAnchor.constraint(equalTo: leftAnchor),
-            runtimeView.heightAnchor.constraint(equalToConstant: 80),
-            
+
             // button
-            
+
             button.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             button.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32),
             button.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),

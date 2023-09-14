@@ -11,7 +11,32 @@ import UIKit
 
 class ResultView: UIView {
     
+    // MARK: - Constants
+
+    enum Constants {
+        static let titleMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    }
+    
     // MARK: - UI Components
+    
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutMargins = UIEdgeInsets(top: 16, left: .zero, bottom: 16, right: .zero)
+        view.isLayoutMarginsRelativeArrangement = true
+        view.axis = .vertical
+        view.spacing = 16
+        view.alignment = .fill
+        view.distribution = .fill
+        return view
+    }()
     
     private lazy var title: UILabel = {
         let label = UILabel()
@@ -120,25 +145,30 @@ extension ResultView {
     }
     
     private func addSubviews() {
-        addSubview(title)
-        addSubview(collectionView)
+        stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
+        stackView.addArrangedSubview(collectionView)
+        scrollView.addSubview(stackView)
+        addSubview(scrollView)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
-            // title
+            // scroll view
             
-            title.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            title.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
             
-            // collection view
+            // stack view
             
-            collectionView.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 16),
-            collectionView.rightAnchor.constraint(equalTo: rightAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            collectionView.leftAnchor.constraint(equalTo: leftAnchor)
-            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
         ])
     }
 }

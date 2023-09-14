@@ -32,6 +32,7 @@
 		DEB52D292AB0989100F571DD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D282AB0989100F571DD /* UIImageView+Extension.swift */; };
 		DEB52D2E2AB2150700F571DD /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D2D2AB2150700F571DD /* Filters.swift */; };
 		DEB52D312AB2667500F571DD /* RuntimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D302AB2667500F571DD /* RuntimeView.swift */; };
+		DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		DEB52D282AB0989100F571DD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		DEB52D2D2AB2150700F571DD /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		DEB52D302AB2667500F571DD /* RuntimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeView.swift; sourceTree = "<group>"; };
+		DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				DEB52D282AB0989100F571DD /* UIImageView+Extension.swift */,
+				DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				DE92A0792AA3A32C007A7E46 /* HomeViewController.swift in Sources */,
 				DE92A0C12AAB7520007A7E46 /* GenreCollectionViewCell.swift in Sources */,
 				DE92A0C62AAB7618007A7E46 /* Genres.swift in Sources */,
+				DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */,
 				DE92A0CA2AABBB42007A7E46 /* Keys.swift in Sources */,
 				DE92A08E2AA8D99B007A7E46 /* HomeView.swift in Sources */,
 				DEB52D292AB0989100F571DD /* UIImageView+Extension.swift in Sources */,
