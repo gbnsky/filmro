@@ -14,24 +14,21 @@ class Filters {
     let includeAdult = "false"
     let includeVideo = "false"
     let language = "en-US"
-    let sortBy = "popularity.desc"
-    let genres: [Genre]?
+    let sortBy: SortBy
+    let genres: [Genre]
     var page = String()
     
     // MARK: - Initializers
     
-    init(page: String, genres: [Genre]) {
+    init(page: String, sortBy: SortBy, genres: [Genre]) {
         self.page = page
+        self.sortBy = sortBy
         self.genres = genres
     }
     
     // MARK: - Methods
     
     func getFormattedGenres() -> String {
-        guard let genres = genres else {
-            return String()
-        }
-        
         var genreIdsString = String()
         
         for genre in genres {

@@ -82,7 +82,8 @@ class ResultCollectionViewCell: UICollectionViewCell {
     
     private func setupMoviePoster() {
         guard let movie = movie,
-              let posterPath = URL(string: "\(Constants.baseImageUrl)\(movie.posterPath)") else {
+              let moviePosterPath = movie.posterPath,
+              let posterPath = URL(string: "\(Constants.baseImageUrl)\(moviePosterPath)") else {
             return
         }
         

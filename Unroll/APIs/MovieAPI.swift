@@ -63,10 +63,13 @@ final class MovieApi {
             URLQueryItem(name: "include_video", value: filters.includeVideo),
             URLQueryItem(name: "language", value: filters.language),
             URLQueryItem(name: "page", value: filters.page),
-            URLQueryItem(name: "sort_by", value: filters.sortBy),
+            URLQueryItem(name: "sort_by", value: filters.sortBy.query),
             URLQueryItem(name: "with_genres", value: filters.getFormattedGenres()),
         ]
         url.append(queryItems: queryItems)
+        
+        print("url: \(url)")
+        print("sort by: \(filters.sortBy.query)")
         
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .useProtocolCachePolicy,

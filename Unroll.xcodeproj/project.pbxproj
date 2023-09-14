@@ -34,6 +34,9 @@
 		DEB52D312AB2667500F571DD /* RuntimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D302AB2667500F571DD /* RuntimeView.swift */; };
 		DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */; };
 		DEB52D362AB34A4800F571DD /* RuntimeNumberCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D352AB34A4800F571DD /* RuntimeNumberCreator.swift */; };
+		DEB52D392AB3596A00F571DD /* SortByView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D382AB3596A00F571DD /* SortByView.swift */; };
+		DEB52D3C2AB359DE00F571DD /* SortByCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D3B2AB359DE00F571DD /* SortByCollectionViewCell.swift */; };
+		DEB52D452AB35EBD00F571DD /* SortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D442AB35EBD00F571DD /* SortBy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		DEB52D302AB2667500F571DD /* RuntimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeView.swift; sourceTree = "<group>"; };
 		DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		DEB52D352AB34A4800F571DD /* RuntimeNumberCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeNumberCreator.swift; sourceTree = "<group>"; };
+		DEB52D382AB3596A00F571DD /* SortByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByView.swift; sourceTree = "<group>"; };
+		DEB52D3B2AB359DE00F571DD /* SortByCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEB52D442AB35EBD00F571DD /* SortBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,7 @@
 				DE92A09D2AAA15EB007A7E46 /* FilterView.swift */,
 				DE92A0B92AAB4ABC007A7E46 /* GenreView */,
 				DEB52D2F2AB2665400F571DD /* RuntimeView */,
+				DEB52D372AB3594D00F571DD /* SortByView */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 				DE92A0C52AAB7618007A7E46 /* Genres.swift */,
 				DEB52D182AAF778500F571DD /* Movies.swift */,
 				DEB52D2D2AB2150700F571DD /* Filters.swift */,
+				DEB52D442AB35EBD00F571DD /* SortBy.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -248,6 +256,23 @@
 				DEB52D352AB34A4800F571DD /* RuntimeNumberCreator.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DEB52D372AB3594D00F571DD /* SortByView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D3A2AB359C600F571DD /* Cell */,
+				DEB52D382AB3596A00F571DD /* SortByView.swift */,
+			);
+			path = SortByView;
+			sourceTree = "<group>";
+		};
+		DEB52D3A2AB359C600F571DD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D3B2AB359DE00F571DD /* SortByCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,11 +351,14 @@
 				DEB52D192AAF778500F571DD /* Movies.swift in Sources */,
 				DEB52D262AB08F2E00F571DD /* ResultCollectionViewCell.swift in Sources */,
 				DE92A0A42AAA396E007A7E46 /* Fonts.swift in Sources */,
+				DEB52D3C2AB359DE00F571DD /* SortByCollectionViewCell.swift in Sources */,
 				DEB52D1E2AAF8BD700F571DD /* ResultView.swift in Sources */,
+				DEB52D452AB35EBD00F571DD /* SortBy.swift in Sources */,
 				DEB52D362AB34A4800F571DD /* RuntimeNumberCreator.swift in Sources */,
 				DEB52D202AAF8BE400F571DD /* ResultViewController.swift in Sources */,
 				DE92A0792AA3A32C007A7E46 /* HomeViewController.swift in Sources */,
 				DE92A0C12AAB7520007A7E46 /* GenreCollectionViewCell.swift in Sources */,
+				DEB52D392AB3596A00F571DD /* SortByView.swift in Sources */,
 				DE92A0C62AAB7618007A7E46 /* Genres.swift in Sources */,
 				DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */,
 				DE92A0CA2AABBB42007A7E46 /* Keys.swift in Sources */,

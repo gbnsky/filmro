@@ -61,6 +61,12 @@ class FilterView: UIView {
         return view
     }()
     
+    private lazy var sortByView: SortByView = {
+        let view = SortByView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -103,7 +109,9 @@ class FilterView: UIView {
     // MARK: - Private Methods
     
     private func setupFilters() {
-        let filters = Filters(page: "1", genres: genreView.getSelectedGenres())
+        let filters = Filters(page: "1",
+                              sortBy: sortByView.getSelectedSortBy(),
+                              genres: genreView.getSelectedGenres())
         self.filters = filters
     }
 }
@@ -134,6 +142,7 @@ extension FilterView {
     private func addSubviews() {
         stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
         stackView.addArrangedSubview(genreView)
+        stackView.addArrangedSubview(sortByView)
         scrollView.addSubview(stackView)
         addSubview(scrollView)
         addSubview(button)
@@ -166,6 +175,10 @@ extension FilterView {
             // genre view
 
             genreView.heightAnchor.constraint(equalToConstant: 160),
+            
+            // sort by view
+            
+            sortByView.heightAnchor.constraint(equalToConstant: 160),
 
             // button
 
