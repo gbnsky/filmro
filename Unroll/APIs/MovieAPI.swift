@@ -69,7 +69,6 @@ final class MovieApi {
         url.append(queryItems: queryItems)
         
         print("url: \(url)")
-        print("sort by: \(filters.sortBy.query)")
         
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .useProtocolCachePolicy,
