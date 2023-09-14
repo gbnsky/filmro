@@ -28,6 +28,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.beige
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = Colors.blackOne
+    }
 }
 
 // MARK: - Delegates
