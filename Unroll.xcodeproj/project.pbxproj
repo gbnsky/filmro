@@ -37,6 +37,8 @@
 		DEB52D392AB3596A00F571DD /* SortByView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D382AB3596A00F571DD /* SortByView.swift */; };
 		DEB52D3C2AB359DE00F571DD /* SortByCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D3B2AB359DE00F571DD /* SortByCollectionViewCell.swift */; };
 		DEB52D452AB35EBD00F571DD /* SortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D442AB35EBD00F571DD /* SortBy.swift */; };
+		DEB52D472AB3C55900F571DD /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D462AB3C55900F571DD /* UIApplication+Extension.swift */; };
+		DEB52D492AB3CE5B00F571DD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D482AB3CE5B00F571DD /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		DEB52D382AB3596A00F571DD /* SortByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByView.swift; sourceTree = "<group>"; };
 		DEB52D3B2AB359DE00F571DD /* SortByCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByCollectionViewCell.swift; sourceTree = "<group>"; };
 		DEB52D442AB35EBD00F571DD /* SortBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBy.swift; sourceTree = "<group>"; };
+		DEB52D462AB3C55900F571DD /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		DEB52D482AB3CE5B00F571DD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +233,8 @@
 			children = (
 				DEB52D282AB0989100F571DD /* UIImageView+Extension.swift */,
 				DEB52D322AB273F700F571DD /* UIStackView+Extension.swift */,
+				DEB52D462AB3C55900F571DD /* UIApplication+Extension.swift */,
+				DEB52D482AB3CE5B00F571DD /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -352,6 +358,8 @@
 				DE92A0C12AAB7520007A7E46 /* GenreCollectionViewCell.swift in Sources */,
 				DEB52D392AB3596A00F571DD /* SortByView.swift in Sources */,
 				DE92A0C62AAB7618007A7E46 /* Genres.swift in Sources */,
+				DEB52D492AB3CE5B00F571DD /* UIView+Extension.swift in Sources */,
+				DEB52D472AB3C55900F571DD /* UIApplication+Extension.swift in Sources */,
 				DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */,
 				DE92A0CA2AABBB42007A7E46 /* Keys.swift in Sources */,
 				DE92A08E2AA8D99B007A7E46 /* HomeView.swift in Sources */,

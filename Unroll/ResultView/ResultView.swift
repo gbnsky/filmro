@@ -11,42 +11,18 @@ import UIKit
 
 class ResultView: UIView {
     
-    // MARK: - Constants
-
-    enum Constants {
-        static let titleMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-    }
-    
     // MARK: - UI Components
-    
-    private lazy var scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.showsVerticalScrollIndicator = false
-        return view
-    }()
     
     private lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layoutMargins = UIEdgeInsets(top: 16, left: .zero, bottom: 16, right: .zero)
+        view.layoutMargins = UIEdgeInsets(top: .zero, left: .zero, bottom: .zero, right: .zero)
         view.isLayoutMarginsRelativeArrangement = true
         view.axis = .vertical
         view.spacing = 16
         view.alignment = .fill
         view.distribution = .fill
         return view
-    }()
-    
-    private lazy var title: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.blackOne
-        label.font = UIFont(name: Fonts.breeSerif, size: 24)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = "Is this your movie?"
-        return label
     }()
     
     private lazy var collectionView: UICollectionView = {
@@ -131,7 +107,7 @@ extension ResultView: UICollectionViewDataSource {
 
 extension ResultView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width, height: collectionView.frame.height)
+        return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
     }
 }
 
@@ -145,30 +121,19 @@ extension ResultView {
     }
     
     private func addSubviews() {
-        stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
         stackView.addArrangedSubview(collectionView)
-        scrollView.addSubview(stackView)
-        addSubview(scrollView)
+        addSubview(stackView)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
-            // scroll view
-            
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
-            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
-            
             // stack view
             
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-            stackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.rightAnchor.constraint(equalTo: rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: UIApplication.safeAreaEdgeInsets.bottom),
+            stackView.leftAnchor.constraint(equalTo: leftAnchor),
         ])
     }
 }

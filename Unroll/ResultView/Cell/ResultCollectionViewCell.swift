@@ -16,10 +16,30 @@ class ResultCollectionViewCell: UICollectionViewCell {
     // MARK: - Constants
     
     enum Constants {
+        // url
         static let baseImageUrl: String = "https://image.tmdb.org/t/p/original/"
     }
     
     // MARK: - UI Components
+    
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
+    
+    private lazy var movieStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: UIApplication.safeAreaEdgeInsets.bottom, right: 16)
+        view.isLayoutMarginsRelativeArrangement = true
+        view.axis = .vertical
+        view.spacing = 16
+        view.alignment = .fill
+        view.distribution = .fill
+        return view
+    }()
     
     private lazy var moviePoster: UIImageView = {
         let imageView = UIImageView()
@@ -51,6 +71,43 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
+        return label
+    }()
+    
+    private lazy var descriptionStackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        view.isLayoutMarginsRelativeArrangement = true
+        view.axis = .vertical
+        view.spacing = 16
+        view.alignment = .fill
+        view.distribution = .fill
+        view.backgroundColor = Colors.green
+        view.layer.cornerRadius = 10
+        view.layer.borderWidth = 1
+        view.layer.borderColor = Colors.blackOne.cgColor
+        return view
+    }()
+    
+    private lazy var descriptionTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.breeSerif, size: 24)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Description"
+        return label
+    }()
+    
+    private lazy var movieDescription: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
     
@@ -99,6 +156,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         
         movieTitle.text = movie.title
         movieReleaseDate.text = getFormattedMovieReleaseDate(from: movie.releaseDate)
+        movieDescription.text = movie.overview
     }
     
     private func getFormattedMovieReleaseDate(from releaseDate: String) -> String {
@@ -126,36 +184,63 @@ extension ResultCollectionViewCell {
     private func loadView() {
         addSubviews()
         addConstraints()
+        addCustomSpacings()
+        addAdditionalConstraints()
     }
     
     private func addSubviews() {
-        addSubview(moviePoster)
-        addSubview(movieTitle)
-        addSubview(movieReleaseDate)
+        movieStackView.addArrangedSubview(moviePoster)
+        movieStackView.addArrangedSubview(movieTitle)
+        movieStackView.addArrangedSubview(movieReleaseDate)
+        movieStackView.addArrangedSubview(descriptionStackView)
+        
+        descriptionStackView.addArrangedSubview(descriptionTitle)
+        descriptionStackView.addArrangedSubview(movieDescription)
+        
+        scrollView.addSubview(movieStackView)
+        addSubview(scrollView)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
-            // movie poster
+            // scroll view
             
-            moviePoster.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            moviePoster.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            moviePoster.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            moviePoster.widthAnchor.constraint(equalToConstant: self.frame.width),
-            moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: getImageRatio(width: moviePoster.intrinsicContentSize.width, height: moviePoster.intrinsicContentSize.height)),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
             
-            // movie title
+            // movie stack view
             
-            movieTitle.topAnchor.constraint(equalTo: moviePoster.bottomAnchor, constant: 16),
-            movieTitle.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            movieTitle.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            
-            // movie release date and runtime
-            
-            movieReleaseDate.topAnchor.constraint(equalTo: movieTitle.bottomAnchor),
-            movieReleaseDate.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            movieReleaseDate.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            movieStackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            movieStackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            movieStackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            movieStackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            movieStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
+    }
+    
+    private func addCustomSpacings() {
+        
+        // movie stack view
+        
+        movieStackView.setCustomSpacing(.zero, after: movieTitle)
+    }
+    
+    private func addAdditionalConstraints() {
+        
+        // movie stack view
+        
+        let stackViewHeight = movieStackView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+        
+        stackViewHeight.isActive = true
+        stackViewHeight.priority = UILayoutPriority(50)
+        
+        // movie poster
+        
+        let moviePosterHeight = moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: getImageRatio(width: moviePoster.intrinsicContentSize.width, height: moviePoster.intrinsicContentSize.height))
+        
+        moviePosterHeight.isActive = true
     }
 }
