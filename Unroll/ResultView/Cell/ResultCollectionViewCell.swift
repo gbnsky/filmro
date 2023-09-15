@@ -59,7 +59,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: Fonts.breeSerif, size: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
+        label.textAlignment = .left
         return label
     }()
     
@@ -70,7 +70,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: Fonts.kanitRegular, size: 16)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
+        label.textAlignment = .left
         return label
     }()
     
@@ -189,9 +189,9 @@ extension ResultCollectionViewCell {
     }
     
     private func addSubviews() {
-        movieStackView.addArrangedSubview(moviePoster)
         movieStackView.addArrangedSubview(movieTitle)
         movieStackView.addArrangedSubview(movieReleaseDate)
+        movieStackView.addArrangedSubview(moviePoster)
         movieStackView.addArrangedSubview(descriptionStackView)
         
         descriptionStackView.addArrangedSubview(descriptionTitle)
