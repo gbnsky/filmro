@@ -7,6 +7,9 @@
 
 import UIKit
 
+/// Access the first scene window and returns the safe area insets
+/// - Parameters:
+///   - return: safe area insets
 extension UIApplication {
     
     static var safeAreaEdgeInsets: UIEdgeInsets  {

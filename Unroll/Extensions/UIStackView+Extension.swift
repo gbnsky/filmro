@@ -7,8 +7,10 @@
 
 import UIKit
 
-// add arranged subview with margins
-
+/// Adds an arranged subview to a stack view with margins
+/// - Parameters:
+///   - view: view to be added
+///   - margins: view's margins
 extension UIStackView {
     
     func addArrangedSubview(_ view: UIView, withMargins margins: UIEdgeInsets) {

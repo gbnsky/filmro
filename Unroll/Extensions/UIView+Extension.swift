@@ -7,7 +7,12 @@
 
 import UIKit
 
+/// Adds a border to a specific side of the view
+/// - Parameters:
+///   - color: border color
+///   - width: border width
 extension UIView {
+    
   func addTopBorder(_ color: UIColor, _ width: CGFloat) {
       let border = CALayer()
       border.backgroundColor = color.cgColor

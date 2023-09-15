@@ -7,10 +7,12 @@
 
 import UIKit
 
-// load an image with urls
-
 extension UIImageView {
     
+    /// Loads an image from an url and returns its size
+    /// - Parameters:
+    ///   - url: image url
+    ///   - returnImageSize: loaded image size
     func load(url: URL, returnImageSize: @escaping (CGSize) -> ()) {
         
         DispatchQueue.global().async { [weak self] in
