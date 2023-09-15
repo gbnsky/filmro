@@ -74,7 +74,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var descriptionStackView: UIStackView = {
+    private lazy var movieDescriptionStackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
@@ -90,7 +90,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private lazy var descriptionTitle: UILabel = {
+    private lazy var movieDescriptionTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.blackOne
@@ -192,10 +192,10 @@ extension ResultCollectionViewCell {
         movieStackView.addArrangedSubview(movieTitle)
         movieStackView.addArrangedSubview(movieReleaseDate)
         movieStackView.addArrangedSubview(moviePoster)
-        movieStackView.addArrangedSubview(descriptionStackView)
+        movieStackView.addArrangedSubview(movieDescriptionStackView)
         
-        descriptionStackView.addArrangedSubview(descriptionTitle)
-        descriptionStackView.addArrangedSubview(movieDescription)
+        movieDescriptionStackView.addArrangedSubview(movieDescriptionTitle)
+        movieDescriptionStackView.addArrangedSubview(movieDescription)
         
         scrollView.addSubview(movieStackView)
         addSubview(scrollView)
