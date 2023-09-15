@@ -23,6 +23,8 @@ final class MovieApi {
     
     // MARK: - Methods
     
+    /// Gets all the enable movie genres on API
+    /// - Parameter completion: returns an array of genre
     func getMovieGenreList(completion: @escaping ([Genre]?) -> ()) {
         
         let url = baseUrl.appending(component: "genre/movie/list")
@@ -55,6 +57,10 @@ final class MovieApi {
         dataTask.resume()
     }
     
+    /// Gets a list of movies using filters selected by the user
+    /// - Parameters:
+    ///   - filters: options selected by user to get a list of movies with a specific description
+    ///   - completion: returns a movies object that has an array of movie and their current page
     func getMovieDiscoverList(filters: Filters, completion: @escaping (Movies?) -> ()) {
         
         var url = baseUrl.appending(component: "discover/movie")
