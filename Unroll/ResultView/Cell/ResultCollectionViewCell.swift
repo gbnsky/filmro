@@ -84,7 +84,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         view.alignment = .fill
         view.distribution = .fill
         view.backgroundColor = Colors.green
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 16
         view.layer.borderWidth = 1
         view.layer.borderColor = Colors.blackOne.cgColor
         return view
@@ -167,13 +167,8 @@ class ResultCollectionViewCell: UICollectionViewCell {
     
     private func updateMoviePosterConstraints(with imageSize: CGSize) {        
         NSLayoutConstraint.activate([
-            moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: getImageRatio(width: moviePoster.intrinsicContentSize.width, height: imageSize.height)),
+            moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: moviePoster.fullWidthRatio()),
         ])
-    }
-    
-    private func getImageRatio(width: CGFloat, height: CGFloat) -> CGFloat {
-        let ratio = height / width
-        return ratio
     }
 }
 
@@ -239,7 +234,7 @@ extension ResultCollectionViewCell {
         
         // movie poster
         
-        let moviePosterHeight = moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: getImageRatio(width: moviePoster.intrinsicContentSize.width, height: moviePoster.intrinsicContentSize.height))
+        let moviePosterHeight = moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: moviePoster.fullWidthRatio())
         
         moviePosterHeight.isActive = true
     }

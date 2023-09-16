@@ -28,3 +28,32 @@ extension UIImageView {
         }
     }
 }
+
+extension UIImageView {
+    
+    /// Constraint multiplier ratio for full height images with scale aspect fit content mode
+    /// - Returns: Full height multiplier ratio
+    func fullHeightRatio() -> CGFloat {
+        
+        let viewSize = self.intrinsicContentSize
+        
+        if let image = self.image {
+            return viewSize.width / image.size.height
+        }
+        
+        return viewSize.width / viewSize.height
+    }
+    
+    /// Constraint multiplier ratio for full height images with scale aspect fit content mode
+    /// - Returns: Full width multiplier ratio
+    func fullWidthRatio() -> CGFloat {
+        
+        let viewSize = self.intrinsicContentSize
+        
+        if let image = self.image {
+            return viewSize.height / image.size.width
+        }
+        
+        return viewSize.height / viewSize.width
+    }
+}
