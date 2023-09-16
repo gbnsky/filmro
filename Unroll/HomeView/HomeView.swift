@@ -27,6 +27,14 @@ class HomeView: UIView {
         return imageView
     }()
     
+    private lazy var mascot: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "rolly")
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     private lazy var title: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +97,7 @@ extension HomeView {
     
     private func addSubviews() {
         addSubview(logo)
+        addSubview(mascot)
         addSubview(title)
         addSubview(button)
     }
@@ -102,6 +111,13 @@ extension HomeView {
             logo.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
             logo.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
             logo.heightAnchor.constraint(equalToConstant: 160),
+            
+            // logo
+            
+            mascot.bottomAnchor.constraint(equalTo: title.topAnchor),
+            mascot.widthAnchor.constraint(equalTo: widthAnchor),
+            mascot.heightAnchor.constraint(equalToConstant: 300),
+            mascot.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             // title
             

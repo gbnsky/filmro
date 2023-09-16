@@ -32,7 +32,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
     private lazy var movieStackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: UIApplication.safeAreaEdgeInsets.bottom, right: 16)
+        view.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: UIApplication.safeAreaEdgeInsets.bottom + 16, right: 16)
         view.isLayoutMarginsRelativeArrangement = true
         view.axis = .vertical
         view.spacing = 16
