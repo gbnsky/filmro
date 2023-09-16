@@ -47,15 +47,6 @@ class HomeView: UIView {
         return imageView
     }()
     
-    private lazy var mascot: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "rolly")
-        imageView.contentMode = .scaleAspectFit
-        imageView.setContentHuggingPriority(.defaultLow, for: .vertical)
-        return imageView
-    }()
-    
     private lazy var title: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -78,6 +69,14 @@ class HomeView: UIView {
         label.textAlignment = .center
         label.text = "We'll try to spare your time before countless scrolling time to find something to watch."
         return label
+    }()
+    
+    private lazy var mascot: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "rolly")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private lazy var settingsButton: UIButton = {
