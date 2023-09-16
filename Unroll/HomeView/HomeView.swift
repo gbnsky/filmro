@@ -18,6 +18,26 @@ protocol HomeViewDelegate: AnyObject {
 class HomeView: UIView {
     
     // MARK: - UI Components
+
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        view.alwaysBounceVertical = false
+        return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layoutMargins = UIEdgeInsets(top: .zero, left: 16, bottom: 16, right: 16)
+        view.isLayoutMarginsRelativeArrangement = true
+        view.axis = .vertical
+        view.spacing = 16
+        view.alignment = .fill
+        view.distribution = .fill
+        return view
+    }()
     
     private lazy var logo: UIImageView = {
         let imageView = UIImageView()
@@ -31,7 +51,8 @@ class HomeView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "rolly")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
+        imageView.setContentHuggingPriority(.defaultLow, for: .vertical)
         return imageView
     }()
     
@@ -43,7 +64,7 @@ class HomeView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "A shortcut to next streaming"
+        label.text = "A shortcut to the next streaming"
         return label
     }()
     
@@ -87,6 +108,18 @@ class HomeView: UIView {
         return button
     }()
     
+    private lazy var aboutText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.text = "Or tap here to know more about the app."
+        return label
+    }()
+    
     // MARK: - Properties
     
     weak var delegate: HomeViewDelegate?
@@ -120,63 +153,59 @@ extension HomeView {
     private func loadView() {
         addSubviews()
         addConstraints()
+        addAdditionalConstraints()
     }
     
     private func addSubviews() {
-        addSubview(logo)
-        addSubview(title)
-        addSubview(mascot)
-        addSubview(text)
-        addSubview(settingsButton)
-        addSubview(continueButton)
+        stackView.addArrangedSubview(logo)
+        stackView.addArrangedSubview(title)
+        stackView.addArrangedSubview(text)
+        stackView.addArrangedSubview(mascot)
+        stackView.addArrangedSubview(settingsButton)
+        stackView.addArrangedSubview(continueButton)
+        stackView.addArrangedSubview(aboutText)
+        scrollView.addSubview(stackView)
+        addSubview(scrollView)
     }
     
     private func addConstraints() {
         NSLayoutConstraint.activate([
         
+            // scroll view
+            
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.rightAnchor.constraint(equalTo: rightAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            scrollView.leftAnchor.constraint(equalTo: leftAnchor),
+            
+            // stack view
+            
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+        ])
+    }
+    
+    private func addAdditionalConstraints() {
+        NSLayoutConstraint.activate([
+            
             // logo
             
-            logo.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            logo.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            logo.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            logo.heightAnchor.constraint(equalToConstant: 50),
-            
-            // title
-            
-            title.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 32),
-            title.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            title.bottomAnchor.constraint(equalTo: mascot.topAnchor, constant: -16),
-            title.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+            logo.heightAnchor.constraint(equalToConstant: 48),
             
             // mascot
-            
-            mascot.topAnchor.constraint(equalTo: title.bottomAnchor),
-            mascot.widthAnchor.constraint(equalTo: widthAnchor),
-            mascot.heightAnchor.constraint(equalToConstant: 250),
-            mascot.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mascot.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
-            // text
-            
-            text.topAnchor.constraint(equalTo: mascot.bottomAnchor),
-            text.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            text.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
-            
+
+            mascot.heightAnchor.constraint(equalTo: mascot.widthAnchor, multiplier: mascot.fullHeightRatio()),
+
             // settings button
-            
-            settingsButton.topAnchor.constraint(equalTo: text.bottomAnchor),
-            settingsButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            settingsButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+
             settingsButton.heightAnchor.constraint(equalToConstant: 48),
-            
+
             // continue button
-            
-            continueButton.topAnchor.constraint(equalTo: settingsButton.bottomAnchor, constant: 16),
-            continueButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -16),
-            continueButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -32),
-            continueButton.leftAnchor.constraint(equalTo: leftAnchor, constant: 16),
+
             continueButton.heightAnchor.constraint(equalToConstant: 48)
-            
         ])
     }
 }
