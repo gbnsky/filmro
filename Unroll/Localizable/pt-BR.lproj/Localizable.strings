@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  Unroll
+
+  Created by Gabriel Garcia on 16/09/23.
+  
+*/
+
+// MARK: - Home
+
+"A shortcut to the next streaming" = "Um atalho para o próximo streaming";
+
+"We'll try to spare your time before countless scrolling time to find something to watch." = "Vamos tentar poupar seu tempo antes de ficar horas e horas procurando o que assistir.";
+
+"Settings" = "Configurações";
+
+"Let’s find a movie together" = "Vamos encontrar um filme";
+
+"Or tap here to know more about the app." = "Ou toque aqui para saber mais sobre o app.";
+
+// MARK: - Filters
+
+"Just like Subway,\nchoose the ingredients" = "Assim como no Subway, \nescolha seus ingredientes";
+ 
+"Continue" = "Continuar";
+
+"Genres" = "Gêneros";
+
+"Sort By" = "Ordene por";
+
+// MARK: - Results
+
+"Description" = "Descrição";

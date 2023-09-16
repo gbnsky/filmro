@@ -97,7 +97,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: Fonts.breeSerif, size: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Description"
+        label.text = "Description".localized()
         return label
     }()
     

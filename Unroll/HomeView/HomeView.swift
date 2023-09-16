@@ -55,7 +55,7 @@ class HomeView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "A shortcut to the next streaming"
+        label.text = "A shortcut to the next streaming".localized()
         return label
     }()
     
@@ -67,7 +67,7 @@ class HomeView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "We'll try to spare your time before countless scrolling time to find something to watch."
+        label.text = "We'll try to spare your time before countless scrolling time to find something to watch.".localized()
         return label
     }()
     
@@ -82,7 +82,7 @@ class HomeView: UIView {
     private lazy var settingsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Settings", for: .normal)
+        button.setTitle("Settings".localized(), for: .normal)
         button.setTitleColor(Colors.blackOne, for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
         button.backgroundColor = Colors.orange
@@ -96,7 +96,7 @@ class HomeView: UIView {
     private lazy var continueButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Let’s find a movie together", for: .normal)
+        button.setTitle("Let’s find a movie together".localized(), for: .normal)
         button.setTitleColor(Colors.blackOne, for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
         button.backgroundColor = Colors.yellow
@@ -115,7 +115,7 @@ class HomeView: UIView {
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.textAlignment = .center
-        label.text = "Or tap here to know more about the app."
+        label.text = "Or tap here to know more about the app.".localized()
         return label
     }()
     

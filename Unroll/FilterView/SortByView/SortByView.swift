@@ -18,7 +18,7 @@ class SortByView: UIView {
         label.font = UIFont(name: Fonts.breeSerif, size: 16)
         label.numberOfLines = 3
         label.lineBreakMode = .byTruncatingTail
-        label.text = "Sort By"
+        label.text = "Sort By".localized()
         return label
     }()
     

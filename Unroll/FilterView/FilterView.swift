@@ -51,7 +51,7 @@ class FilterView: UIView {
         label.font = UIFont(name: Fonts.breeSerif, size: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Just like Subway,\nchoose the ingredients."
+        label.text = "Just like Subway,\nchoose the ingredients".localized()
         return label
     }()
     
@@ -70,7 +70,7 @@ class FilterView: UIView {
     private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Continue", for: .normal)
+        button.setTitle("Continue".localized(), for: .normal)
         button.setTitleColor(Colors.blackOne, for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
         button.backgroundColor = Colors.orange

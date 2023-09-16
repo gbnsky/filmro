@@ -18,7 +18,7 @@ class GenreView: UIView {
         label.font = UIFont(name: Fonts.breeSerif, size: 16)
         label.numberOfLines = 3
         label.lineBreakMode = .byTruncatingTail
-        label.text = "Genres"
+        label.text = "Genres".localized()
         return label
     }()
     
