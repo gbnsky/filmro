@@ -141,6 +141,7 @@ class ResultCollectionViewCell: UICollectionViewCell {
         guard let movie = movie,
               let moviePosterPath = movie.posterPath,
               let posterPath = URL(string: "\(Constants.baseImageUrl)\(moviePosterPath)") else {
+            moviePoster.image = UIImage(named: "placeholder-poster")
             return
         }
         
