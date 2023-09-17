@@ -14,8 +14,8 @@ enum SortBy: String, CaseIterable {
     // MARK: - Cases
     
     case popularityDesc
-    case popularityAsc
     case releaseDateDesc
+    case popularityAsc
     case releaseDateAsc
     
     // MARK: - Properties
@@ -23,13 +23,13 @@ enum SortBy: String, CaseIterable {
     var title: String {
         switch self {
         case .popularityDesc:
-            return "Popular"
-        case .popularityAsc:
-            return "Unpopular"
+            return "Popular".localized()
         case .releaseDateDesc:
-            return "Newer"
+            return "Newer".localized()
+        case .popularityAsc:
+            return "Unpopular".localized()
         case .releaseDateAsc:
-            return "Older"
+            return "Older".localized()
         }
     }
     
@@ -37,10 +37,10 @@ enum SortBy: String, CaseIterable {
         switch self {
         case .popularityDesc:
             return "popularity.desc"
-        case .popularityAsc:
-            return "popularity.asc"
         case .releaseDateDesc:
             return "primary_release_date.desc"
+        case .popularityAsc:
+            return "popularity.asc"
         case .releaseDateAsc:
             return "primary_release_date.asc"
         }

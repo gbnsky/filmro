@@ -28,6 +28,14 @@
 
 "Sort By" = "Ordene por";
 
+"Newer" = "Mais recentes";
+
+"Popular" = "Mais populares";
+
+"Older" = "Menos recentes";
+
+"Unpopular" = "Menos populares";
+
 // MARK: - Results
 
 "Description" = "Descrição";
