@@ -65,6 +65,7 @@ class GenreView: UIView {
             return
         }
         self.loadedGenres = genres
+        updateCollectionView()
     }
     
     func getSelectedGenres() -> [Genre] {
@@ -83,6 +84,12 @@ class GenreView: UIView {
             if value.id == genre.id {
                 selectedGenres.remove(at: index)
             }
+        }
+    }
+    
+    private func updateCollectionView() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
 }
