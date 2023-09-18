@@ -15,8 +15,8 @@ final class MovieApi {
     
     // MARK: - Exposed Methods
     
-    var watchRegion: Location = .brazil
-    var language: Language = .portuguese
+    var watchRegion: Location = .usa
+    var language: Language = .english
     
     // MARK: - Private Properties
     
