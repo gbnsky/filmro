@@ -20,10 +20,10 @@ class Card: UIView {
         view.spacing = 16
         view.alignment = .fill
         view.distribution = .fill
-        view.backgroundColor = Colors.green
         view.layer.cornerRadius = 16
         view.layer.borderWidth = 1
         view.layer.borderColor = Colors.blackOne.cgColor
+        view.clipsToBounds = true
         return view
     }()
     
@@ -34,7 +34,6 @@ class Card: UIView {
         label.font = UIFont(name: Fonts.breeSerif, size: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Description".localized()
         return label
     }()
     
@@ -48,10 +47,31 @@ class Card: UIView {
         return label
     }()
     
+    // MARK: - Properties
+    
+    var title = String() {
+        didSet {
+            cardTitle.text = title
+        }
+    }
+    
+    var text = String() {
+        didSet {
+            cardDescription.text = text
+        }
+    }
+    
+    var backgroundTint = UIColor.clear {
+        didSet {
+            stackView.backgroundColor = backgroundTint
+        }
+    }
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        loadView()
     }
     
     required init?(coder: NSCoder) {

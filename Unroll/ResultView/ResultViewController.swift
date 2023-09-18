@@ -16,6 +16,10 @@ class ResultViewController: UIViewController {
         return view
     }()
     
+    // MARK: - Properties
+    
+    private var movieDetails: Movie?
+    
     // MARK: - Lifecycle
     
     override func loadView() {
@@ -31,6 +35,35 @@ class ResultViewController: UIViewController {
     // MARK: - Exposed Methods
     
     func setupFilteredMovies(with movies: Movies) {
-        resultView.setup(with: movies)
+        resultView.setup(with: movies, and: self)
+    }
+}
+
+// MARK: - Delegates
+
+extension ResultViewController: ResultCollectionViewCellDelegate {
+    
+    func fetchResultDetails(from movie: Movie) {
+        let group = DispatchGroup()
+        group.enter()
+        
+        MovieApi.shared.getMovieDetails(from: movie) { movieDetails in
+            self.movieDetails = movieDetails
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            
+            guard let movieDetails = self.movieDetails else {
+                return
+            }
+            
+            let resultDetailsViewController = ResultDetailsViewController()
+            
+            print(movieDetails)
+            
+            resultDetailsViewController.setup(with: movieDetails)
+            self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
+        }
     }
 }

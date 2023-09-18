@@ -7,6 +7,14 @@
 
 import UIKit
 
+// MARK: - Delegate
+
+protocol ResultCollectionViewCellDelegate: AnyObject {
+    func fetchResultDetails(from movie: Movie)
+}
+
+// MARK: - Class
+
 class ResultCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Identifier
@@ -121,11 +129,11 @@ class ResultCollectionViewCell: UICollectionViewCell {
         button.layer.borderWidth = 1
         button.layer.cornerRadius = button.intrinsicContentSize.height / 2
         button.layer.masksToBounds = true
-//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         return button
     }()
     
-    private lazy var movieDescription: UILabel = {
+    private lazy var movieOverview: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.blackOne
@@ -134,6 +142,10 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
+    
+    // MARK: - Exposed Properties
+    
+    weak var delegate: ResultCollectionViewCellDelegate?
     
     // MARK: - Private Properties
     
@@ -180,8 +192,8 @@ class ResultCollectionViewCell: UICollectionViewCell {
         }
         
         movieTitle.text = movie.title
-        movieReleaseDate.text = getFormattedMovieReleaseDate(from: movie.releaseDate)
-        movieDescription.text = movie.overview
+        movieReleaseDate.text = getFormattedMovieReleaseDate(from: movie.releaseDate ?? String())
+        movieOverview.text = movie.overview
     }
     
     private func getFormattedMovieReleaseDate(from releaseDate: String) -> String {
@@ -194,6 +206,19 @@ class ResultCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             moviePoster.heightAnchor.constraint(equalTo: moviePoster.widthAnchor, multiplier: moviePoster.fullWidthRatio()),
         ])
+    }
+}
+
+// MARK: - Actions
+
+extension ResultCollectionViewCell {
+    
+    @objc
+    private func buttonAction() {
+        guard let movie = movie else {
+            return
+        }
+        delegate?.fetchResultDetails(from: movie)
     }
 }
 
@@ -215,7 +240,7 @@ extension ResultCollectionViewCell {
         movieStackView.addArrangedSubview(movieDescriptionStackView)
         
         movieDescriptionStackView.addArrangedSubview(moreDescriptionStackView)
-        movieDescriptionStackView.addArrangedSubview(movieDescription)
+        movieDescriptionStackView.addArrangedSubview(movieOverview)
         
         scrollView.addSubview(movieStackView)
         addSubview(scrollView)

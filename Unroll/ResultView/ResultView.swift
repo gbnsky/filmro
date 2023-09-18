@@ -49,6 +49,7 @@ class ResultView: UIView {
     
     private var page: Int = .zero
     private var movies: [Movie] = []
+    private weak var cellDelegate: ResultCollectionViewCellDelegate?
     
     // MARK: - Initializers
     
@@ -63,27 +64,17 @@ class ResultView: UIView {
     
     // MARK: - Exposed Methods
     
-    func setup(with movies: Movies?) {
+    func setup(with movies: Movies?, and cellDelegate: ResultCollectionViewCellDelegate) {
         guard let movies = movies else {
             return
         }
         self.page = movies.page
         self.movies = movies.results
+        self.cellDelegate = cellDelegate
     }
 }
 
 // MARK: - Collection View
-
-// delegate
-
-extension ResultView: UICollectionViewDelegate {
-
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        guard let cell = collectionView.cellForItem(at: indexPath) as? ResultCollectionViewCell else {
-//            return
-//        }
-//    }
-}
 
 // data Source
 
@@ -98,6 +89,7 @@ extension ResultView: UICollectionViewDataSource {
         }
         
         cell.setup(with: movies[indexPath.item])
+        cell.delegate = cellDelegate
         
         return cell
     }

@@ -9,9 +9,14 @@ import UIKit
 
 final class MovieApi {
     
-    // MARK: - Public Properties
+    // MARK: - Singleton
     
     static let shared = MovieApi()
+    
+    // MARK: - Exposed Methods
+    
+    var watchRegion: Location = .usa
+    var language: Language = .english
     
     // MARK: - Private Properties
     
@@ -103,5 +108,42 @@ final class MovieApi {
         })
 
         dataTask.resume()
+    }
+    
+    func getMovieDetails(from movie: Movie, completion: @escaping (Movie?) -> ()) {
+        
+        guard let movieId = movie.id else {
+            return
+        }
+        
+        let url = baseUrl.appending(component: "movie/\(movieId)")
+        let request = NSMutableURLRequest(url: url,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard let data = data else {
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            guard let movieDetails = try? decoder.decode(Movie.self, from: data) else {
+                return
+            }
+            
+            completion(movieDetails)
+        })
+        
+        dataTask.resume()
+        
     }
 }

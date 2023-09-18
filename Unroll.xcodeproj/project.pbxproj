@@ -41,6 +41,11 @@
 		DEB52D492AB3CE5B00F571DD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D482AB3CE5B00F571DD /* UIView+Extension.swift */; };
 		DEB52D4B2AB659DF00F571DD /* Strings+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D4A2AB659DF00F571DD /* Strings+Extension.swift */; };
 		DEB52D4F2AB65AEF00F571DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DEB52D512AB65AEF00F571DD /* Localizable.strings */; };
+		DEB52D5C2AB8707D00F571DD /* ResultDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */; };
+		DEB52D5E2AB8708800F571DD /* ResultDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D5D2AB8708800F571DD /* ResultDetailsViewController.swift */; };
+		DEB52D622AB877D500F571DD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D612AB877D500F571DD /* Card.swift */; };
+		DEB52D642AB8CADF00F571DD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D632AB8CADF00F571DD /* Language.swift */; };
+		DEB52D662AB8CBBF00F571DD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D652AB8CBBF00F571DD /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +86,11 @@
 		DEB52D4A2AB659DF00F571DD /* Strings+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Strings+Extension.swift"; sourceTree = "<group>"; };
 		DEB52D502AB65AEF00F571DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DEB52D522AB65B2F00F571DD /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailsView.swift; sourceTree = "<group>"; };
+		DEB52D5D2AB8708800F571DD /* ResultDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailsViewController.swift; sourceTree = "<group>"; };
+		DEB52D612AB877D500F571DD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		DEB52D632AB8CADF00F571DD /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		DEB52D652AB8CBBF00F571DD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,13 +131,15 @@
 				DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */,
 				DEB52D4C2AB65ABC00F571DD /* Localizable */,
 				DE92A0902AA8F8A3007A7E46 /* Files */,
-				DE92A09F2AAA372F007A7E46 /* Constants */,
 				DE92A0A72AAA550A007A7E46 /* APIs */,
+				DE92A09F2AAA372F007A7E46 /* Constants */,
+				DEB52D602AB877AE00F571DD /* Components */,
 				DEB52D272AB0987A00F571DD /* Extensions */,
 				DE92A0C42AAB75FA007A7E46 /* Models */,
 				DE92A08A2AA8D87C007A7E46 /* HomeView */,
 				DE92A0992AAA0D2B007A7E46 /* FilterView */,
 				DEB52D1C2AAF8BA700F571DD /* ResultView */,
+				DEB52D5A2AB8706600F571DD /* ResultDetails */,
 			);
 			path = Unroll;
 			sourceTree = "<group>";
@@ -212,6 +224,8 @@
 				DEB52D182AAF778500F571DD /* Movies.swift */,
 				DEB52D2D2AB2150700F571DD /* Filters.swift */,
 				DEB52D442AB35EBD00F571DD /* SortBy.swift */,
+				DEB52D632AB8CADF00F571DD /* Language.swift */,
+				DEB52D652AB8CBBF00F571DD /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -286,6 +300,23 @@
 				DEB52D512AB65AEF00F571DD /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		DEB52D5A2AB8706600F571DD /* ResultDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */,
+				DEB52D5D2AB8708800F571DD /* ResultDetailsViewController.swift */,
+			);
+			path = ResultDetails;
+			sourceTree = "<group>";
+		};
+		DEB52D602AB877AE00F571DD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D612AB877D500F571DD /* Card.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,12 +395,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEB52D192AAF778500F571DD /* Movies.swift in Sources */,
+				DEB52D642AB8CADF00F571DD /* Language.swift in Sources */,
+				DEB52D5C2AB8707D00F571DD /* ResultDetailsView.swift in Sources */,
 				DEB52D262AB08F2E00F571DD /* ResultCollectionViewCell.swift in Sources */,
 				DE92A0A42AAA396E007A7E46 /* Fonts.swift in Sources */,
 				DEB52D3C2AB359DE00F571DD /* SortByCollectionViewCell.swift in Sources */,
 				DEB52D1E2AAF8BD700F571DD /* ResultView.swift in Sources */,
 				DEB52D452AB35EBD00F571DD /* SortBy.swift in Sources */,
 				DEB52D362AB34A4800F571DD /* RuntimeNumberCreator.swift in Sources */,
+				DEB52D662AB8CBBF00F571DD /* Location.swift in Sources */,
+				DEB52D622AB877D500F571DD /* Card.swift in Sources */,
 				DEB52D202AAF8BE400F571DD /* ResultViewController.swift in Sources */,
 				DE92A0792AA3A32C007A7E46 /* HomeViewController.swift in Sources */,
 				DE92A0C12AAB7520007A7E46 /* GenreCollectionViewCell.swift in Sources */,
@@ -380,6 +415,7 @@
 				DEB52D472AB3C55900F571DD /* UIApplication+Extension.swift in Sources */,
 				DEB52D332AB273F700F571DD /* UIStackView+Extension.swift in Sources */,
 				DE92A0CA2AABBB42007A7E46 /* Keys.swift in Sources */,
+				DEB52D5E2AB8708800F571DD /* ResultDetailsViewController.swift in Sources */,
 				DE92A08E2AA8D99B007A7E46 /* HomeView.swift in Sources */,
 				DEB52D292AB0989100F571DD /* UIImageView+Extension.swift in Sources */,
 				DE92A0C32AAB7529007A7E46 /* GenreView.swift in Sources */,

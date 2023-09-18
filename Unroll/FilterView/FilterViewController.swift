@@ -53,9 +53,6 @@ extension FilterViewController: FilterViewDelegate {
         group.enter()
         
         MovieApi.shared.getMovieDiscoverList(filters: filters) { discoveries in
-            guard let discoveries = discoveries else {
-                return
-            }
             self.movies = discoveries
             group.leave()
         }
