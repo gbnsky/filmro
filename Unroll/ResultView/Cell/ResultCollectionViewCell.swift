@@ -90,6 +90,15 @@ class ResultCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
+    private lazy var moreDescriptionStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [movieDescriptionTitle, button])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fillEqually
+        return view
+    }()
+    
     private lazy var movieDescriptionTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,6 +108,21 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.lineBreakMode = .byWordWrapping
         label.text = "Description".localized()
         return label
+    }()
+    
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("See more", for: .normal)
+        button.setTitleColor(Colors.blackOne, for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        button.backgroundColor = Colors.orange
+        button.layer.borderColor = Colors.blackOne.cgColor
+        button.layer.borderWidth = 1
+        button.layer.cornerRadius = button.intrinsicContentSize.height / 2
+        button.layer.masksToBounds = true
+//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
     }()
     
     private lazy var movieDescription: UILabel = {
@@ -190,7 +214,7 @@ extension ResultCollectionViewCell {
         movieStackView.addArrangedSubview(moviePoster)
         movieStackView.addArrangedSubview(movieDescriptionStackView)
         
-        movieDescriptionStackView.addArrangedSubview(movieDescriptionTitle)
+        movieDescriptionStackView.addArrangedSubview(moreDescriptionStackView)
         movieDescriptionStackView.addArrangedSubview(movieDescription)
         
         scrollView.addSubview(movieStackView)

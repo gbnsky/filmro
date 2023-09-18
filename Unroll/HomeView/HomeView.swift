@@ -107,16 +107,14 @@ class HomeView: UIView {
         return button
     }()
     
-    private lazy var aboutText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.blackOne
-        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
-        label.text = "Or tap here to know more about the app.".localized()
-        return label
+    private lazy var aboutButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Or tap here to know more about the app.".localized(), for: .normal)
+        button.setTitleColor(Colors.blackOne, for: .normal)
+        button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
+//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        return button
     }()
     
     // MARK: - Properties
@@ -162,7 +160,7 @@ extension HomeView {
         stackView.addArrangedSubview(mascot)
         stackView.addArrangedSubview(settingsButton)
         stackView.addArrangedSubview(continueButton)
-        stackView.addArrangedSubview(aboutText)
+        stackView.addArrangedSubview(aboutButton)
         scrollView.addSubview(stackView)
         addSubview(scrollView)
     }
