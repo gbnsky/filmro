@@ -38,4 +38,10 @@
 
 // MARK: - Results
 
-"Description" = "Descrição";
+"Overview" = "Descrição";
+
+"See more" = "Veja mais";
+
+"Original Title" = "Título Original";
+
+"Tagline" = "Slogan";

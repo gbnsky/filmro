@@ -114,14 +114,14 @@ class ResultCollectionViewCell: UICollectionViewCell {
         label.font = UIFont(name: Fonts.breeSerif, size: 24)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.text = "Description".localized()
+        label.text = "Overview".localized()
         return label
     }()
     
     private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("See more", for: .normal)
+        button.setTitle("See more".localized(), for: .normal)
         button.setTitleColor(Colors.blackOne, for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
         button.backgroundColor = Colors.orange

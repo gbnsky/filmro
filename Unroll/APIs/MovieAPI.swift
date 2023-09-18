@@ -15,8 +15,8 @@ final class MovieApi {
     
     // MARK: - Exposed Methods
     
-    var watchRegion: Location = .usa
-    var language: Language = .english
+    var watchRegion: Location = .brazil
+    var language: Language = .portuguese
     
     // MARK: - Private Properties
     
@@ -32,7 +32,12 @@ final class MovieApi {
     /// - Parameter completion: returns an array of genre
     func getMovieGenreList(completion: @escaping ([Genre]?) -> ()) {
         
-        let url = baseUrl.appending(component: "genre/movie/list")
+        var url = baseUrl.appending(component: "genre/movie/list")
+        let queryItems = [
+            URLQueryItem(name: "language", value: language.query),
+        ]
+        url.append(queryItems: queryItems)
+        
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
@@ -155,5 +160,15 @@ final class MovieApi {
         
         dataTask.resume()
         
+    }
+    
+    // MARK: - Helper Methods
+    
+    func isOriginalLanguage(_ resultLanguage: String) -> Bool {
+        let separator = String("-")
+        let globalLanguageArray = self.language.query.components(separatedBy: separator)
+        let globalLanguage = globalLanguageArray.first
+        
+        return globalLanguage == resultLanguage
     }
 }

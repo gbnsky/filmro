@@ -51,6 +51,11 @@ class ResultDetailsView: UIView {
         return card
     }()
     
+    private lazy var movieOriginalTitle: Card = {
+        let card = Card()
+        return card
+    }()
+    
     private lazy var movieTagline: Card = {
         let card = Card()
         return card
@@ -83,6 +88,7 @@ class ResultDetailsView: UIView {
         
         setupMovieBackdrop()
         setupMovieTitle()
+        setupMovieOriginalTitle()
         setupMovieTagline()
         setupMovieOverview()
     }
@@ -126,6 +132,26 @@ class ResultDetailsView: UIView {
         stackView.addArrangedSubview(movieTitle)
     }
     
+    private func setupMovieOriginalTitle() {
+        guard let movie = movie,
+              let originalLanguage = movie.originalLanguage,
+              let originalTitle = movie.originalTitle else {
+            return
+        }
+        let isOriginalLanguage = MovieApi.shared.isOriginalLanguage(originalLanguage)
+        
+        
+        if originalTitle.isEmpty || isOriginalLanguage {
+            return
+        }
+        
+        movieOriginalTitle.title = "Original Title".localized()
+        movieOriginalTitle.text = originalTitle
+        movieOriginalTitle.backgroundTint = Colors.orange
+        
+        stackView.addArrangedSubview(movieOriginalTitle)
+    }
+    
     private func setupMovieTagline() {
         guard let movie = movie, let tagline = movie.tagline else {
             return
@@ -135,9 +161,9 @@ class ResultDetailsView: UIView {
             return
         }
         
-        movieTagline.title = "Tagline"
+        movieTagline.title = "Tagline".localized()
         movieTagline.text = tagline
-        movieTagline.backgroundTint = Colors.orange
+        movieTagline.backgroundTint = Colors.pink
         
         stackView.addArrangedSubview(movieTagline)
     }
@@ -151,9 +177,9 @@ class ResultDetailsView: UIView {
             return
         }
         
-        movieOverview.title = "Overview"
+        movieOverview.title = "Overview".localized()
         movieOverview.text = overview
-        movieOverview.backgroundTint = Colors.green
+        movieOverview.backgroundTint = Colors.purple
         
         stackView.addArrangedSubview(movieOverview)
     }

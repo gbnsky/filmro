@@ -18,6 +18,8 @@ struct Movie: Codable {
     let posterPath: String?
     let releaseDate: String?
     let title: String?
+    let originalTitle: String?
+    let originalLanguage: String?
     let runtime: Int?
     let tagline: String?
 }
