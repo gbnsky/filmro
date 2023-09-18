@@ -110,6 +110,10 @@ final class MovieApi {
         dataTask.resume()
     }
     
+    /// Gets a various parameter number with movie information
+    /// - Parameters:
+    ///   - movie: the selected movie to get
+    ///   - completion: returns a movie object with additional info
     func getMovieDetails(from movie: Movie, completion: @escaping (Movie?) -> ()) {
         
         guard let movieId = movie.id else {
