@@ -13,17 +13,26 @@ enum Language: String, CaseIterable {
     
     // MARK: - Cases
     
-    case english
-    case portuguese
+    case english = "en-US"
+    case portuguese = "pt-BR"
     
     // MARK: - Properties
     
-    var title: String {
+    var code: String {
         switch self {
         case .english:
-            return "English"
+            return "en"
         case .portuguese:
-            return "Portuguese"
+            return "pt"
+        }
+    }
+    
+    var region: String {
+        switch self {
+        case .english:
+            return "US"
+        case .portuguese:
+            return "BR"
         }
     }
     

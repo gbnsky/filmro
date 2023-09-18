@@ -13,11 +13,6 @@ final class MovieApi {
     
     static let shared = MovieApi()
     
-    // MARK: - Exposed Methods
-    
-    var watchRegion: Location = .usa
-    var language: Language = .english
-    
     // MARK: - Private Properties
     
     private let baseUrl = URL(string: "https://api.themoviedb.org/3")!
@@ -26,7 +21,9 @@ final class MovieApi {
         "Authorization": MovieApiKey.value
     ]
     
-    // MARK: - Methods
+    private var watchRegion: Location?
+    
+    // MARK: - Fetch Methods
     
     /// Gets all the enable movie genres on API
     /// - Parameter completion: returns an array of genre
@@ -34,7 +31,7 @@ final class MovieApi {
         
         var url = baseUrl.appending(component: "genre/movie/list")
         let queryItems = [
-            URLQueryItem(name: "language", value: language.query),
+            URLQueryItem(name: "language", value: getLanguage().query),
         ]
         url.append(queryItems: queryItems)
         
@@ -77,8 +74,8 @@ final class MovieApi {
         let queryItems = [
             URLQueryItem(name: "include_adult", value: filters.includeAdult),
             URLQueryItem(name: "include_video", value: filters.includeVideo),
-            URLQueryItem(name: "language", value: language.query),
-            URLQueryItem(name: "watch_region", value: watchRegion.query),
+            URLQueryItem(name: "language", value: getLanguage().query),
+            URLQueryItem(name: "watch_region", value: getWatchRegion().query),
             URLQueryItem(name: "page", value: filters.page),
             URLQueryItem(name: "sort_by", value: filters.sortBy.query),
             URLQueryItem(name: "with_genres", value: filters.getFormattedGenres()),
@@ -128,7 +125,7 @@ final class MovieApi {
         
         var url = baseUrl.appending(component: "movie/\(movieId)")
         let queryItems = [
-            URLQueryItem(name: "language", value: language.query),
+            URLQueryItem(name: "language", value: getLanguage().query),
         ]
         url.append(queryItems: queryItems)
         
@@ -164,9 +161,42 @@ final class MovieApi {
     
     // MARK: - Helper Methods
     
+    // Watch Region
+    
+    func getWatchRegion() -> Location {
+        guard let watchRegion = self.watchRegion else {
+            return .usa
+        }
+        return watchRegion
+    }
+    
+    func setWatchRegion(to watchRegion: Location) {
+        self.watchRegion = watchRegion
+    }
+    
+    // Language
+    
+    func getLanguage() -> Language {
+        guard let languageCode = NSLocale.current.language.languageCode,
+              let region = NSLocale.current.language.region else {
+            return .english
+        }
+        
+        let language = "\(languageCode.identifier)-\(region.identifier)"
+        
+        switch Language(rawValue: language) {
+        case .english:
+            return .english
+        case .portuguese:
+            return .portuguese
+        default:
+            return .english
+        }
+    }
+    
     func isOriginalLanguage(_ resultLanguage: String) -> Bool {
         let separator = String("-")
-        let globalLanguageArray = self.language.query.components(separatedBy: separator)
+        let globalLanguageArray = getLanguage().query.components(separatedBy: separator)
         let globalLanguage = globalLanguageArray.first
         
         return globalLanguage == resultLanguage
