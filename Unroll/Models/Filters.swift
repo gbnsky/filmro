@@ -13,7 +13,6 @@ class Filters {
     
     let includeAdult = "false"
     let includeVideo = "false"
-    let language = "en-US"
     let sortBy: SortBy
     let genres: [Genre]
     var page = String()

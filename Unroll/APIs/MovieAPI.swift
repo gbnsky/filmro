@@ -72,7 +72,8 @@ final class MovieApi {
         let queryItems = [
             URLQueryItem(name: "include_adult", value: filters.includeAdult),
             URLQueryItem(name: "include_video", value: filters.includeVideo),
-            URLQueryItem(name: "language", value: filters.language),
+            URLQueryItem(name: "language", value: language.query),
+            URLQueryItem(name: "watch_region", value: watchRegion.query),
             URLQueryItem(name: "page", value: filters.page),
             URLQueryItem(name: "sort_by", value: filters.sortBy.query),
             URLQueryItem(name: "with_genres", value: filters.getFormattedGenres()),
@@ -120,7 +121,12 @@ final class MovieApi {
             return
         }
         
-        let url = baseUrl.appending(component: "movie/\(movieId)")
+        var url = baseUrl.appending(component: "movie/\(movieId)")
+        let queryItems = [
+            URLQueryItem(name: "language", value: language.query),
+        ]
+        url.append(queryItems: queryItems)
+        
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
