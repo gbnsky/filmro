@@ -167,11 +167,30 @@ class ResultCollectionViewCell: UICollectionViewCell {
     func setup(with movie: Movie) {
         self.movie = movie
         
+        setupMovieTitle()
+        setupMovieReleaseDate()
         setupMoviePoster()
-        setupMovieData()
+        setupMovieOverview()
     }
     
     // MARK: - Private Methods
+
+    private func setupMovieTitle() {
+        guard let movie = movie, let title = movie.title else {
+            return
+        }
+        movieTitle.text = title
+        movieStackView.addArrangedSubview(movieTitle)
+        movieStackView.setCustomSpacing(.zero, after: movieTitle)
+    }
+    
+    private func setupMovieReleaseDate() {
+        guard let movie = movie, let releaseDate = movie.releaseDate else {
+            return
+        }
+        movieReleaseDate.text = getFormattedMovieReleaseDate(from: releaseDate)
+        movieStackView.addArrangedSubview(movieReleaseDate)
+    }
     
     private func setupMoviePoster() {
         guard let movie = movie,
@@ -184,16 +203,28 @@ class ResultCollectionViewCell: UICollectionViewCell {
         moviePoster.load(url: posterPath) { imageSize in
             self.updateMoviePosterConstraints(with: imageSize)
         }
+        
+        movieStackView.addArrangedSubview(moviePoster)
     }
     
-    private func setupMovieData() {
-        guard let movie = movie else {
+    private func setupMovieOverview() {
+        if movie == nil {
             return
         }
         
-        movieTitle.text = movie.title
-        movieReleaseDate.text = getFormattedMovieReleaseDate(from: movie.releaseDate ?? String())
-        movieOverview.text = movie.overview
+        movieStackView.addArrangedSubview(movieDescriptionStackView)
+        movieDescriptionStackView.addArrangedSubview(moreDescriptionStackView)
+        
+        setupMovieOverviewData()
+    }
+    
+    private func setupMovieOverviewData() {
+        guard let movie = movie, let overview = movie.overview else {
+            return
+        }
+        
+        movieOverview.text = overview
+        movieDescriptionStackView.addArrangedSubview(movieOverview)
     }
     
     private func getFormattedMovieReleaseDate(from releaseDate: String) -> String {
@@ -229,19 +260,10 @@ extension ResultCollectionViewCell {
     private func loadView() {
         addSubviews()
         addConstraints()
-        addCustomSpacings()
         addAdditionalConstraints()
     }
     
     private func addSubviews() {
-        movieStackView.addArrangedSubview(movieTitle)
-        movieStackView.addArrangedSubview(movieReleaseDate)
-        movieStackView.addArrangedSubview(moviePoster)
-        movieStackView.addArrangedSubview(movieDescriptionStackView)
-        
-        movieDescriptionStackView.addArrangedSubview(moreDescriptionStackView)
-        movieDescriptionStackView.addArrangedSubview(movieOverview)
-        
         scrollView.addSubview(movieStackView)
         addSubview(scrollView)
     }
@@ -264,13 +286,6 @@ extension ResultCollectionViewCell {
             movieStackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             movieStackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
         ])
-    }
-    
-    private func addCustomSpacings() {
-        
-        // movie stack view
-        
-        movieStackView.setCustomSpacing(.zero, after: movieTitle)
     }
     
     private func addAdditionalConstraints() {
