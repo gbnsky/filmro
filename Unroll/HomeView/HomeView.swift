@@ -79,18 +79,27 @@ class HomeView: UIView {
         return imageView
     }()
     
-    private lazy var settingsButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Settings".localized(), for: .normal)
-        button.setTitleColor(Colors.blackOne, for: .normal)
-        button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
-        button.backgroundColor = Colors.orange
-        button.layer.borderColor = Colors.blackOne.cgColor
-        button.layer.borderWidth = 1
-        button.layer.cornerRadius = 24
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        return button
+    private lazy var regionTextField: UITextField = {
+        let field = UITextField()
+        field.translatesAutoresizingMaskIntoConstraints = false
+        field.inputView = regionPicker
+        field.text = "Choose your country".localized()
+        field.textColor = Colors.blackOne
+        field.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        field.textAlignment = .center
+        field.backgroundColor = Colors.orange
+        field.layer.borderColor = Colors.blackOne.cgColor
+        field.layer.borderWidth = 1
+        field.layer.cornerRadius = 24
+        return field
+    }()
+    
+    private lazy var regionPicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.delegate = self
+        picker.dataSource = self
+        return picker
     }()
     
     private lazy var continueButton: UIButton = {
@@ -133,6 +142,33 @@ class HomeView: UIView {
     }
 }
 
+// MARK: - Picker
+
+extension HomeView: UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let region = Location.allCases[row]
+        
+        MovieApi.shared.setWatchRegion(to: region)
+        
+        regionTextField.text = region.title
+        regionTextField.resignFirstResponder()
+    }
+}
+
+extension HomeView: UIPickerViewDataSource {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return Location.allCases.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return Location.allCases[row].title
+    }
+}
+
 // MARK: - Actions
 
 extension HomeView {
@@ -158,7 +194,7 @@ extension HomeView {
         stackView.addArrangedSubview(title)
         stackView.addArrangedSubview(text)
         stackView.addArrangedSubview(mascot)
-        stackView.addArrangedSubview(settingsButton)
+        stackView.addArrangedSubview(regionTextField)
         stackView.addArrangedSubview(continueButton)
         stackView.addArrangedSubview(aboutButton)
         scrollView.addSubview(stackView)
@@ -196,9 +232,9 @@ extension HomeView {
 
             mascot.heightAnchor.constraint(equalTo: mascot.widthAnchor, multiplier: mascot.fullHeightRatio()),
 
-            // settings button
+            // region text field
 
-            settingsButton.heightAnchor.constraint(equalToConstant: 48),
+            regionTextField.heightAnchor.constraint(equalToConstant: 48),
 
             // continue button
 

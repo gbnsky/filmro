@@ -12,7 +12,7 @@
 
 "We'll try to spare your time before countless scrolling time to find something to watch." = "Vamos tentar poupar seu tempo antes de ficar horas e horas procurando o que assistir.";
 
-"Settings" = "Configurações";
+"Choose your country" = "Selecione seu país";
 
 "Let’s find a movie together" = "Vamos encontrar um filme";
 
@@ -49,3 +49,8 @@
 "Watch Providers" = "Onde assistir";
 
 "JustWatch helps you to find legally watch providers for your movies and tv series. Go to JustWatch.com to see more." = "JustWatch ajuda você a encontrar legalmente quais serviços possuem filmes e séries. Acesse JustWatch.com para saber mais.";
+
+// MARK: - Countries
+
+"United States of America" = "Estados Unidos da América";
+"Brazil" = "Brasil";

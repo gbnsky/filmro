@@ -21,9 +21,9 @@ enum Location: String, CaseIterable {
     var title: String {
         switch self {
         case .usa:
-            return "United States of America"
+            return "United States of America".localized()
         case .brazil:
-            return "Brazil"
+            return "Brazil".localized()
         }
     }
     
