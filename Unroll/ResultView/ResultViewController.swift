@@ -18,6 +18,7 @@ class ResultViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var currentMovie: Movie?
     private var movieDetails: Movie?
     private var watchProviders: WatchProviders?
     
@@ -38,6 +39,24 @@ class ResultViewController: UIViewController {
     func setupFilteredMovies(with movies: Movies) {
         resultView.setup(with: movies, and: self)
     }
+    
+    // MARK: - Private Methods
+    
+    private func openResultDetails() {
+        let viewGroup = DispatchGroup()
+        
+        viewGroup.enter()
+        
+        let resultDetailsViewController = ResultDetailsViewController()
+        
+        resultDetailsViewController.setup(with: self.movieDetails)
+
+        if let watchProviders = self.watchProviders {
+            print("watch providers: \(watchProviders)")
+        }
+        
+        self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
+    }
 }
 
 // MARK: - Delegates
@@ -45,19 +64,24 @@ class ResultViewController: UIViewController {
 extension ResultViewController: ResultCollectionViewCellDelegate {
 
     func fetchResultDetails(from movie: Movie) {
-        let group = DispatchGroup()
-        group.enter()
+        let fetchGroup = DispatchGroup()
+        
+        fetchGroup.enter()
         
         MovieApi.shared.getMovieDetails(from: movie) { movieDetails in
             self.movieDetails = movieDetails
-            group.leave()
+            fetchGroup.leave()
         }
         
-        group.notify(queue: .main) {
-            
-            let resultDetailsViewController = ResultDetailsViewController()
-            resultDetailsViewController.setup(with: self.movieDetails)
-            self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
+        fetchGroup.enter()
+        
+        MovieApi.shared.getWatchProviders(for: movie) { watchProviders in
+            self.watchProviders = watchProviders
+            fetchGroup.leave()
+        }
+        
+        fetchGroup.notify(queue: .main) {
+            self.openResultDetails()
         }
     }
 }

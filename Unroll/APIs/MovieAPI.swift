@@ -22,7 +22,6 @@ final class MovieApi {
     ]
     
     private var watchRegion: Location?
-    private var watchProviders: WatchProviders?
     
     // MARK: - Fetch Methods
     
