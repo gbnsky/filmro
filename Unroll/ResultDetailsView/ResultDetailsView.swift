@@ -107,10 +107,7 @@ class ResultDetailsView: UIView {
         guard let watchProviders = watchProviders else {
             return
         }
-        
         self.watchProviders = watchProviders
-        
-        print("inside:\n \(watchProviders)")
         setupMovieWatchProviders()
     }
     

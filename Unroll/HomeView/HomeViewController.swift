@@ -51,8 +51,13 @@ class HomeViewController: UIViewController {
 // MARK: - Delegates
 
 extension HomeViewController: HomeViewDelegate {
-    func homeButtonAction() {
+    func continueButtonAction() {
         let filterViewController = FilterViewController()
         navigationController?.pushViewController(filterViewController, animated: true)
+    }
+    
+    func aboutButtonAction() {
+        let creditViewController = CreditViewController()
+        navigationController?.pushViewController(creditViewController, animated: true)
     }
 }

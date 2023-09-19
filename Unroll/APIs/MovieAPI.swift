@@ -95,8 +95,6 @@ final class MovieApi {
                 return
             }
             
-            print("outside:\n \(watchProviders)")
-            
             completion(watchProviders)
         })
 

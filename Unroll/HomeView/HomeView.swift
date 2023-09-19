@@ -10,7 +10,8 @@ import UIKit
 // MARK: - Delegate
 
 protocol HomeViewDelegate: AnyObject {
-    func homeButtonAction()
+    func continueButtonAction()
+    func aboutButtonAction()
 }
 
 // MARK: - Class
@@ -112,7 +113,7 @@ class HomeView: UIView {
         button.layer.borderColor = Colors.blackOne.cgColor
         button.layer.borderWidth = 1
         button.layer.cornerRadius = 24
-        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(continueButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -122,7 +123,7 @@ class HomeView: UIView {
         button.setTitle("Or tap here to know more about the app.".localized(), for: .normal)
         button.setTitleColor(Colors.blackOne, for: .normal)
         button.titleLabel?.font = UIFont(name: Fonts.kanitRegular, size: 16)
-//        button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        button.addTarget(self, action: #selector(aboutButtonAction), for: .touchUpInside)
         return button
     }()
     
@@ -174,8 +175,13 @@ extension HomeView: UIPickerViewDataSource {
 extension HomeView {
     
     @objc
-    private func buttonAction() {
-        delegate?.homeButtonAction()
+    private func continueButtonAction() {
+        delegate?.continueButtonAction()
+    }
+    
+    @objc
+    private func aboutButtonAction() {
+        delegate?.aboutButtonAction()
     }
 }
 
