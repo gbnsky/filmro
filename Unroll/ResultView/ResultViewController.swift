@@ -51,9 +51,7 @@ class ResultViewController: UIViewController {
         
         resultDetailsViewController.setup(with: self.movieDetails)
 
-        if let watchProviders = self.watchProviders {
-            print("watch providers: \(watchProviders)")
-        }
+        resultDetailsViewController.setupWatchProviders(with: self.watchProviders)
         
         self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
     }

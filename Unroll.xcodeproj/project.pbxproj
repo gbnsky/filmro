@@ -47,6 +47,8 @@
 		DEB52D642AB8CADF00F571DD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D632AB8CADF00F571DD /* Language.swift */; };
 		DEB52D662AB8CBBF00F571DD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D652AB8CBBF00F571DD /* Location.swift */; };
 		DEB52D682AB8FFBD00F571DD /* WatchProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */; };
+		DEB52D6B2AB9F17B00F571DD /* WatchProvidersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D6A2AB9F17B00F571DD /* WatchProvidersHelper.swift */; };
+		DEB52D6E2ABA04C600F571DD /* WatchProvidersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D6D2ABA04C600F571DD /* WatchProvidersView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,8 @@
 		DEB52D632AB8CADF00F571DD /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DEB52D652AB8CBBF00F571DD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviders.swift; sourceTree = "<group>"; };
+		DEB52D6A2AB9F17B00F571DD /* WatchProvidersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProvidersHelper.swift; sourceTree = "<group>"; };
+		DEB52D6D2ABA04C600F571DD /* WatchProvidersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProvidersView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +312,8 @@
 		DEB52D5A2AB8706600F571DD /* ResultDetailsView */ = {
 			isa = PBXGroup;
 			children = (
+				DEB52D6C2ABA04A800F571DD /* WatchProvidersView */,
+				DEB52D692AB9F15F00F571DD /* Helpers */,
 				DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */,
 				DEB52D5D2AB8708800F571DD /* ResultDetailsViewController.swift */,
 			);
@@ -320,6 +326,22 @@
 				DEB52D612AB877D500F571DD /* Card.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		DEB52D692AB9F15F00F571DD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D6A2AB9F17B00F571DD /* WatchProvidersHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DEB52D6C2ABA04A800F571DD /* WatchProvidersView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D6D2ABA04C600F571DD /* WatchProvidersView.swift */,
+			);
+			path = WatchProvidersView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,6 +444,7 @@
 				DEB52D5E2AB8708800F571DD /* ResultDetailsViewController.swift in Sources */,
 				DE92A08E2AA8D99B007A7E46 /* HomeView.swift in Sources */,
 				DEB52D292AB0989100F571DD /* UIImageView+Extension.swift in Sources */,
+				DEB52D6E2ABA04C600F571DD /* WatchProvidersView.swift in Sources */,
 				DE92A0C32AAB7529007A7E46 /* GenreView.swift in Sources */,
 				DE92A0752AA3A32C007A7E46 /* AppDelegate.swift in Sources */,
 				DE92A0A12AAA373F007A7E46 /* Colors.swift in Sources */,
@@ -431,6 +454,7 @@
 				DEB52D2E2AB2150700F571DD /* Filters.swift in Sources */,
 				DE92A09E2AAA15EB007A7E46 /* FilterView.swift in Sources */,
 				DE92A09C2AAA0D7C007A7E46 /* FilterViewController.swift in Sources */,
+				DEB52D6B2AB9F17B00F571DD /* WatchProvidersHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

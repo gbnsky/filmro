@@ -94,7 +94,9 @@ final class MovieApi {
             guard let watchProviders = try? decoder.decode(WatchProviders.self, from: data) else {
                 return
             }
-
+            
+            print("outside:\n \(watchProviders)")
+            
             completion(watchProviders)
         })
 

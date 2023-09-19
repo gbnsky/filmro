@@ -29,7 +29,7 @@ struct WatchProviderResult: Codable {
     let flatrate: [WatchProvider]?
 }
 
-struct WatchProvider: Codable {
+struct WatchProvider: Codable, Equatable {
     let logoPath: String?
     let providerId: Int?
     let providerName: String?

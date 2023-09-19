@@ -66,14 +66,15 @@ class ResultDetailsView: UIView {
         return card
     }()
     
-    private lazy var movieWatchProviders: Card = {
-        let card = Card()
-        return card
+    private lazy var movieWatchProviders: WatchProvidersView = {
+        let view = WatchProvidersView()
+        return view
     }()
     
     // MARK: - Private Properties
     
     private var movie: Movie?
+    private var watchProviders: WatchProviders?
     
     // MARK: - Initializers
     
@@ -100,6 +101,17 @@ class ResultDetailsView: UIView {
         setupMovieOriginalTitle()
         setupMovieTagline()
         setupMovieOverview()
+    }
+    
+    func setupWatchProviders(with watchProviders: WatchProviders?) {
+        guard let watchProviders = watchProviders else {
+            return
+        }
+        
+        self.watchProviders = watchProviders
+        
+        print("inside:\n \(watchProviders)")
+        setupMovieWatchProviders()
     }
     
     // MARK: - Private Methods
@@ -191,6 +203,34 @@ class ResultDetailsView: UIView {
         movieOverview.backgroundTint = Colors.purple
         
         stackView.addArrangedSubview(movieOverview)
+    }
+    
+    private func setupMovieWatchProviders() {
+        if getWatchProvidersNames().isEmpty {
+            return
+        }
+        
+        movieWatchProviders.title = "Watch Providers".localized()
+        movieWatchProviders.text = getWatchProvidersNames()
+        movieWatchProviders.backgroundTint = Colors.green
+        
+        stackView.addArrangedSubview(movieWatchProviders)
+    }
+    
+    private func getWatchProvidersNames() -> String {
+        guard let watchProviders = watchProviders else {
+            return String()
+        }
+        
+        let helper = WatchProvidersHelper(watchProviders: watchProviders)
+        var watchProvidersNames = String()
+
+        let providers = helper.getFlatrateWatchProvidersNames()
+        if !providers.isEmpty {
+            watchProvidersNames.append(providers)
+        }
+        
+        return watchProvidersNames
     }
     
     // Helper Methods

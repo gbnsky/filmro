@@ -33,4 +33,8 @@ class ResultDetailsViewController: UIViewController {
     func setup(with movie: Movie?) {
         resultDetaisView.setup(with: movie)
     }
+    
+    func setupWatchProviders(with watchProviders: WatchProviders?) {
+        resultDetaisView.setupWatchProviders(with: watchProviders)
+    }
 }
