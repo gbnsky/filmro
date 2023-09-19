@@ -50,6 +50,18 @@
 
 "JustWatch helps you to find legally watch providers for your movies and tv series. Go to JustWatch.com to see more." = "JustWatch ajuda você a encontrar legalmente quais serviços possuem filmes e séries. Acesse JustWatch.com para saber mais.";
 
+// MARK: - Credits
+
+"Film Data" = "Dados de filmes";
+
+"All film data used on Unroll are supplied by The Movie Database. If you want to add or modify any movie informartion that seems off, you can tap here, create an account on TMDb and do the specific changes. Rolly will appreciate that." = "Todos os dados relacionados a filmes presentes no Unroll são da base The Movie Database. Se você deseja adicionar ou modificar alguma informação que pareça errada, você pode tocar aqui, criar uma conta na TMDb e fazer as respectivas alterações. O Rolinho agradeceria muito.";
+
+"Watch Providers Data" = "Dados de provedores";
+
+"Watch providers data are related to JustWatch. If you want to know more about it, just tap here." = "Dados de provedores são relacionados ao JustWatch. Se você deseja saber mais sobre a plataforma, você pode tocar aqui.";
+
+"This app were designed and developed by\nGabriel Garcia." = "Essa aplicação foi desenhada e desenvolvida por Gabriel Garcia.";
+
 // MARK: - Countries
 
 "United States of America" = "Estados Unidos da América";

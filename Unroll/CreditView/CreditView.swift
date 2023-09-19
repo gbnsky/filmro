@@ -122,10 +122,77 @@ class CreditView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
+        setupTmdbGesture()
+        setupJustWatchGesture()
+        setupAboutGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private methods
+    
+    private func setupTmdbGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(openTmdb))
+        tmdbText.isUserInteractionEnabled = true
+        tmdbText.addGestureRecognizer(gesture)
+    }
+    
+    private func setupJustWatchGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(openJustWatch))
+        justWatchText.isUserInteractionEnabled = true
+        justWatchText.addGestureRecognizer(gesture)
+    }
+    
+    private func setupAboutGesture() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(openAbout))
+        aboutText.isUserInteractionEnabled = true
+        aboutText.addGestureRecognizer(gesture)
+    }
+}
+
+// MARK: - Actions
+
+extension CreditView {
+    
+    @objc
+    private func openTmdb() {
+        guard let url = URL(string: "https://www.themoviedb.org") else {
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    @objc
+    private func openJustWatch() {
+        guard let url = URL(string: "https://www.justwatch.com") else {
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    @objc
+    private func openAbout() {
+        guard let url = URL(string: "https://www.linkedin.com/in/ggarciamartins/") else {
+            return
+        }
+        
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
 }
 
