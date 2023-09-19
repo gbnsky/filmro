@@ -46,6 +46,7 @@
 		DEB52D622AB877D500F571DD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D612AB877D500F571DD /* Card.swift */; };
 		DEB52D642AB8CADF00F571DD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D632AB8CADF00F571DD /* Language.swift */; };
 		DEB52D662AB8CBBF00F571DD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D652AB8CBBF00F571DD /* Location.swift */; };
+		DEB52D682AB8FFBD00F571DD /* WatchProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		DEB52D612AB877D500F571DD /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		DEB52D632AB8CADF00F571DD /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DEB52D652AB8CBBF00F571DD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				DEB52D442AB35EBD00F571DD /* SortBy.swift */,
 				DEB52D632AB8CADF00F571DD /* Language.swift */,
 				DEB52D652AB8CBBF00F571DD /* Location.swift */,
+				DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEB52D682AB8FFBD00F571DD /* WatchProviders.swift in Sources */,
 				DEB52D192AAF778500F571DD /* Movies.swift in Sources */,
 				DEB52D642AB8CADF00F571DD /* Language.swift in Sources */,
 				DEB52D5C2AB8707D00F571DD /* ResultDetailsView.swift in Sources */,

@@ -30,7 +30,7 @@ class ResultDetailsViewController: UIViewController {
     
     // MARK: - Methods
     
-    func setup(with movie: Movie) {
+    func setup(with movie: Movie?) {
         resultDetaisView.setup(with: movie)
     }
 }

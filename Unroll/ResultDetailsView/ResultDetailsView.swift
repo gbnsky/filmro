@@ -66,6 +66,11 @@ class ResultDetailsView: UIView {
         return card
     }()
     
+    private lazy var movieWatchProviders: Card = {
+        let card = Card()
+        return card
+    }()
+    
     // MARK: - Private Properties
     
     private var movie: Movie?
@@ -83,7 +88,11 @@ class ResultDetailsView: UIView {
     
     // MARK: - Exposed Methods
     
-    func setup(with movie: Movie) {
+    func setup(with movie: Movie?) {
+        guard let movie = movie else {
+            return
+        }
+        
         self.movie = movie
         
         setupMovieBackdrop()
@@ -183,6 +192,8 @@ class ResultDetailsView: UIView {
         
         stackView.addArrangedSubview(movieOverview)
     }
+    
+    // Helper Methods
     
     private func getFormattedMovieReleaseDate(from releaseDate: String) -> String {
         let separator = String("-")

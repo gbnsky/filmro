@@ -19,6 +19,7 @@ class ResultViewController: UIViewController {
     // MARK: - Properties
     
     private var movieDetails: Movie?
+    private var watchProviders: WatchProviders?
     
     // MARK: - Lifecycle
     
@@ -42,7 +43,7 @@ class ResultViewController: UIViewController {
 // MARK: - Delegates
 
 extension ResultViewController: ResultCollectionViewCellDelegate {
-    
+
     func fetchResultDetails(from movie: Movie) {
         let group = DispatchGroup()
         group.enter()
@@ -54,15 +55,8 @@ extension ResultViewController: ResultCollectionViewCellDelegate {
         
         group.notify(queue: .main) {
             
-            guard let movieDetails = self.movieDetails else {
-                return
-            }
-            
             let resultDetailsViewController = ResultDetailsViewController()
-            
-            print(movieDetails)
-            
-            resultDetailsViewController.setup(with: movieDetails)
+            resultDetailsViewController.setup(with: self.movieDetails)
             self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
         }
     }

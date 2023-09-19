@@ -22,6 +22,7 @@ final class MovieApi {
     ]
     
     private var watchRegion: Location?
+    private var watchProviders: WatchProviders?
     
     // MARK: - Fetch Methods
     
@@ -61,6 +62,43 @@ final class MovieApi {
             completion(movieGenres.genres)
         })
         
+        dataTask.resume()
+    }
+    
+    func getWatchProviders(for movie: Movie, completion: @escaping (WatchProviders?) -> ()) {
+        
+        guard let movieId = movie.id else {
+            return
+        }
+        
+        let url = baseUrl.appending(component: "movie/\(movieId)/watch/providers")
+        
+        let request = NSMutableURLRequest(url: url,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+
+            guard let data = data else {
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                return
+            }
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            guard let watchProviders = try? decoder.decode(WatchProviders.self, from: data) else {
+                return
+            }
+
+            completion(watchProviders)
+        })
+
         dataTask.resume()
     }
     
