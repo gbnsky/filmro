@@ -312,8 +312,8 @@
 		DEB52D5A2AB8706600F571DD /* ResultDetailsView */ = {
 			isa = PBXGroup;
 			children = (
-				DEB52D6C2ABA04A800F571DD /* WatchProvidersView */,
 				DEB52D692AB9F15F00F571DD /* Helpers */,
+				DEB52D6C2ABA04A800F571DD /* WatchProvidersView */,
 				DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */,
 				DEB52D5D2AB8708800F571DD /* ResultDetailsViewController.swift */,
 			);

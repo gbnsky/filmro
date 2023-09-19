@@ -37,6 +37,16 @@ class WatchProvidersView: UIView {
         return label
     }()
     
+    private lazy var cardSubtitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.kanitRegular, size: 14)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        return label
+    }()
+    
     private lazy var cardDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -105,6 +115,7 @@ class WatchProvidersView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
+        setupCardSubtitle()
         setupTapGesture()
     }
     
@@ -121,6 +132,11 @@ class WatchProvidersView: UIView {
     }
     
     // MARK: - Private Methods
+    
+    private func setupCardSubtitle() {
+        let regionName = MovieApi.shared.getWatchRegion().title
+        cardSubtitle.text = regionName
+    }
     
     private func setupTapGesture() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(openUrl))
@@ -154,10 +170,12 @@ extension WatchProvidersView {
     private func loadView() {
         addSubviews()
         addConstraints()
+        addCustomSpacings()
     }
     
     private func addSubviews() {
         stackView.addArrangedSubview(cardTitle)
+        stackView.addArrangedSubview(cardSubtitle)
         stackView.addArrangedSubview(cardDescription)
         justWatchStackView.addArrangedSubview(justWatchLogo)
         justWatchStackView.addArrangedSubview(justWatchDescription)
@@ -187,5 +205,12 @@ extension WatchProvidersView {
             justWatchLogo.widthAnchor.constraint(equalToConstant: 100),
             justWatchLogo.heightAnchor.constraint(equalToConstant: 24),
         ])
+    }
+    
+    private func addCustomSpacings() {
+        
+        // card title
+        
+        stackView.setCustomSpacing(.zero, after: cardTitle)
     }
 }
