@@ -41,7 +41,7 @@ class CreditView: UIView {
         return imageView
     }()
     
-    private lazy var title: UILabel = {
+    private lazy var tmdbTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.blackOne
@@ -53,7 +53,7 @@ class CreditView: UIView {
         return label
     }()
     
-    private lazy var text: UILabel = {
+    private lazy var tmdbText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.blackOne
@@ -65,7 +65,39 @@ class CreditView: UIView {
         return label
     }()
     
-    private lazy var secondaryText: UILabel = {
+    private lazy var justWatchLogo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "just-watch")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
+    private lazy var justWatchTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.breeSerif, size: 32)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.text = "Watch Providers Data".localized()
+        return label
+    }()
+    
+    private lazy var justWatchText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .justified
+        label.text = "Watch providers data are related to JustWatch. If you want to know more about it, just tap here.".localized()
+        return label
+    }()
+    
+    private lazy var aboutText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.orange
@@ -105,15 +137,19 @@ extension CreditView {
         addSubviews()
         addConstraints()
         addAdditionalConstraints()
+        addCustomSpacings()
     }
     
     private func addSubviews() {
         stackView.addArrangedSubview(tmdbLogo)
-        stackView.addArrangedSubview(title)
-        stackView.addArrangedSubview(text)
-        stackView.addArrangedSubview(secondaryText)
-        stackView.addArrangedSubview(mascot)
+        stackView.addArrangedSubview(tmdbTitle)
+        stackView.addArrangedSubview(tmdbText)
+        stackView.addArrangedSubview(justWatchLogo)
+        stackView.addArrangedSubview(justWatchTitle)
+        stackView.addArrangedSubview(justWatchText)
+        stackView.addArrangedSubview(aboutText)
         scrollView.addSubview(stackView)
+        scrollView.addSubview(mascot)
         addSubview(scrollView)
     }
     
@@ -131,23 +167,47 @@ extension CreditView {
             
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.rightAnchor.constraint(equalTo: scrollView.rightAnchor),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.leftAnchor.constraint(equalTo: scrollView.leftAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-
+            
+            // mascot
+            
+            mascot.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            mascot.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: UIApplication.safeAreaEdgeInsets.bottom),
+            mascot.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            mascot.centerXAnchor.constraint(equalTo: centerXAnchor),
         ])
     }
     
     private func addAdditionalConstraints() {
         NSLayoutConstraint.activate([
             
-            // logo
+            // tmdb logo
             
             tmdbLogo.heightAnchor.constraint(equalToConstant: 72),
+            
+            // just watch
+            
+            justWatchLogo.heightAnchor.constraint(equalToConstant: 32),
             
             // mascot
 
             mascot.heightAnchor.constraint(equalTo: mascot.widthAnchor, multiplier: mascot.fullHeightRatio()),
         ])
+    }
+    
+    private func addCustomSpacings() {
+        
+        // tmdb text
+        
+        stackView.setCustomSpacing(32, after: tmdbText)
+        
+        // just watch text
+        
+        stackView.setCustomSpacing(32, after: justWatchText)
+        
+        // about text
+        
+        stackView.setCustomSpacing(.zero, after: aboutText)
     }
 }
