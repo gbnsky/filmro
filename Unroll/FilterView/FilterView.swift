@@ -67,6 +67,12 @@ class FilterView: UIView {
         return view
     }()
     
+    private lazy var watchProviderView: WatchProviderFilterView = {
+        let view = WatchProviderFilterView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -106,12 +112,17 @@ class FilterView: UIView {
         genreView.setup(with: genres)
     }
     
+    func setupWatchProviderView(with watchProviders: [WatchProvider]?) {
+        watchProviderView.setup(with: watchProviders)
+    }
+    
     // MARK: - Private Methods
     
     private func setupFilters() {
         let filters = Filters(page: "1",
                               sortBy: sortByView.getSelectedSortBy(),
-                              genres: genreView.getSelectedGenres())
+                              genres: genreView.getSelectedGenres(),
+                              watchProviders: watchProviderView.getSelectedWatchProviders())
         self.filters = filters
     }
 }
@@ -143,6 +154,7 @@ extension FilterView {
         stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
         stackView.addArrangedSubview(genreView)
         stackView.addArrangedSubview(sortByView)
+        stackView.addArrangedSubview(watchProviderView)
         scrollView.addSubview(stackView)
         addSubview(scrollView)
         addSubview(button)
@@ -179,6 +191,10 @@ extension FilterView {
             // sort by view
             
             sortByView.heightAnchor.constraint(equalToConstant: 160),
+            
+            // provider view
+            
+            watchProviderView.heightAnchor.constraint(equalToConstant: 160),
 
             // button
 

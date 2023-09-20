@@ -20,7 +20,7 @@ class ResultViewController: UIViewController {
     
     private var currentMovie: Movie?
     private var movieDetails: Movie?
-    private var watchProviders: WatchProviders?
+    private var watchProviders: WatchProvidersResponse?
     
     // MARK: - Lifecycle
     
@@ -73,7 +73,7 @@ extension ResultViewController: ResultCollectionViewCellDelegate {
         
         fetchGroup.enter()
         
-        MovieApi.shared.getWatchProviders(for: movie) { watchProviders in
+        MovieApi.shared.getWatchProvidersResponse(for: movie) { watchProviders in
             self.watchProviders = watchProviders
             fetchGroup.leave()
         }

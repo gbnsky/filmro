@@ -7,7 +7,9 @@
 
 import UIKit
 
-struct WatchProviders: Codable {
+// MARK: - Response
+
+struct WatchProvidersResponse: Codable {
     let id: Int?
     let results: WatchProviderResults?
 }
@@ -24,14 +26,37 @@ struct WatchProviderResults: Codable {
 
 struct WatchProviderResult: Codable {
     let link: String?
-    let rent: [WatchProvider]?
-    let buy: [WatchProvider]?
-    let flatrate: [WatchProvider]?
+    let rent: [WatchProviderResponse]?
+    let buy: [WatchProviderResponse]?
+    let flatrate: [WatchProviderResponse]?
 }
 
-struct WatchProvider: Codable, Equatable {
+struct WatchProviderResponse: Codable, Equatable {
     let logoPath: String?
     let providerId: Int?
     let providerName: String?
     let displayPriority: Int?
+}
+
+// MARK: - Type
+
+struct WatchProviders: Codable {
+    let results: [WatchProvider]
+}
+
+struct WatchProvider: Codable, Equatable {
+    let displayPriorities: DisplayPriority
+    let displayPriority: Int
+    let providerName: String
+    let providerId: Int
+}
+
+struct DisplayPriority: Codable, Equatable {
+    let us: Int?
+    let br: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case us = "US"
+        case br = "BR"
+    }
 }

@@ -15,32 +15,51 @@ class Filters {
     let includeVideo = "false"
     let sortBy: SortBy
     let genres: [Genre]
+    let watchProviders: [WatchProvider]
     var page = String()
     
     // MARK: - Initializers
     
-    init(page: String, sortBy: SortBy, genres: [Genre]) {
+    init(page: String, sortBy: SortBy, genres: [Genre], watchProviders: [WatchProvider]) {
         self.page = page
         self.sortBy = sortBy
         self.genres = genres
+        self.watchProviders = watchProviders
     }
     
     // MARK: - Methods
     
     func getFormattedGenres() -> String {
-        var genreIdsString = String()
+        var ids = String()
         
         for genre in genres {
-            let genreIdString = String(genre.id)
-            genreIdsString.append(genreIdString)
+            let id = String(genre.id)
+            ids.append(id)
             
             if genre == genres.last {
                 break
             }
             
-            genreIdsString.append(",")
+            ids.append(",")
         }
         
-        return genreIdsString
+        return ids
+    }
+    
+    func getFormattedWatchProviders() -> String {
+        var ids = String()
+        
+        for watchProvider in watchProviders {
+            let id = String(watchProvider.providerId)
+            ids.append(id)
+            
+            if watchProvider == watchProviders.last {
+                break
+            }
+            
+            ids.append("|")
+        }
+        
+        return ids
     }
 }

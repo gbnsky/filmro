@@ -47,10 +47,12 @@
 		DEB52D642AB8CADF00F571DD /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D632AB8CADF00F571DD /* Language.swift */; };
 		DEB52D662AB8CBBF00F571DD /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D652AB8CBBF00F571DD /* Location.swift */; };
 		DEB52D682AB8FFBD00F571DD /* WatchProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */; };
-		DEB52D6B2AB9F17B00F571DD /* WatchProvidersHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D6A2AB9F17B00F571DD /* WatchProvidersHelper.swift */; };
+		DEB52D6B2AB9F17B00F571DD /* WatchProvidersResponseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D6A2AB9F17B00F571DD /* WatchProvidersResponseHelper.swift */; };
 		DEB52D6E2ABA04C600F571DD /* WatchProvidersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D6D2ABA04C600F571DD /* WatchProvidersView.swift */; };
 		DEB52D712ABA386200F571DD /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D702ABA386200F571DD /* CreditViewController.swift */; };
 		DEB52D732ABA389300F571DD /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D722ABA389300F571DD /* CreditView.swift */; };
+		DEB52D762ABB37F600F571DD /* WatchProviderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D752ABB37F600F571DD /* WatchProviderFilterView.swift */; };
+		DEB52D792ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,10 +99,12 @@
 		DEB52D632AB8CADF00F571DD /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		DEB52D652AB8CBBF00F571DD /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviders.swift; sourceTree = "<group>"; };
-		DEB52D6A2AB9F17B00F571DD /* WatchProvidersHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProvidersHelper.swift; sourceTree = "<group>"; };
+		DEB52D6A2AB9F17B00F571DD /* WatchProvidersResponseHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProvidersResponseHelper.swift; sourceTree = "<group>"; };
 		DEB52D6D2ABA04C600F571DD /* WatchProvidersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProvidersView.swift; sourceTree = "<group>"; };
 		DEB52D702ABA386200F571DD /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
 		DEB52D722ABA389300F571DD /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
+		DEB52D752ABB37F600F571DD /* WatchProviderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderFilterView.swift; sourceTree = "<group>"; };
+		DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderFilterCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,7 @@
 				DE92A0B92AAB4ABC007A7E46 /* GenreView */,
 				DEB52D2F2AB2665400F571DD /* RuntimeView */,
 				DEB52D372AB3594D00F571DD /* SortByView */,
+				DEB52D742ABB37D200F571DD /* WatchProviderFilterView */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -336,7 +341,7 @@
 		DEB52D692AB9F15F00F571DD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DEB52D6A2AB9F17B00F571DD /* WatchProvidersHelper.swift */,
+				DEB52D6A2AB9F17B00F571DD /* WatchProvidersResponseHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -356,6 +361,23 @@
 				DEB52D722ABA389300F571DD /* CreditView.swift */,
 			);
 			path = CreditView;
+			sourceTree = "<group>";
+		};
+		DEB52D742ABB37D200F571DD /* WatchProviderFilterView */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D772ABB381500F571DD /* Cell */,
+				DEB52D752ABB37F600F571DD /* WatchProviderFilterView.swift */,
+			);
+			path = WatchProviderFilterView;
+			sourceTree = "<group>";
+		};
+		DEB52D772ABB381500F571DD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +457,7 @@
 			files = (
 				DEB52D682AB8FFBD00F571DD /* WatchProviders.swift in Sources */,
 				DEB52D192AAF778500F571DD /* Movies.swift in Sources */,
+				DEB52D792ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift in Sources */,
 				DEB52D642AB8CADF00F571DD /* Language.swift in Sources */,
 				DEB52D712ABA386200F571DD /* CreditViewController.swift in Sources */,
 				DEB52D5C2AB8707D00F571DD /* ResultDetailsView.swift in Sources */,
@@ -470,7 +493,8 @@
 				DEB52D2E2AB2150700F571DD /* Filters.swift in Sources */,
 				DE92A09E2AAA15EB007A7E46 /* FilterView.swift in Sources */,
 				DE92A09C2AAA0D7C007A7E46 /* FilterViewController.swift in Sources */,
-				DEB52D6B2AB9F17B00F571DD /* WatchProvidersHelper.swift in Sources */,
+				DEB52D762ABB37F600F571DD /* WatchProviderFilterView.swift in Sources */,
+				DEB52D6B2AB9F17B00F571DD /* WatchProvidersResponseHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

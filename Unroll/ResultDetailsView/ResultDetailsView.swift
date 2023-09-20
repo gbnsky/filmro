@@ -74,7 +74,7 @@ class ResultDetailsView: UIView {
     // MARK: - Private Properties
     
     private var movie: Movie?
-    private var watchProviders: WatchProviders?
+    private var watchProviders: WatchProvidersResponse?
     
     // MARK: - Initializers
     
@@ -103,7 +103,7 @@ class ResultDetailsView: UIView {
         setupMovieOverview()
     }
     
-    func setupWatchProviders(with watchProviders: WatchProviders?) {
+    func setupWatchProviders(with watchProviders: WatchProvidersResponse?) {
         guard let watchProviders = watchProviders else {
             return
         }
@@ -219,7 +219,7 @@ class ResultDetailsView: UIView {
             return String()
         }
         
-        let helper = WatchProvidersHelper(watchProviders: watchProviders)
+        let helper = WatchProvidersResponseHelper(watchProviders: watchProviders)
         var watchProvidersNames = String()
 
         let providers = helper.getFlatrateWatchProvidersNames()

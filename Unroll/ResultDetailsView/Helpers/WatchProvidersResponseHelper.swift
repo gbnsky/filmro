@@ -9,17 +9,17 @@ import UIKit
 
 // MARK: - Class
 
-class WatchProvidersHelper {
+class WatchProvidersResponseHelper {
     
     // MARK: - Properties
     
     private let region: Location = MovieApi.shared.getWatchRegion()
     
-    private let watchProviders: WatchProviders
+    private let watchProviders: WatchProvidersResponse
     
     // MARK: - Initializers
     
-    init(watchProviders: WatchProviders) {
+    init(watchProviders: WatchProvidersResponse) {
         self.watchProviders = watchProviders
     }
     
@@ -46,7 +46,7 @@ class WatchProvidersHelper {
     
     // MARK: - Private Methods
 
-    private func getFlatrateWatchProviders() -> [WatchProvider]? {
+    private func getFlatrateWatchProviders() -> [WatchProviderResponse]? {
         let result = getWatchProviderResult()
         return result?.flatrate
     }

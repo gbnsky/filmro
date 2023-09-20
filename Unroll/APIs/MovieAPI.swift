@@ -64,7 +64,49 @@ final class MovieApi {
         dataTask.resume()
     }
     
-    func getWatchProviders(for movie: Movie, completion: @escaping (WatchProviders?) -> ()) {
+    /// Gets all the enable watch providers on API
+    /// - Parameter completion: returns an array of watch provider
+    func getWatchProviderList(completion: @escaping ([WatchProvider]?) -> ()) {
+        
+        var url = baseUrl.appending(component: "watch/providers/movie")
+        let queryItems = [
+            URLQueryItem(name: "language", value: getLanguage().query),
+            URLQueryItem(name: "watch_region", value: getWatchRegion().query),
+        ]
+        url.append(queryItems: queryItems)
+        
+        let request = NSMutableURLRequest(url: url,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+
+        let dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+            
+            guard let data = data else {
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            
+            guard let watchProviders = try? decoder.decode(WatchProviders.self, from: data) else {
+                return
+            }
+            
+            print(watchProviders)
+            
+            completion(watchProviders.results)
+        })
+        
+        dataTask.resume()
+    }
+    
+    func getWatchProvidersResponse(for movie: Movie, completion: @escaping (WatchProvidersResponse?) -> ()) {
         
         guard let movieId = movie.id else {
             return
@@ -91,7 +133,7 @@ final class MovieApi {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
 
-            guard let watchProviders = try? decoder.decode(WatchProviders.self, from: data) else {
+            guard let watchProviders = try? decoder.decode(WatchProvidersResponse.self, from: data) else {
                 return
             }
             
@@ -116,6 +158,7 @@ final class MovieApi {
             URLQueryItem(name: "page", value: filters.page),
             URLQueryItem(name: "sort_by", value: filters.sortBy.query),
             URLQueryItem(name: "with_genres", value: filters.getFormattedGenres()),
+            URLQueryItem(name: "with_watch_providers", value: filters.getFormattedWatchProviders()),
         ]
         url.append(queryItems: queryItems)
         
