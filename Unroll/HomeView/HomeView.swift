@@ -136,10 +136,18 @@ class HomeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
+        setupPickerStyle()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods
+    
+    private func setupPickerStyle() {
+        regionPicker.backgroundColor = Colors.orange
+        regionPicker.layer.borderWidth = 1
     }
 }
 
@@ -157,6 +165,14 @@ extension HomeView: UIPickerViewDelegate {
         
         regionTextField.text = region.title
         regionTextField.resignFirstResponder()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 48
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        <#code#>
     }
 }
 
@@ -241,6 +257,10 @@ extension HomeView {
             // region text field
 
             regionTextField.heightAnchor.constraint(equalToConstant: 48),
+            
+            // region picker view
+            
+            regionPicker.heightAnchor.constraint(equalToConstant: 160),
 
             // continue button
 
