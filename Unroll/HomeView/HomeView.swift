@@ -172,7 +172,22 @@ extension HomeView: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        <#code#>
+        var label: UILabel? = view as? UILabel
+        
+        if label == nil {
+            label = UILabel()
+            label?.font = UIFont(name: Fonts.kanitRegular, size: 16)
+            label?.textAlignment = .center
+        }
+
+        guard let label = label else {
+            return UILabel()
+        }
+        
+        label.text = Location.allCases[row].title
+        label.textColor = Colors.blackOne
+        
+        return label
     }
 }
 
