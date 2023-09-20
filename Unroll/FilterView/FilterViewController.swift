@@ -49,6 +49,14 @@ class FilterViewController: UIViewController {
             self.filterView.setupWatchProviderView(with: watchProviders)
         }
     }
+    
+    private func openErrorAlert() {
+        let alert = UIAlertController(title: "This roll has no film ):", message: "There are no results with the selected features. Please, try different ones.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        
+        self.present(alert, animated: true)
+    }
 }
 
 // MARK: - Delegates
@@ -66,7 +74,8 @@ extension FilterViewController: FilterViewDelegate {
         
         group.notify(queue: .main) {
             
-            guard let movies = self.movies else {
+            guard let movies = self.movies, !movies.results.isEmpty else {
+                self.openErrorAlert()
                 return
             }
             

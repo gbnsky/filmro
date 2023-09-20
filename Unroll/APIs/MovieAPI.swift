@@ -98,8 +98,6 @@ final class MovieApi {
                 return
             }
             
-            print(watchProviders)
-            
             completion(watchProviders.results)
         })
         
