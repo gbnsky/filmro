@@ -51,7 +51,9 @@ class FilterViewController: UIViewController {
     }
     
     private func openErrorAlert() {
-        let alert = UIAlertController(title: "This roll has no film ):", message: "There are no results with the selected features. Please, try different ones.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "This roll has no film ):".localized(),
+                                      message: "There are no results with the selected features. Please, try different ones.".localized(),
+                                      preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
         

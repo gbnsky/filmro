@@ -36,6 +36,10 @@
 
 "Unpopular" = "Menos populares";
 
+"This roll has no film ):" = "Esse rolo não tem filme ):";
+
+"There are no results with the selected features. Please, try different ones." = "Não há resultados para os filtros selecionados. Por favor, tente novamente.";
+
 // MARK: - Results
 
 "Overview" = "Descrição";
