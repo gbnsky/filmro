@@ -44,8 +44,8 @@ class GenreView: UIView {
     
     // MARK: - Properties
     
-    private var loadedGenres: [Genre] = []
-    private var selectedGenres: [Genre] = []
+    var loadedGenres: [Genre] = []
+    var selectedGenres: [Genre] = []
     
     // MARK: - Initializers
     

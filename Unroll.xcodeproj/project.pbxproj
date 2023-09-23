@@ -55,7 +55,18 @@
 		DEB52D792ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DE0597742ABF201D007E6A62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE92A0692AA3A32C007A7E46 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE92A0702AA3A32C007A7E46;
+			remoteInfo = Unroll;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		DE0597702ABF201D007E6A62 /* UnrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE92A0712AA3A32C007A7E46 /* Unroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,9 +116,17 @@
 		DEB52D722ABA389300F571DD /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		DEB52D752ABB37F600F571DD /* WatchProviderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderFilterView.swift; sourceTree = "<group>"; };
 		DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderFilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DEEF33B32ABF20DF003DAC7F /* Unroll.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Unroll.xctestplan; path = UnrollTests/Unroll.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DE05976D2ABF201D007E6A62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE92A06E2AA3A32C007A7E46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -121,6 +140,7 @@
 		DE92A0682AA3A32C007A7E46 = {
 			isa = PBXGroup;
 			children = (
+				DEEF33B32ABF20DF003DAC7F /* Unroll.xctestplan */,
 				DE92A0732AA3A32C007A7E46 /* Unroll */,
 				DE92A0722AA3A32C007A7E46 /* Products */,
 			);
@@ -130,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				DE92A0712AA3A32C007A7E46 /* Unroll.app */,
+				DE0597702ABF201D007E6A62 /* UnrollTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,8 +183,8 @@
 		DE92A08A2AA8D87C007A7E46 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				DE92A08D2AA8D99B007A7E46 /* HomeView.swift */,
 				DE92A0782AA3A32C007A7E46 /* HomeViewController.swift */,
+				DE92A08D2AA8D99B007A7E46 /* HomeView.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -188,12 +209,12 @@
 		DE92A0992AAA0D2B007A7E46 /* FilterView */ = {
 			isa = PBXGroup;
 			children = (
-				DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */,
-				DE92A09D2AAA15EB007A7E46 /* FilterView.swift */,
 				DE92A0B92AAB4ABC007A7E46 /* GenreView */,
 				DEB52D2F2AB2665400F571DD /* RuntimeView */,
 				DEB52D372AB3594D00F571DD /* SortByView */,
 				DEB52D742ABB37D200F571DD /* WatchProviderFilterView */,
+				DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */,
+				DE92A09D2AAA15EB007A7E46 /* FilterView.swift */,
 			);
 			path = FilterView;
 			sourceTree = "<group>";
@@ -251,8 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				DEB52D242AB08F2200F571DD /* Cell */,
-				DEB52D1D2AAF8BD700F571DD /* ResultView.swift */,
 				DEB52D1F2AAF8BE400F571DD /* ResultViewController.swift */,
+				DEB52D1D2AAF8BD700F571DD /* ResultView.swift */,
 			);
 			path = ResultView;
 			sourceTree = "<group>";
@@ -324,8 +345,8 @@
 			children = (
 				DEB52D692AB9F15F00F571DD /* Helpers */,
 				DEB52D6C2ABA04A800F571DD /* WatchProvidersView */,
-				DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */,
 				DEB52D5D2AB8708800F571DD /* ResultDetailsViewController.swift */,
+				DEB52D5B2AB8707D00F571DD /* ResultDetailsView.swift */,
 			);
 			path = ResultDetailsView;
 			sourceTree = "<group>";
@@ -383,6 +404,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DE05976F2ABF201D007E6A62 /* UnrollTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE0597762ABF201D007E6A62 /* Build configuration list for PBXNativeTarget "UnrollTests" */;
+			buildPhases = (
+				DE05976C2ABF201D007E6A62 /* Sources */,
+				DE05976D2ABF201D007E6A62 /* Frameworks */,
+				DE05976E2ABF201D007E6A62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE0597752ABF201D007E6A62 /* PBXTargetDependency */,
+			);
+			name = UnrollTests;
+			productName = UnrollTests;
+			productReference = DE0597702ABF201D007E6A62 /* UnrollTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DE92A0702AA3A32C007A7E46 /* Unroll */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE92A0852AA3A32D007A7E46 /* Build configuration list for PBXNativeTarget "Unroll" */;
@@ -410,6 +449,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					DE05976F2ABF201D007E6A62 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DE92A0702AA3A32C007A7E46;
+					};
 					DE92A0702AA3A32C007A7E46 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -430,11 +473,19 @@
 			projectRoot = "";
 			targets = (
 				DE92A0702AA3A32C007A7E46 /* Unroll */,
+				DE05976F2ABF201D007E6A62 /* UnrollTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DE05976E2ABF201D007E6A62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE92A06F2AA3A32C007A7E46 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -451,6 +502,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DE05976C2ABF201D007E6A62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DE92A06D2AA3A32C007A7E46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -500,6 +558,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DE0597752ABF201D007E6A62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE92A0702AA3A32C007A7E46 /* Unroll */;
+			targetProxy = DE0597742ABF201D007E6A62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DE92A07F2AA3A32D007A7E46 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -521,6 +587,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DE0597772ABF201D007E6A62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VHXK59YD8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.UnrollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unroll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Unroll";
+			};
+			name = Debug;
+		};
+		DE0597782ABF201D007E6A62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VHXK59YD8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.UnrollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unroll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Unroll";
+			};
+			name = Release;
+		};
 		DE92A0832AA3A32D007A7E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -694,6 +796,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DE0597762ABF201D007E6A62 /* Build configuration list for PBXNativeTarget "UnrollTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE0597772ABF201D007E6A62 /* Debug */,
+				DE0597782ABF201D007E6A62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DE92A06C2AA3A32C007A7E46 /* Build configuration list for PBXProject "Unroll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
