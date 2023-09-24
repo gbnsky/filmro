@@ -25,6 +25,14 @@ class GenreCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    // MARK: - Properties
+    
+    override var isSelected: Bool {
+        didSet {
+            layer.borderWidth = isSelected ? 1 : 0
+        }
+    }
+    
     // MARK: - Initializers
     
     override init(frame: CGRect) {

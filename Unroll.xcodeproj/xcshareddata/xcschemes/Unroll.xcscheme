@@ -39,7 +39,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE05976F2ABF201D007E6A62"
+               BlueprintIdentifier = "DEEF33CD2ABF878C003DAC7F"
                BuildableName = "UnrollTests.xctest"
                BlueprintName = "UnrollTests"
                ReferencedContainer = "container:Unroll.xcodeproj">
@@ -51,7 +51,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "pt-BR"
+      language = "en"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

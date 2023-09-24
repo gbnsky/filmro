@@ -55,10 +55,9 @@ class FilterView: UIView {
         return label
     }()
     
-    private lazy var genreView: GenreView = {
-        let view = GenreView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    private lazy var genreViewController: GenreViewController = {
+        let viewController = GenreViewController()
+        return viewController
     }()
     
     private lazy var sortByView: SortByView = {
@@ -108,10 +107,6 @@ class FilterView: UIView {
     
     // MARK: - Exposed Methods
     
-    func setupGenreView(with genres: [Genre]?) {
-        genreView.setup(with: genres)
-    }
-    
     func setupWatchProviderView(with watchProviders: [WatchProvider]?) {
         watchProviderView.setup(with: watchProviders)
     }
@@ -121,9 +116,13 @@ class FilterView: UIView {
     private func setupFilters() {
         let filters = Filters(page: "1",
                               sortBy: sortByView.getSelectedSortBy(),
-                              genres: genreView.getSelectedGenres(),
+                              genres: getSelectedGenres(),
                               watchProviders: watchProviderView.getSelectedWatchProviders())
         self.filters = filters
+    }
+    
+    private func getSelectedGenres() -> [Genre] {
+        return genreViewController.selectedGenres
     }
 }
 
@@ -152,7 +151,7 @@ extension FilterView {
     
     private func addSubviews() {
         stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
-        stackView.addArrangedSubview(genreView)
+        stackView.addArrangedSubview(genreViewController.view)
         stackView.addArrangedSubview(sortByView)
         stackView.addArrangedSubview(watchProviderView)
         scrollView.addSubview(stackView)
@@ -186,7 +185,7 @@ extension FilterView {
             
             // genre view
 
-            genreView.heightAnchor.constraint(equalToConstant: 160),
+            genreViewController.view.heightAnchor.constraint(equalToConstant: 160),
             
             // sort by view
             

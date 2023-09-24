@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE0AD9C72ABF886B00386BA3 /* GenreViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0AD9C62ABF886B00386BA3 /* GenreViewControllerTests.swift */; };
 		DE92A0752AA3A32C007A7E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */; };
 		DE92A0772AA3A32C007A7E46 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */; };
 		DE92A0792AA3A32C007A7E46 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92A0782AA3A32C007A7E46 /* HomeViewController.swift */; };
@@ -53,10 +54,12 @@
 		DEB52D732ABA389300F571DD /* CreditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D722ABA389300F571DD /* CreditView.swift */; };
 		DEB52D762ABB37F600F571DD /* WatchProviderFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D752ABB37F600F571DD /* WatchProviderFilterView.swift */; };
 		DEB52D792ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */; };
+		DEEF33BA2ABF6F88003DAC7F /* GenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEF33B92ABF6F88003DAC7F /* GenreViewController.swift */; };
+		DEEF33D12ABF878C003DAC7F /* UnrollTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEF33D02ABF878C003DAC7F /* UnrollTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DE0597742ABF201D007E6A62 /* PBXContainerItemProxy */ = {
+		DEEF33D22ABF878C003DAC7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DE92A0692AA3A32C007A7E46 /* Project object */;
 			proxyType = 1;
@@ -66,7 +69,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DE0597702ABF201D007E6A62 /* UnrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE0AD9C32ABF87E600386BA3 /* Unroll.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Unroll.xctestplan; sourceTree = "<group>"; };
+		DE0AD9C62ABF886B00386BA3 /* GenreViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewControllerTests.swift; sourceTree = "<group>"; };
 		DE92A0712AA3A32C007A7E46 /* Unroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Unroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,18 +120,20 @@
 		DEB52D722ABA389300F571DD /* CreditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditView.swift; sourceTree = "<group>"; };
 		DEB52D752ABB37F600F571DD /* WatchProviderFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderFilterView.swift; sourceTree = "<group>"; };
 		DEB52D782ABB382600F571DD /* WatchProviderFilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderFilterCollectionViewCell.swift; sourceTree = "<group>"; };
-		DEEF33B32ABF20DF003DAC7F /* Unroll.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Unroll.xctestplan; path = UnrollTests/Unroll.xctestplan; sourceTree = "<group>"; };
+		DEEF33B92ABF6F88003DAC7F /* GenreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewController.swift; sourceTree = "<group>"; };
+		DEEF33CE2ABF878C003DAC7F /* UnrollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnrollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEEF33D02ABF878C003DAC7F /* UnrollTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnrollTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DE05976D2ABF201D007E6A62 /* Frameworks */ = {
+		DE92A06E2AA3A32C007A7E46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE92A06E2AA3A32C007A7E46 /* Frameworks */ = {
+		DEEF33CB2ABF878C003DAC7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,11 +143,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE0AD9C42ABF883600386BA3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AD9C52ABF884600386BA3 /* GenreViewController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DE0AD9C52ABF884600386BA3 /* GenreViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AD9C62ABF886B00386BA3 /* GenreViewControllerTests.swift */,
+			);
+			path = GenreViewController;
+			sourceTree = "<group>";
+		};
 		DE92A0682AA3A32C007A7E46 = {
 			isa = PBXGroup;
 			children = (
-				DEEF33B32ABF20DF003DAC7F /* Unroll.xctestplan */,
 				DE92A0732AA3A32C007A7E46 /* Unroll */,
+				DEEF33CF2ABF878C003DAC7F /* UnrollTests */,
 				DE92A0722AA3A32C007A7E46 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -150,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				DE92A0712AA3A32C007A7E46 /* Unroll.app */,
-				DE0597702ABF201D007E6A62 /* UnrollTests.xctest */,
+				DEEF33CE2ABF878C003DAC7F /* UnrollTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +264,7 @@
 			children = (
 				DE92A0BD2AAB4DA8007A7E46 /* Cell */,
 				DE92A0C22AAB7529007A7E46 /* GenreView.swift */,
+				DEEF33B92ABF6F88003DAC7F /* GenreViewController.swift */,
 			);
 			path = GenreView;
 			sourceTree = "<group>";
@@ -401,27 +424,19 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		DEEF33CF2ABF878C003DAC7F /* UnrollTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AD9C42ABF883600386BA3 /* Home */,
+				DEEF33D02ABF878C003DAC7F /* UnrollTests.swift */,
+				DE0AD9C32ABF87E600386BA3 /* Unroll.xctestplan */,
+			);
+			path = UnrollTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DE05976F2ABF201D007E6A62 /* UnrollTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DE0597762ABF201D007E6A62 /* Build configuration list for PBXNativeTarget "UnrollTests" */;
-			buildPhases = (
-				DE05976C2ABF201D007E6A62 /* Sources */,
-				DE05976D2ABF201D007E6A62 /* Frameworks */,
-				DE05976E2ABF201D007E6A62 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DE0597752ABF201D007E6A62 /* PBXTargetDependency */,
-			);
-			name = UnrollTests;
-			productName = UnrollTests;
-			productReference = DE0597702ABF201D007E6A62 /* UnrollTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		DE92A0702AA3A32C007A7E46 /* Unroll */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE92A0852AA3A32D007A7E46 /* Build configuration list for PBXNativeTarget "Unroll" */;
@@ -439,6 +454,24 @@
 			productReference = DE92A0712AA3A32C007A7E46 /* Unroll.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DEEF33CD2ABF878C003DAC7F /* UnrollTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DEEF33D42ABF878C003DAC7F /* Build configuration list for PBXNativeTarget "UnrollTests" */;
+			buildPhases = (
+				DEEF33CA2ABF878C003DAC7F /* Sources */,
+				DEEF33CB2ABF878C003DAC7F /* Frameworks */,
+				DEEF33CC2ABF878C003DAC7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DEEF33D32ABF878C003DAC7F /* PBXTargetDependency */,
+			);
+			name = UnrollTests;
+			productName = UnrollTests;
+			productReference = DEEF33CE2ABF878C003DAC7F /* UnrollTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -449,12 +482,12 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					DE05976F2ABF201D007E6A62 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = DE92A0702AA3A32C007A7E46;
-					};
 					DE92A0702AA3A32C007A7E46 = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					DEEF33CD2ABF878C003DAC7F = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DE92A0702AA3A32C007A7E46;
 					};
 				};
 			};
@@ -473,19 +506,12 @@
 			projectRoot = "";
 			targets = (
 				DE92A0702AA3A32C007A7E46 /* Unroll */,
-				DE05976F2ABF201D007E6A62 /* UnrollTests */,
+				DEEF33CD2ABF878C003DAC7F /* UnrollTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DE05976E2ABF201D007E6A62 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DE92A06F2AA3A32C007A7E46 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -499,16 +525,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		DE05976C2ABF201D007E6A62 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		DEEF33CC2ABF878C003DAC7F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		DE92A06D2AA3A32C007A7E46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,6 +573,7 @@
 				DE92A0A12AAA373F007A7E46 /* Colors.swift in Sources */,
 				DE92A0772AA3A32C007A7E46 /* SceneDelegate.swift in Sources */,
 				DEB52D312AB2667500F571DD /* RuntimeView.swift in Sources */,
+				DEEF33BA2ABF6F88003DAC7F /* GenreViewController.swift in Sources */,
 				DE92A0B72AAA7140007A7E46 /* MovieAPI.swift in Sources */,
 				DEB52D2E2AB2150700F571DD /* Filters.swift in Sources */,
 				DE92A09E2AAA15EB007A7E46 /* FilterView.swift in Sources */,
@@ -556,13 +583,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DEEF33CA2ABF878C003DAC7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE0AD9C72ABF886B00386BA3 /* GenreViewControllerTests.swift in Sources */,
+				DEEF33D12ABF878C003DAC7F /* UnrollTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DE0597752ABF201D007E6A62 /* PBXTargetDependency */ = {
+		DEEF33D32ABF878C003DAC7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DE92A0702AA3A32C007A7E46 /* Unroll */;
-			targetProxy = DE0597742ABF201D007E6A62 /* PBXContainerItemProxy */;
+			targetProxy = DEEF33D22ABF878C003DAC7F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -587,42 +623,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DE0597772ABF201D007E6A62 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VHXK59YD8C;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.UnrollTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unroll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Unroll";
-			};
-			name = Debug;
-		};
-		DE0597782ABF201D007E6A62 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VHXK59YD8C;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.UnrollTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unroll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Unroll";
-			};
-			name = Release;
-		};
 		DE92A0832AA3A32D007A7E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -793,18 +793,45 @@
 			};
 			name = Release;
 		};
+		DEEF33D52ABF878C003DAC7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VHXK59YD8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.UnrollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unroll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Unroll";
+			};
+			name = Debug;
+		};
+		DEEF33D62ABF878C003DAC7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VHXK59YD8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gabrielgarcia.UnrollTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Unroll.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Unroll";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DE0597762ABF201D007E6A62 /* Build configuration list for PBXNativeTarget "UnrollTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DE0597772ABF201D007E6A62 /* Debug */,
-				DE0597782ABF201D007E6A62 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		DE92A06C2AA3A32C007A7E46 /* Build configuration list for PBXProject "Unroll" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -819,6 +846,15 @@
 			buildConfigurations = (
 				DE92A0862AA3A32D007A7E46 /* Debug */,
 				DE92A0872AA3A32D007A7E46 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DEEF33D42ABF878C003DAC7F /* Build configuration list for PBXNativeTarget "UnrollTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DEEF33D52ABF878C003DAC7F /* Debug */,
+				DEEF33D62ABF878C003DAC7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

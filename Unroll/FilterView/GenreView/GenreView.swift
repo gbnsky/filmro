@@ -36,16 +36,27 @@ class GenreView: UIView {
         collectionView.setCollectionViewLayout(layout, animated: false)
         collectionView.register(GenreCollectionViewCell.self, forCellWithReuseIdentifier: GenreCollectionViewCell.identifier)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         return collectionView
     }()
     
     // MARK: - Properties
     
-    var loadedGenres: [Genre] = []
-    var selectedGenres: [Genre] = []
+    var genres: [Genre] = [] {
+        didSet {
+            reloadCollectionViewData()
+        }
+    }
+    
+    weak var delegate: UICollectionViewDelegate? {
+        didSet {
+            collectionView.delegate = delegate
+        }
+    }
+    weak var dataSource: UICollectionViewDataSource? {
+        didSet {
+            collectionView.dataSource = dataSource
+        }
+    }
     
     // MARK: - Initializers
     
@@ -58,112 +69,15 @@ class GenreView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Exposed Methods
+    // MARK: - Methods
     
-    func setup(with genres: [Genre]?) {
-        guard let genres = genres else {
-            return
-        }
-        self.loadedGenres = genres
-        updateCollectionView()
-    }
-    
-    func getSelectedGenres() -> [Genre] {
-        return selectedGenres
-    }
-    
-    // MARK: - Private Methods
-    
-    private func selectGenre(_ genre: Genre) {
-        selectedGenres.append(genre)
-    }
-    
-    private func deselectGenre(_ genre: Genre) {
-        
-        for (index, value) in selectedGenres.enumerated() {
-            if value.id == genre.id {
-                selectedGenres.remove(at: index)
-            }
-        }
-    }
-    
-    private func updateCollectionView() {
+    func reloadCollectionViewData() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
-}
-
-// MARK: - Collection View
-
-// delegate
-
-extension GenreView: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let genreCell = cell as? GenreCollectionViewCell else {
-            return
-        }
-        
-        if genreCell.isSelected {
-            genreCell.select()
-            return
-        }
-        
-        genreCell.deselect()
-    }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GenreCollectionViewCell else {
-            return
-        }
-        
-        let genre = loadedGenres[indexPath.item]
-        
-        cell.select()
-        selectGenre(genre)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        guard let cell = collectionView.cellForItem(at: indexPath) as? GenreCollectionViewCell else {
-            return
-        }
-        
-        let genre = loadedGenres[indexPath.item]
-        
-        cell.deselect()
-        deselectGenre(genre)
-    }
-}
-
-// data Source
-
-extension GenreView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return loadedGenres.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GenreCollectionViewCell.identifier, for: indexPath) as? GenreCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.setup(with: loadedGenres[indexPath.item].name, and: Colors.yellow)
-        
-        return cell
-    }
-}
-
-// delegate flow layout
-
-extension GenreView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
-    }
-}
-
-// MARK: - View Coding
-
-extension GenreView {
+    // MARK: - View Coding
     
     private func loadView() {
         addSubviews()

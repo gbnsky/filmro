@@ -32,17 +32,10 @@ class FilterViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.beige
         
-        fetchMovieGenres()
         fetchWatchProviders()
     }
     
     // MARK: - Private Methods
-    
-    private func fetchMovieGenres() {
-        MovieApi.shared.getMovieGenreList { genres in
-            self.filterView.setupGenreView(with: genres)
-        }
-    }
     
     private func fetchWatchProviders() {
         MovieApi.shared.getWatchProviderList { watchProviders in

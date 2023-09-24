@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "E63313E3-CA15-4E3D-A54C-C3749AA61ED1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Unroll.xcodeproj",
+        "identifier" : "DEEF33CD2ABF878C003DAC7F",
+        "name" : "UnrollTests"
+      }
+    }
+  ],
+  "version" : 1
+}
