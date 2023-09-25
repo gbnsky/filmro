@@ -15,7 +15,7 @@ class SortByCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Components
     
-    private lazy var title: UILabel = {
+    lazy var title: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Colors.blackOne

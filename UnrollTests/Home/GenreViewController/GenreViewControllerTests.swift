@@ -31,8 +31,6 @@ class GenreViewControllerTests: XCTestCase {
 
     // MARK: - Tests
     
-    func 
-    
     func test_collectionView_cellForItemAt() {
         
         // Given
@@ -80,13 +78,14 @@ class GenreViewControllerTests: XCTestCase {
         
         // Given
         let sut = makeSut()
+        let expectedSize = CGSize(width: 100, height: 100)
 
         // When
         let indexPath = IndexPath(item: 0, section: 0)
         let size = genreViewController.collectionView(sut, layout: sut.collectionViewLayout, sizeForItemAt: indexPath)
 
         // Then
-        XCTAssertEqual(size, CGSize(width: 100, height: 100))
+        XCTAssertEqual(size, expectedSize)
     }
 }
 
