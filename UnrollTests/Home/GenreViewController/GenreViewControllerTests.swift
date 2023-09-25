@@ -29,11 +29,11 @@ class GenreViewControllerTests: XCTestCase {
         
         // Given
         let sut = makeSut()
+        let indexPath = IndexPath(item: 0, section: 0)
         let expectedNumberOfItems = getLoadedGenres().count
         let numberOfItems = genreViewController.collectionView(sut, numberOfItemsInSection: 0)
 
         // When
-        let indexPath = IndexPath(item: 0, section: 0)
         let cell = genreViewController.collectionView(sut, cellForItemAt: indexPath)
         
         // Then
@@ -45,9 +45,9 @@ class GenreViewControllerTests: XCTestCase {
         
         // Given
         let sut = makeSut()
+        let indexPath = IndexPath(item: 0, section: 0)
 
         // When
-        let indexPath = IndexPath(item: 0, section: 0)
         genreViewController.collectionView(sut, didSelectItemAt: indexPath)
         
         // Then
@@ -72,7 +72,6 @@ class GenreViewControllerTests: XCTestCase {
         
         // Given
         let sut = makeSut()
-        sut.register(GenreCollectionViewCell.self, forCellWithReuseIdentifier: GenreCollectionViewCell.identifier)
 
         // When
         let indexPath = IndexPath(item: 0, section: 0)
@@ -97,3 +96,4 @@ extension GenreViewControllerTests {
         return [Genre(id: 1, name: "Action"), Genre(id: 2, name: "Adventure")]
     }
 }
+

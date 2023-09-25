@@ -41,17 +41,12 @@ class GenreView: UIView {
     
     // MARK: - Properties
     
-    var genres: [Genre] = [] {
-        didSet {
-            reloadCollectionViewData()
-        }
-    }
-    
     weak var delegate: UICollectionViewDelegate? {
         didSet {
             collectionView.delegate = delegate
         }
     }
+    
     weak var dataSource: UICollectionViewDataSource? {
         didSet {
             collectionView.dataSource = dataSource

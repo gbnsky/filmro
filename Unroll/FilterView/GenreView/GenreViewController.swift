@@ -62,8 +62,8 @@ class GenreViewController: UIViewController {
         guard let genres = genres else {
             return
         }
-        
         loadedGenres = genres
+        genreView.reloadCollectionViewData()
     }
 }
 
