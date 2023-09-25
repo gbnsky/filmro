@@ -7,11 +7,47 @@
 
 import UIKit
 
-// MARK: - Class
-
 class CreditView: UIView {
     
-    // MARK: - UI Components
+    // MARK: - Exposed UI Components
+    
+    lazy var tmdbText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .justified
+        label.text = "All film data used on Unroll are supplied by The Movie Database. If you want to add or modify any movie informartion that seems off, you can tap here, create an account on TMDb and do the specific changes. Rolly will appreciate that.".localized()
+        return label
+    }()
+    
+    lazy var justWatchText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.blackOne
+        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .justified
+        label.text = "Watch providers data are related to JustWatch. If you want to know more about it, just tap here.".localized()
+        return label
+    }()
+    
+    lazy var aboutText: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = Colors.orange
+        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.textAlignment = .center
+        label.text = "This app were designed and developed by\nGabriel Garcia.".localized()
+        return label
+    }()
+    
+    // MARK: - Private UI Components
 
     private lazy var scrollView: UIScrollView = {
         let view = UIScrollView()
@@ -53,18 +89,6 @@ class CreditView: UIView {
         return label
     }()
     
-    private lazy var tmdbText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.blackOne
-        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .justified
-        label.text = "All film data used on Unroll are supplied by The Movie Database. If you want to add or modify any movie informartion that seems off, you can tap here, create an account on TMDb and do the specific changes. Rolly will appreciate that.".localized()
-        return label
-    }()
-    
     private lazy var justWatchLogo: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,30 +109,6 @@ class CreditView: UIView {
         return label
     }()
     
-    private lazy var justWatchText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.blackOne
-        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .justified
-        label.text = "Watch providers data are related to JustWatch. If you want to know more about it, just tap here.".localized()
-        return label
-    }()
-    
-    private lazy var aboutText: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = Colors.orange
-        label.font = UIFont(name: Fonts.kanitRegular, size: 16)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .center
-        label.text = "This app were designed and developed by\nGabriel Garcia.".localized()
-        return label
-    }()
-    
     private lazy var mascot: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -122,77 +122,10 @@ class CreditView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         loadView()
-        setupTmdbGesture()
-        setupJustWatchGesture()
-        setupAboutGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupTmdbGesture() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(openTmdb))
-        tmdbText.isUserInteractionEnabled = true
-        tmdbText.addGestureRecognizer(gesture)
-    }
-    
-    private func setupJustWatchGesture() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(openJustWatch))
-        justWatchText.isUserInteractionEnabled = true
-        justWatchText.addGestureRecognizer(gesture)
-    }
-    
-    private func setupAboutGesture() {
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(openAbout))
-        aboutText.isUserInteractionEnabled = true
-        aboutText.addGestureRecognizer(gesture)
-    }
-}
-
-// MARK: - Actions
-
-extension CreditView {
-    
-    @objc
-    private func openTmdb() {
-        guard let url = URL(string: "https://www.themoviedb.org") else {
-            return
-        }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
-    @objc
-    private func openJustWatch() {
-        guard let url = URL(string: "https://www.justwatch.com") else {
-            return
-        }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
-    @objc
-    private func openAbout() {
-        guard let url = URL(string: "https://www.linkedin.com/in/ggarciamartins/") else {
-            return
-        }
-        
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
     }
 }
 

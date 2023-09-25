@@ -31,6 +31,7 @@
 		DEA9BB312AC1ED5B00941B2E /* SortByViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9BB302AC1ED5B00941B2E /* SortByViewControllerTests.swift */; };
 		DEA9BB342AC2009100941B2E /* WatchProviderViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9BB332AC2009100941B2E /* WatchProviderViewControllerTests.swift */; };
 		DEA9BB372AC2259300941B2E /* ResultViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEA9BB362AC2259300941B2E /* ResultViewControllerTests.swift */; };
+		DEB04B852AC24B4600C5EBC3 /* CreditViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB04B842AC24B4600C5EBC3 /* CreditViewControllerTests.swift */; };
 		DEB52D192AAF778500F571DD /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D182AAF778500F571DD /* Movies.swift */; };
 		DEB52D1E2AAF8BD700F571DD /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D1D2AAF8BD700F571DD /* ResultView.swift */; };
 		DEB52D202AAF8BE400F571DD /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB52D1F2AAF8BE400F571DD /* ResultViewController.swift */; };
@@ -102,6 +103,7 @@
 		DEA9BB302AC1ED5B00941B2E /* SortByViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortByViewControllerTests.swift; sourceTree = "<group>"; };
 		DEA9BB332AC2009100941B2E /* WatchProviderViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchProviderViewControllerTests.swift; sourceTree = "<group>"; };
 		DEA9BB362AC2259300941B2E /* ResultViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewControllerTests.swift; sourceTree = "<group>"; };
+		DEB04B842AC24B4600C5EBC3 /* CreditViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewControllerTests.swift; sourceTree = "<group>"; };
 		DEB52D182AAF778500F571DD /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
 		DEB52D1D2AAF8BD700F571DD /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		DEB52D1F2AAF8BE400F571DD /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -155,16 +157,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DE0AD9C42ABF883600386BA3 /* Home */ = {
+		DE0AD9C42ABF883600386BA3 /* Credit */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE87D62AC2422000CFA845 /* ResultDetailsViewController */,
-				DEA9BB352AC2257900941B2E /* ResultViewController */,
-				DEA9BB322AC2005C00941B2E /* WatchProviderViewController */,
-				DEA9BB2F2AC1ED3D00941B2E /* SortByViewController */,
-				DE0AD9C52ABF884600386BA3 /* GenreViewController */,
+				DEB04B842AC24B4600C5EBC3 /* CreditViewControllerTests.swift */,
 			);
-			path = Home;
+			path = Credit;
 			sourceTree = "<group>";
 		};
 		DE0AD9C52ABF884600386BA3 /* GenreViewController */ = {
@@ -327,9 +325,27 @@
 			isa = PBXGroup;
 			children = (
 				DEA9BB362AC2259300941B2E /* ResultViewControllerTests.swift */,
-				DEFE87D72AC2425600CFA845 /* ResultDetailsViewControllerTests.swift */,
 			);
 			path = ResultViewController;
+			sourceTree = "<group>";
+		};
+		DEB04B822AC24AEE00C5EBC3 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				DE0AD9C52ABF884600386BA3 /* GenreViewController */,
+				DEA9BB2F2AC1ED3D00941B2E /* SortByViewController */,
+				DEA9BB322AC2005C00941B2E /* WatchProviderViewController */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		DEB04B832AC24B0900C5EBC3 /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				DEFE87D62AC2422000CFA845 /* ResultDetailsViewController */,
+				DEA9BB352AC2257900941B2E /* ResultViewController */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 		DEB52D1C2AAF8BA700F571DD /* ResultView */ = {
@@ -470,7 +486,9 @@
 		DEEF33CF2ABF878C003DAC7F /* UnrollTests */ = {
 			isa = PBXGroup;
 			children = (
-				DE0AD9C42ABF883600386BA3 /* Home */,
+				DE0AD9C42ABF883600386BA3 /* Credit */,
+				DEB04B822AC24AEE00C5EBC3 /* Filter */,
+				DEB04B832AC24B0900C5EBC3 /* Results */,
 				DEEF33D02ABF878C003DAC7F /* UnrollTests.swift */,
 				DE0AD9C32ABF87E600386BA3 /* Unroll.xctestplan */,
 			);
@@ -480,6 +498,7 @@
 		DEFE87D62AC2422000CFA845 /* ResultDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				DEFE87D72AC2425600CFA845 /* ResultDetailsViewControllerTests.swift */,
 			);
 			path = ResultDetailsViewController;
 			sourceTree = "<group>";
@@ -642,6 +661,7 @@
 				DEFE87D82AC2425600CFA845 /* ResultDetailsViewControllerTests.swift in Sources */,
 				DEA9BB312AC1ED5B00941B2E /* SortByViewControllerTests.swift in Sources */,
 				DEA9BB342AC2009100941B2E /* WatchProviderViewControllerTests.swift in Sources */,
+				DEB04B852AC24B4600C5EBC3 /* CreditViewControllerTests.swift in Sources */,
 				DEA9BB372AC2259300941B2E /* ResultViewControllerTests.swift in Sources */,
 				DE0AD9C72ABF886B00386BA3 /* GenreViewControllerTests.swift in Sources */,
 				DEEF33D12ABF878C003DAC7F /* UnrollTests.swift in Sources */,
