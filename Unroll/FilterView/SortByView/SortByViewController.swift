@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: - Class
-
 class SortByViewController: UIViewController {
     
     // MARK: - UIComponents

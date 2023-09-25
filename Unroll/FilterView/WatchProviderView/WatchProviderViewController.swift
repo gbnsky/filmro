@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: - Class
-
 class WatchProviderViewController: UIViewController {
     
     // MARK: - UI Components

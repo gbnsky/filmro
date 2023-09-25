@@ -7,8 +7,6 @@
 
 import UIKit
 
-// MARK: - Class
-
 class GenreViewController: UIViewController {
 
     // MARK: - UI Components
