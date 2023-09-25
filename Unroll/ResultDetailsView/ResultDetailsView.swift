@@ -9,21 +9,9 @@ import UIKit
 
 class ResultDetailsView: UIView {
     
-    enum Constants {
-        // url
-        static let baseImageUrl: String = "https://image.tmdb.org/t/p/original/"
-    }
+    // MARK: - Exposed UI Components
     
-    // MARK: - UI Components
-    
-    private lazy var scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.showsVerticalScrollIndicator = false
-        return view
-    }()
-    
-    private lazy var stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let view = UIStackView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layoutMargins = UIEdgeInsets(top: 16, left: 16, bottom: UIApplication.safeAreaEdgeInsets.bottom + 16, right: 16)
@@ -35,7 +23,7 @@ class ResultDetailsView: UIView {
         return view
     }()
     
-    private lazy var movieBackdrop: UIImageView = {
+    lazy var movieBackdrop: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "placeholder-backdrop")
@@ -46,35 +34,39 @@ class ResultDetailsView: UIView {
         return imageView
     }()
     
-    private lazy var movieTitle: Card = {
+    lazy var movieTitle: Card = {
         let card = Card()
         return card
     }()
     
-    private lazy var movieOriginalTitle: Card = {
+    lazy var movieOriginalTitle: Card = {
         let card = Card()
         return card
     }()
     
-    private lazy var movieTagline: Card = {
+    lazy var movieTagline: Card = {
         let card = Card()
         return card
     }()
     
-    private lazy var movieOverview: Card = {
+    lazy var movieOverview: Card = {
         let card = Card()
         return card
     }()
     
-    private lazy var movieWatchProviders: WatchProvidersView = {
+    lazy var movieWatchProviders: WatchProvidersView = {
         let view = WatchProvidersView()
         return view
     }()
     
-    // MARK: - Private Properties
+    // MARK: - Private UI Components
     
-    private var movie: Movie?
-    private var watchProviders: WatchProvidersResponse?
+    private lazy var scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.showsVerticalScrollIndicator = false
+        return view
+    }()
     
     // MARK: - Initializers
     
@@ -87,158 +79,9 @@ class ResultDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Exposed Methods
-    
-    func setup(with movie: Movie?) {
-        guard let movie = movie else {
-            return
-        }
-        
-        self.movie = movie
-        
-        setupMovieBackdrop()
-        setupMovieTitle()
-        setupMovieOriginalTitle()
-        setupMovieTagline()
-        setupMovieOverview()
-    }
-    
-    func setupWatchProviders(with watchProviders: WatchProvidersResponse?) {
-        guard let watchProviders = watchProviders else {
-            return
-        }
-        self.watchProviders = watchProviders
-        setupMovieWatchProviders()
-    }
-    
-    // MARK: - Private Methods
-    
-    private func setupMovieBackdrop() {
-        guard let movie = movie,
-              let movieBackdropPath = movie.backdropPath,
-              let backdropPath = URL(string: "\(Constants.baseImageUrl)\(movieBackdropPath)") else {
-            movieBackdrop.image = UIImage(named: "placeholder-backdrop")
-            return
-        }
-        
-        movieBackdrop.load(url: backdropPath) { imageSize in
-            self.updateMovieBackdropConstraints(with: imageSize)
-        }
-        
-        stackView.addArrangedSubview(movieBackdrop)
-    }
-    
-    private func setupMovieTitle() {
-        guard let movie = movie,
-              let title = movie.title,
-              let releaseDate = movie.releaseDate,
-              let runtime = movie.runtime else {
-            return
-        }
-        
-        if title.isEmpty {
-            return
-        }
-        
-        let releaseYear = getFormattedMovieReleaseDate(from: releaseDate)
-        let timeMeasure = "m"
-        
-        movieTitle.title = title
-        movieTitle.text = "\(releaseYear) - \(runtime)\(timeMeasure)"
-        movieTitle.backgroundTint = Colors.yellow
-        
-        stackView.addArrangedSubview(movieTitle)
-    }
-    
-    private func setupMovieOriginalTitle() {
-        guard let movie = movie,
-              let originalLanguage = movie.originalLanguage,
-              let originalTitle = movie.originalTitle else {
-            return
-        }
-        let isOriginalLanguage = MovieApi.shared.isOriginalLanguage(originalLanguage)
-        
-        
-        if originalTitle.isEmpty || isOriginalLanguage {
-            return
-        }
-        
-        movieOriginalTitle.title = "Original Title".localized()
-        movieOriginalTitle.text = originalTitle
-        movieOriginalTitle.backgroundTint = Colors.orange
-        
-        stackView.addArrangedSubview(movieOriginalTitle)
-    }
-    
-    private func setupMovieTagline() {
-        guard let movie = movie, let tagline = movie.tagline else {
-            return
-        }
-        
-        if tagline.isEmpty {
-            return
-        }
-        
-        movieTagline.title = "Tagline".localized()
-        movieTagline.text = tagline
-        movieTagline.backgroundTint = Colors.pink
-        
-        stackView.addArrangedSubview(movieTagline)
-    }
-    
-    private func setupMovieOverview() {
-        guard let movie = movie, let overview = movie.overview else {
-            return
-        }
-        
-        if overview.isEmpty {
-            return
-        }
-        
-        movieOverview.title = "Overview".localized()
-        movieOverview.text = overview
-        movieOverview.backgroundTint = Colors.purple
-        
-        stackView.addArrangedSubview(movieOverview)
-    }
-    
-    private func setupMovieWatchProviders() {
-        if getWatchProvidersNames().isEmpty {
-            return
-        }
-        
-        movieWatchProviders.title = "Watch Providers".localized()
-        movieWatchProviders.text = getWatchProvidersNames()
-        movieWatchProviders.backgroundTint = Colors.green
-        
-        stackView.addArrangedSubview(movieWatchProviders)
-    }
-    
-    private func getWatchProvidersNames() -> String {
-        guard let watchProviders = watchProviders else {
-            return String()
-        }
-        
-        let helper = WatchProvidersResponseHelper(watchProviders: watchProviders)
-        var watchProvidersNames = String()
+    // MARK: - Methods
 
-        let providers = helper.getFlatrateWatchProvidersNames()
-        if !providers.isEmpty {
-            watchProvidersNames.append(providers)
-        }
-        
-        return watchProvidersNames
-    }
-    
-    // Helper Methods
-    
-    private func getFormattedMovieReleaseDate(from releaseDate: String) -> String {
-        let separator = String("-")
-        let releaseDateArray = releaseDate.components(separatedBy: separator)
-        return releaseDateArray.first ?? String()
-    }
-    
-    private func updateMovieBackdropConstraints(with imageSize: CGSize) {
+    func updateMovieBackdropConstraints(with imageSize: CGSize) {
         NSLayoutConstraint.activate([
             movieBackdrop.heightAnchor.constraint(equalTo: movieBackdrop.widthAnchor, multiplier: movieBackdrop.fullWidthRatio()),
         ])

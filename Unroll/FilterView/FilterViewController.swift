@@ -79,8 +79,8 @@ extension FilterViewController: FilterViewDelegate {
     
     private func makeFilter() -> Filter {
         return Filter(page: "1",
-                       sortBy: filterView.sortBy,
-                       genres: filterView.genres,
-                       watchProviders: filterView.watchProviders)
+                      sortBy: filterView.sortBy,
+                      genres: filterView.genres,
+                      watchProviders: filterView.watchProviders)
     }
 }

@@ -38,22 +38,6 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Colors.beige
     }
-    
-    // MARK: - Private Methods
-    
-    private func openResultDetails() {
-        let viewGroup = DispatchGroup()
-        
-        viewGroup.enter()
-        
-        let resultDetailsViewController = ResultDetailsViewController()
-        
-        resultDetailsViewController.setup(with: self.movieDetails)
-
-        resultDetailsViewController.setupWatchProviders(with: self.watchProviders)
-        
-        self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
-    }
 }
 
 // MARK: - Collection View DataSource
@@ -103,7 +87,18 @@ extension ResultViewController: ResultCollectionViewCellDelegate {
         }
         
         fetchGroup.notify(queue: .main) {
-            self.openResultDetails()
+            self.handleResultDetails()
         }
+    }
+    
+    private func handleResultDetails() {
+        guard let movieDetails = movieDetails, let watchProviders = watchProviders else {
+            return
+        }
+        
+        let resultDetailsViewController = ResultDetailsViewController()
+        resultDetailsViewController.loadedMovie = movieDetails
+        resultDetailsViewController.loadedWatchProviders = watchProviders
+        self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
     }
 }
