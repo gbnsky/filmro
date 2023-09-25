@@ -60,15 +60,14 @@ class FilterView: UIView {
         return viewController
     }()
     
-    private lazy var sortByView: SortByView = {
-        let view = SortByView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    private lazy var sortByViewController: SortByViewController = {
+        let viewController = SortByViewController()
+        return viewController
     }()
     
-    private lazy var watchProviderView: WatchProviderViewController = {
-        let view = WatchProviderViewController()
-        return view
+    private lazy var watchProviderViewController: WatchProviderViewController = {
+        let viewController = WatchProviderViewController()
+        return viewController
     }()
     
     private lazy var button: UIButton = {
@@ -108,7 +107,7 @@ class FilterView: UIView {
     
     private func setupFilters() {
         let filters = Filters(page: "1",
-                              sortBy: sortByView.getSelectedSortBy(),
+                              sortBy: getSortBy(),
                               genres: getSelectedGenres(),
                               watchProviders: getWatchProviders())
         self.filters = filters
@@ -118,8 +117,12 @@ class FilterView: UIView {
         return genreViewController.selectedGenres
     }
     
+    private func getSortBy() -> SortBy {
+        return sortByViewController.selectedSortBy
+    }
+    
     private func getWatchProviders() -> [WatchProvider] {
-        return watchProviderView.selectedWatchProviders
+        return watchProviderViewController.selectedWatchProviders
     }
 }
 
@@ -149,8 +152,8 @@ extension FilterView {
     private func addSubviews() {
         stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
         stackView.addArrangedSubview(genreViewController.view)
-        stackView.addArrangedSubview(sortByView)
-        stackView.addArrangedSubview(watchProviderView.view)
+        stackView.addArrangedSubview(sortByViewController.view)
+        stackView.addArrangedSubview(watchProviderViewController.view)
         scrollView.addSubview(stackView)
         addSubview(scrollView)
         addSubview(button)
@@ -186,11 +189,11 @@ extension FilterView {
             
             // sort by view
             
-            sortByView.heightAnchor.constraint(equalToConstant: 160),
+            sortByViewController.view.heightAnchor.constraint(equalToConstant: 160),
             
             // provider view
             
-            watchProviderView.view.heightAnchor.constraint(equalToConstant: 160),
+            watchProviderViewController.view.heightAnchor.constraint(equalToConstant: 160),
 
             // button
 

@@ -21,7 +21,7 @@ class FilterViewController: UIViewController {
     
     private var movies: Movies?
     
-    // MARK: - Life cycle
+    // MARK: - Lifecycle
     
     override func loadView() {
         super.loadView()

@@ -26,7 +26,7 @@ class GenreViewController: UIViewController {
     var loadedGenres: [Genre] = []
     var selectedGenres: [Genre] = []
     
-    // MARK: - View Lifecycle
+    // MARK: - Lifecycle
 
     override func loadView() {
         super.loadView()
