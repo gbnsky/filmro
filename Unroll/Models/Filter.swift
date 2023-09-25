@@ -1,5 +1,5 @@
 //
-//  Filters.swift
+//  Filter.swift
 //  Unroll
 //
 //  Created by Gabriel Garcia on 13/09/23.
@@ -7,7 +7,7 @@
 
 // MARK: - Class
 
-class Filters {
+class Filter {
     
     // MARK: - Properties
     

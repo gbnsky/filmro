@@ -10,7 +10,7 @@ import UIKit
 // MARK: - Delegate
 
 protocol FilterViewDelegate: AnyObject {
-    func fetchResults(with filters: Filters)
+    func fetchResults()
 }
 
 // MARK: - Class
@@ -21,6 +21,26 @@ class FilterView: UIView {
 
     enum Constants {
         static let titleMargins = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+    }
+    
+    // MARK: - Properties
+    
+    var genres: [Genre] {
+        get {
+            return genreViewController.selectedGenres
+        }
+    }
+    
+    var sortBy: SortBy {
+        get {
+            return sortByViewController.selectedSortBy
+        }
+    }
+    
+    var watchProviders: [WatchProvider] {
+        get {
+            return watchProviderViewController.selectedWatchProviders
+        }
     }
     
     // MARK: - UI Components
@@ -88,10 +108,6 @@ class FilterView: UIView {
     
     weak var delegate: FilterViewDelegate?
     
-    // MARK: - Private Properties
-    
-    private var filters: Filters?
-    
     // MARK: - Initializers
     
     override init(frame: CGRect) {
@@ -102,28 +118,6 @@ class FilterView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-        
-    // MARK: - Private Methods
-    
-    private func setupFilters() {
-        let filters = Filters(page: "1",
-                              sortBy: getSortBy(),
-                              genres: getSelectedGenres(),
-                              watchProviders: getWatchProviders())
-        self.filters = filters
-    }
-    
-    private func getSelectedGenres() -> [Genre] {
-        return genreViewController.selectedGenres
-    }
-    
-    private func getSortBy() -> SortBy {
-        return sortByViewController.selectedSortBy
-    }
-    
-    private func getWatchProviders() -> [WatchProvider] {
-        return watchProviderViewController.selectedWatchProviders
-    }
 }
 
 // MARK: - Actions
@@ -132,11 +126,7 @@ extension FilterView {
     
     @objc
     private func buttonAction() {
-        setupFilters()
-        
-        if let filters = filters {
-            delegate?.fetchResults(with: filters)
-        }
+        delegate?.fetchResults()
     }
 }
 

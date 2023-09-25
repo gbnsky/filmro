@@ -50,25 +50,36 @@ class FilterViewController: UIViewController {
 
 extension FilterViewController: FilterViewDelegate {
     
-    func fetchResults(with filters: Filters) {
+    func fetchResults() {
+        let filter = makeFilter()
         let group = DispatchGroup()
         group.enter()
         
-        MovieApi.shared.getMovieDiscoverList(filters: filters) { discoveries in
+        MovieApi.shared.getMovieDiscoverList(filter: filter) { discoveries in
             self.movies = discoveries
             group.leave()
         }
         
         group.notify(queue: .main) {
-            
-            guard let movies = self.movies, !movies.results.isEmpty else {
-                self.openErrorAlert()
-                return
-            }
-            
-            let resultViewController = ResultViewController()
-            resultViewController.setupFilteredMovies(with: movies)
-            self.navigationController?.pushViewController(resultViewController, animated: true)
+            self.handleFetchedMovies()
         }
+    }
+    
+    private func handleFetchedMovies() {
+        guard let movies = self.movies, !movies.results.isEmpty else {
+            self.openErrorAlert()
+            return
+        }
+        
+        let resultViewController = ResultViewController()
+        resultViewController.setupFilteredMovies(with: movies)
+        self.navigationController?.pushViewController(resultViewController, animated: true)
+    }
+    
+    private func makeFilter() -> Filter {
+        return Filter(page: "1",
+                       sortBy: filterView.sortBy,
+                       genres: filterView.genres,
+                       watchProviders: filterView.watchProviders)
     }
 }

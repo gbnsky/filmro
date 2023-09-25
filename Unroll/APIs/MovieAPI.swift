@@ -145,18 +145,18 @@ final class MovieApi {
     /// - Parameters:
     ///   - filters: options selected by user to get a list of movies with a specific description
     ///   - completion: returns a movies object that has an array of movie and their current page
-    func getMovieDiscoverList(filters: Filters, completion: @escaping (Movies?) -> ()) {
+    func getMovieDiscoverList(filter: Filter, completion: @escaping (Movies?) -> ()) {
         
         var url = baseUrl.appending(component: "discover/movie")
         let queryItems = [
-            URLQueryItem(name: "include_adult", value: filters.includeAdult),
-            URLQueryItem(name: "include_video", value: filters.includeVideo),
+            URLQueryItem(name: "include_adult", value: filter.includeAdult),
+            URLQueryItem(name: "include_video", value: filter.includeVideo),
             URLQueryItem(name: "language", value: getLanguage().query),
             URLQueryItem(name: "watch_region", value: getWatchRegion().query),
-            URLQueryItem(name: "page", value: filters.page),
-            URLQueryItem(name: "sort_by", value: filters.sortBy.query),
-            URLQueryItem(name: "with_genres", value: filters.getFormattedGenres()),
-            URLQueryItem(name: "with_watch_providers", value: filters.getFormattedWatchProviders()),
+            URLQueryItem(name: "page", value: filter.page),
+            URLQueryItem(name: "sort_by", value: filter.sortBy.query),
+            URLQueryItem(name: "with_genres", value: filter.getFormattedGenres()),
+            URLQueryItem(name: "with_watch_providers", value: filter.getFormattedWatchProviders()),
         ]
         url.append(queryItems: queryItems)
         
