@@ -57,7 +57,7 @@ class WatchProviderViewController: UIViewController {
         }
     }
     
-    private func getWatchProvidersWithRegionPriority(from watchProviders: [WatchProvider]) -> [WatchProvider] {
+    internal func getWatchProvidersWithRegionPriority(from watchProviders: [WatchProvider]) -> [WatchProvider] {
         let region = MovieApi.shared.getWatchRegion()
         var orderedWatchProviders: [WatchProvider] = []
         

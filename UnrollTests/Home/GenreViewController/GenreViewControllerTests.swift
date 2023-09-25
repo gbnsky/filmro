@@ -103,4 +103,3 @@ extension GenreViewControllerTests {
         return [Genre(id: 1, name: "Action"), Genre(id: 2, name: "Adventure")]
     }
 }
-
