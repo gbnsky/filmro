@@ -67,10 +67,10 @@ class GenreViewController: UIViewController {
     }
 }
 
-// MARK: - Collection View Delegate and DataSource
+// MARK: - Collection View DataSource
 
-extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-
+extension GenreViewController: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return loadedGenres.count
     }
@@ -82,6 +82,11 @@ extension GenreViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
         return cell
     }
+}
+
+// MARK: - Collection View Delegate
+
+extension GenreViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let genre = loadedGenres[indexPath.item]

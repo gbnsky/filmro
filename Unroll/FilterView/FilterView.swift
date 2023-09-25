@@ -66,9 +66,8 @@ class FilterView: UIView {
         return view
     }()
     
-    private lazy var watchProviderView: WatchProviderFilterView = {
-        let view = WatchProviderFilterView()
-        view.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var watchProviderView: WatchProviderViewController = {
+        let view = WatchProviderViewController()
         return view
     }()
     
@@ -104,25 +103,23 @@ class FilterView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Exposed Methods
-    
-    func setupWatchProviderView(with watchProviders: [WatchProvider]?) {
-        watchProviderView.setup(with: watchProviders)
-    }
-    
+        
     // MARK: - Private Methods
     
     private func setupFilters() {
         let filters = Filters(page: "1",
                               sortBy: sortByView.getSelectedSortBy(),
                               genres: getSelectedGenres(),
-                              watchProviders: watchProviderView.getSelectedWatchProviders())
+                              watchProviders: getWatchProviders())
         self.filters = filters
     }
     
     private func getSelectedGenres() -> [Genre] {
         return genreViewController.selectedGenres
+    }
+    
+    private func getWatchProviders() -> [WatchProvider] {
+        return watchProviderView.selectedWatchProviders
     }
 }
 
@@ -153,7 +150,7 @@ extension FilterView {
         stackView.addArrangedSubview(title, withMargins: Constants.titleMargins)
         stackView.addArrangedSubview(genreViewController.view)
         stackView.addArrangedSubview(sortByView)
-        stackView.addArrangedSubview(watchProviderView)
+        stackView.addArrangedSubview(watchProviderView.view)
         scrollView.addSubview(stackView)
         addSubview(scrollView)
         addSubview(button)
@@ -193,7 +190,7 @@ extension FilterView {
             
             // provider view
             
-            watchProviderView.heightAnchor.constraint(equalToConstant: 160),
+            watchProviderView.view.heightAnchor.constraint(equalToConstant: 160),
 
             // button
 

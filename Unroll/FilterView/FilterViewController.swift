@@ -31,18 +31,10 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.beige
-        
-        fetchWatchProviders()
     }
     
     // MARK: - Private Methods
-    
-    private func fetchWatchProviders() {
-        MovieApi.shared.getWatchProviderList { watchProviders in
-            self.filterView.setupWatchProviderView(with: watchProviders)
-        }
-    }
-    
+
     private func openErrorAlert() {
         let alert = UIAlertController(title: "This roll has no film ):".localized(),
                                       message: "There are no results with the selected features. Please, try different ones.".localized(),

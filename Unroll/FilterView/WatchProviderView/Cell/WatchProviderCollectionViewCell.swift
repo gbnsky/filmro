@@ -1,5 +1,5 @@
 //
-//  ProviderCollectionViewCell.swift
+//  WatchProviderCollectionViewCell.swift
 //  Unroll
 //
 //  Created by Gabriel Garcia on 20/09/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class WatchProviderFilterCollectionViewCell: UICollectionViewCell {
+class WatchProviderCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Identifier
     
-    static let identifier: String = "WatchProviderFilterCollectionViewCell"
+    static let identifier: String = "WatchProviderCollectionViewCell"
     
     // MARK: - UI Components
     
@@ -24,6 +24,14 @@ class WatchProviderFilterCollectionViewCell: UICollectionViewCell {
         label.lineBreakMode = .byTruncatingTail
         return label
     }()
+    
+    // MARK: - Properties
+    
+    override var isSelected: Bool {
+        didSet {
+            layer.borderWidth = isSelected ? 1 : 0
+        }
+    }
     
     // MARK: - Initializers
     
@@ -44,14 +52,6 @@ class WatchProviderFilterCollectionViewCell: UICollectionViewCell {
         self.backgroundColor = backgroundColor
     }
     
-    func select() {
-        layer.borderWidth = 1
-    }
-    
-    func deselect() {
-        layer.borderWidth = 0
-    }
-    
     // MARK: - Private Methods
     
     private func setupStyle() {
@@ -63,7 +63,7 @@ class WatchProviderFilterCollectionViewCell: UICollectionViewCell {
 
 // MARK: - View Coding
 
-extension WatchProviderFilterCollectionViewCell {
+extension WatchProviderCollectionViewCell {
     
     private func loadView() {
         addSubviews()
