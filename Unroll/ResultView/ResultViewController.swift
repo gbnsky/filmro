@@ -13,10 +13,15 @@ class ResultViewController: UIViewController {
     
     private lazy var resultView: ResultView = {
         let view = ResultView()
+        view.dataSource = self
+        view.delegate = self
         return view
     }()
     
     // MARK: - Properties
+    
+    var loadedPage = Int()
+    var loadedMovies: [Movie] = []
     
     private var currentMovie: Movie?
     private var movieDetails: Movie?
@@ -34,12 +39,6 @@ class ResultViewController: UIViewController {
         view.backgroundColor = Colors.beige
     }
     
-    // MARK: - Exposed Methods
-    
-    func setupFilteredMovies(with movies: Movies) {
-        resultView.setup(with: movies, and: self)
-    }
-    
     // MARK: - Private Methods
     
     private func openResultDetails() {
@@ -54,6 +53,31 @@ class ResultViewController: UIViewController {
         resultDetailsViewController.setupWatchProviders(with: self.watchProviders)
         
         self.navigationController?.pushViewController(resultDetailsViewController, animated: true)
+    }
+}
+
+// MARK: - Collection View DataSource
+
+extension ResultViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return loadedMovies.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.identifier, for: indexPath) as! ResultCollectionViewCell
+        
+        cell.setup(with: loadedMovies[indexPath.item])
+        cell.delegate = self
+        
+        return cell
+    }
+}
+
+// MARK: - Collection View Delegate Flow Layout
+
+extension ResultViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.resultView.collectionViewFrame.width, height: self.resultView.collectionViewFrame.height)
     }
 }
 

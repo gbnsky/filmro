@@ -72,7 +72,8 @@ extension FilterViewController: FilterViewDelegate {
         }
         
         let resultViewController = ResultViewController()
-        resultViewController.setupFilteredMovies(with: movies)
+        resultViewController.loadedPage = movies.page
+        resultViewController.loadedMovies = movies.results
         self.navigationController?.pushViewController(resultViewController, animated: true)
     }
     

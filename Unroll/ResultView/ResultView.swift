@@ -39,17 +39,28 @@ class ResultView: UIView {
         collectionView.setCollectionViewLayout(layout, animated: false)
         collectionView.register(ResultCollectionViewCell.self, forCellWithReuseIdentifier: ResultCollectionViewCell.identifier)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         return collectionView
     }()
     
     // MARK: - Properties
     
-    private var page: Int = .zero
-    private var movies: [Movie] = []
-    private weak var cellDelegate: ResultCollectionViewCellDelegate?
+    weak var dataSource: UICollectionViewDataSource? {
+        didSet {
+            collectionView.dataSource = dataSource
+        }
+    }
+    
+    weak var delegate: UICollectionViewDelegate? {
+        didSet {
+            collectionView.delegate = delegate
+        }
+    }
+    
+    var collectionViewFrame: CGRect {
+        get {
+            return self.collectionView.frame
+        }
+    }
     
     // MARK: - Initializers
     
@@ -60,46 +71,6 @@ class ResultView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Exposed Methods
-    
-    func setup(with movies: Movies?, and cellDelegate: ResultCollectionViewCellDelegate) {
-        guard let movies = movies else {
-            return
-        }
-        self.page = movies.page
-        self.movies = movies.results
-        self.cellDelegate = cellDelegate
-    }
-}
-
-// MARK: - Collection View
-
-// data Source
-
-extension ResultView: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ResultCollectionViewCell.identifier, for: indexPath) as? ResultCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        cell.setup(with: movies[indexPath.item])
-        cell.delegate = cellDelegate
-        
-        return cell
-    }
-}
-
-// delegate flow layout
-
-extension ResultView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
     }
 }
 
@@ -129,3 +100,4 @@ extension ResultView {
         ])
     }
 }
+
