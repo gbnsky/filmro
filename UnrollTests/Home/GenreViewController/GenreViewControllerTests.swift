@@ -10,8 +10,12 @@ import XCTest
 
 class GenreViewControllerTests: XCTestCase {
 
+    // MARK: - Properties
+    
     var genreViewController: GenreViewController!
 
+    // MARK: - Initializers
+    
     override func setUp() {
         super.setUp()
         
@@ -25,6 +29,8 @@ class GenreViewControllerTests: XCTestCase {
         super.tearDown()
     }
 
+    // MARK: - Tests
+    
     func test_collectionView_cellForItemAt() {
         
         // Given
