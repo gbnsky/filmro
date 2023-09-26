@@ -1,7 +1,7 @@
 
 # Welcome to *Unroll*!
 
-![Unroll logo](/Unroll/Assets.xcassets/Readme/unroll.imageset/unroll.png)
+![Unroll logo](/Unroll/Assets.xcassets/Readme/unroll-readme.imageset/unroll.png)
 
 An application to **find a movie** that you don't know in a place you know. 
 
@@ -39,4 +39,4 @@ The initially chosen structural design pattern was the `Model-View-Controller (M
 
 Each UI component and screen was designed on [Figma](https://www.figma.com), and you can access the board [here](https://www.figma.com/file/Jj3v4I5qMKSrP6iBpKaKod/unroll?type=design&node-id=0%3A1&mode=design&t=2Yo5Aia7QlRkLnd2-1).
 
-![Unroll mascot called Rolly](/Unroll/Assets.xcassets/Readme/rolly.imageset/rolly.png)
+![Unroll mascot called Rolly](/Unroll/Assets.xcassets/Readme/rolly-readme.imageset/rolly.png)
