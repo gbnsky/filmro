@@ -90,8 +90,8 @@
 		DE92A0942AA8F8EF007A7E46 /* Kanit-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Kanit-Regular.ttf"; sourceTree = "<group>"; };
 		DE92A09B2AAA0D7C007A7E46 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		DE92A09D2AAA15EB007A7E46 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
-		DE92A0A02AAA373F007A7E46 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../Unroll/Unroll/Constants/Colors.swift; sourceTree = "<group>"; };
-		DE92A0A32AAA396E007A7E46 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Fonts.swift; path = ../../../Unroll/Unroll/Constants/Fonts.swift; sourceTree = "<group>"; };
+		DE92A0A02AAA373F007A7E46 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DE92A0A32AAA396E007A7E46 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		DE92A0B62AAA7140007A7E46 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MovieAPI.swift; path = ../../../Unroll/Unroll/APIs/MovieAPI.swift; sourceTree = "<group>"; };
 		DE92A0C02AAB7520007A7E46 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		DE92A0C22AAB7529007A7E46 /* GenreView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreView.swift; sourceTree = "<group>"; };
