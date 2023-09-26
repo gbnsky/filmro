@@ -173,6 +173,56 @@
 			path = GenreViewController;
 			sourceTree = "<group>";
 		};
+		DE6DB5892AC3328D009198AC /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D4C2AB65ABC00F571DD /* Localizable */,
+				DE6DB58D2AC33395009198AC /* Models */,
+				DE92A09F2AAA372F007A7E46 /* Constants */,
+				DEB52D602AB877AE00F571DD /* Components */,
+				DEB52D272AB0987A00F571DD /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		DE6DB58A2AC332B5009198AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DE92A0912AA8F8AD007A7E46 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE6DB58B2AC33323009198AC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DE6DB58C2AC3332D009198AC /* Movies */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DE6DB58C2AC3332D009198AC /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				DE92A0C42AAB75FA007A7E46 /* Models */,
+				DE92A08A2AA8D87C007A7E46 /* HomeView */,
+				DE92A0992AAA0D2B007A7E46 /* FilterView */,
+				DEB52D1C2AAF8BA700F571DD /* ResultView */,
+				DEB52D5A2AB8706600F571DD /* ResultDetailsView */,
+				DEB52D6F2ABA384100F571DD /* CreditView */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
+		DE6DB58D2AC33395009198AC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DEB52D632AB8CADF00F571DD /* Language.swift */,
+				DEB52D652AB8CBBF00F571DD /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		DE92A0682AA3A32C007A7E46 = {
 			isa = PBXGroup;
 			children = (
@@ -200,18 +250,10 @@
 				DE92A07D2AA3A32D007A7E46 /* Assets.xcassets */,
 				DE92A0742AA3A32C007A7E46 /* AppDelegate.swift */,
 				DE92A0762AA3A32C007A7E46 /* SceneDelegate.swift */,
-				DEB52D4C2AB65ABC00F571DD /* Localizable */,
-				DE92A0902AA8F8A3007A7E46 /* Files */,
+				DE6DB58A2AC332B5009198AC /* Resources */,
+				DE6DB5892AC3328D009198AC /* Shared */,
 				DE92A0A72AAA550A007A7E46 /* APIs */,
-				DE92A09F2AAA372F007A7E46 /* Constants */,
-				DEB52D602AB877AE00F571DD /* Components */,
-				DEB52D272AB0987A00F571DD /* Extensions */,
-				DE92A0C42AAB75FA007A7E46 /* Models */,
-				DEB52D6F2ABA384100F571DD /* CreditView */,
-				DE92A08A2AA8D87C007A7E46 /* HomeView */,
-				DE92A0992AAA0D2B007A7E46 /* FilterView */,
-				DEB52D1C2AAF8BA700F571DD /* ResultView */,
-				DEB52D5A2AB8706600F571DD /* ResultDetailsView */,
+				DE6DB58B2AC33323009198AC /* Modules */,
 			);
 			path = Unroll;
 			sourceTree = "<group>";
@@ -223,14 +265,6 @@
 				DE92A08D2AA8D99B007A7E46 /* HomeView.swift */,
 			);
 			path = HomeView;
-			sourceTree = "<group>";
-		};
-		DE92A0902AA8F8A3007A7E46 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				DE92A0912AA8F8AD007A7E46 /* Fonts */,
-			);
-			path = Files;
 			sourceTree = "<group>";
 		};
 		DE92A0912AA8F8AD007A7E46 /* Fonts */ = {
@@ -294,12 +328,10 @@
 		DE92A0C42AAB75FA007A7E46 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				DE92A0C52AAB7618007A7E46 /* Genres.swift */,
 				DEB52D182AAF778500F571DD /* Movies.swift */,
-				DEB52D2D2AB2150700F571DD /* Filter.swift */,
+				DE92A0C52AAB7618007A7E46 /* Genres.swift */,
 				DEB52D442AB35EBD00F571DD /* SortBy.swift */,
-				DEB52D632AB8CADF00F571DD /* Language.swift */,
-				DEB52D652AB8CBBF00F571DD /* Location.swift */,
+				DEB52D2D2AB2150700F571DD /* Filter.swift */,
 				DEB52D672AB8FFBD00F571DD /* WatchProviders.swift */,
 			);
 			path = Models;
@@ -342,8 +374,8 @@
 		DEB04B832AC24B0900C5EBC3 /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				DEFE87D62AC2422000CFA845 /* ResultDetailsViewController */,
 				DEA9BB352AC2257900941B2E /* ResultViewController */,
+				DEFE87D62AC2422000CFA845 /* ResultDetailsViewController */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -486,9 +518,9 @@
 		DEEF33CF2ABF878C003DAC7F /* UnrollTests */ = {
 			isa = PBXGroup;
 			children = (
-				DE0AD9C42ABF883600386BA3 /* Credit */,
 				DEB04B822AC24AEE00C5EBC3 /* Filter */,
 				DEB04B832AC24B0900C5EBC3 /* Results */,
+				DE0AD9C42ABF883600386BA3 /* Credit */,
 				DEEF33D02ABF878C003DAC7F /* UnrollTests.swift */,
 				DE0AD9C32ABF87E600386BA3 /* Unroll.xctestplan */,
 			);
